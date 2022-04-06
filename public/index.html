@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template App</title>
+    <title>Fitness Junkies</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
             
 </head>
 <body>
     <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Logo</a>
+          <a href="#" class="brand-logo">Fitness Junkies</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="active"><a href="index.html">Home</a></li>
             <li ><a href="page2.html">Page 2</a></li>
@@ -26,12 +28,46 @@
         
       <main class="container"c>
         <h1>My App</h1>
+        <label>Activity Minutes</label><br>
+        <input type="text" id="myText1"><br>
+        <label>Weight</label><br>
+        <input type="text" id="myText2"><br>
+        <button type="button" id="myButton">submit</button>
+
+        <p id= "res"></p>
+
+
+        <div>
+
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Textarea</label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <button id= "bigbutton" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+
+        </div>
+
+      <div id ="content"></div> 
+      <div id ="searchResults"></div> 
+
       </main>
 
 
-    <script>
-         M.AutoInit();
+    <script src="script.js">
+      
+         
     </script>
     
 </body>
 </html>
+
+
