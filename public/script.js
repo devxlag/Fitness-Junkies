@@ -1,64 +1,191 @@
-//M.AutoInit();
-    /*    async function loadListing(){
-    //makes a request to the pokemon listing API url
-    //gets the data from the request and sends it to displayListing()
-        
-          let muscles = await fetch('https://wger.de/api/v2/muscle', {
-              method: 'GET',
-              //body: new FormData(),
-            }).then(response => response.json())
-        .then(data => {
-            console.log(data.results);
-            displayListing(data.results);
-      });
+M.AutoInit();
 
-      }
-    
-     loadListing();
+var exclude = [];
+var include = [];
+var healthFrag = "";
+var dietFrag = "";
+var incFrag = "";
+var excFrag = "";
+var goal ="";
+var mealTypes = ["Breakfast","Lunch", "Dinner", "Snack"];
+var level = 0;
 
-      function displayListing(muscles){
-          //receives an array of pokemon objects and displays it on the page in #listing
-          let results = document.querySelector('#listing');
-          //add html code inside of result
+var balanced = false;
+var highprotien = false;
+var lowcarb = false;
+var lowfat = false;
+var lowsodium = false;
+var highfibre = false;
 
-          let html = '';// create html string
-          for(let record of muscles){
-              //build html string
-              console.log(record);
-              html += `
-                <a href="#listing" id=${record.name}>${record.name} </a>
-                <img href="${record.image_url_main}" alt="${record.name}">
-              `;
-          }
-          results.innerHTML = html;//add html string to DOM
-      }
+console.log(balanced);
+console.log(highfibre);
+console.log(highprotien);
+console.log(lowcarb);
+console.log(lowfat);
+console.log(lowsodium);
 
-*/
-document.getElementById("bigbutton").onclick = function(){
-    let food = document.getElementById("textarea1").value; 
-    getRecipe(food);
+function Checkme(){
+  if(document.getElementById('balancedStat').checked){
+    balanced = true;
   }
+  else{
+    balanced = false;
+  }
+  console.log(balanced);
+ 
+  if(document.getElementById('fibreStat').checked){
+    highfibre = true;
+  }
+  else{
+    highfibre = false;
+  }
+  console.log(highfibre);
+  
+  if(document.getElementById('protStat').checked){
+    highprotien = true;
+    
+  }
+  else{
+    highprotien = false;
+  }
+  console.log(highprotien);
+  
+  if(document.getElementById('carbStat').checked){
+    lowcarb = true;
+    
+  }
+  else{
+    lowcarb  = false;
+  }
+  console.log(lowcarb);
+  
+  if(document.getElementById('fatStat').checked){
+    lowfat = true;
+    
+  }
+  else{
+    lowfat = false;
+  }
+  console.log(lowfat);
+  
+  
+  if(document.getElementById('saltStat').checked){
+    lowsodium = true;
+    
+  }
+  else{
+    lowsodium = false;
+  }
+  console.log(lowsodium);
 
- async function getRecipe(food){
+}
+
+function dietURL(){
+  dietFrag = "";
+
+  if(balanced === true){
+    dietFrag = dietFrag.concat("&diet=balanced");
+  }
+  if(highprotien === true){
+    dietFrag = dietFrag.concat("&diet=high-protein");
+  }
+  if(lowcarb === true){
+    dietFrag = dietFrag.concat("&diet=low-carb");
+  }
+  if(lowfat === true){
+    dietFrag = dietFrag.concat("&diet=low-fat");
+  }
+  if(lowsodium === true){
+    dietFrag = dietFrag.concat("&diet=low-sodium");
+  }
+  if(dietFrag === ""){
+    dietFrag = dietFrag.concat("&diet=balanced");
+  }
+}
+
+
+async function getMacros(){
+  let gender = document.getElementById("t1").value;
+  let age = document.getElementById("t2").value;
+  let height = document.getElementById("t3").value;
+  let weight = document.getElementById("t4").value;
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
+      'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
+    }
+  };
+
+  let response = await fetch(`https://fitness-calculator.p.rapidapi.com/macrocalculator?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${level}&goal=${goal}`, options)
+  let result = await response.json();
+  console.log(result);
+  UseMacrosData(result);
+}
+
+async function UseMacrosData(macros){
+
+  var pro = Math.round(macros.data.balanced.protein);
+  var carbs = Math.round(macros.data.balanced.carbs);
+  var fat = Math.round(macros.data.balanced.fat);
+
+  console.log(pro);
+  console.log(fat);
+  console.log(carbs);
   var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-const clientID = "9dccf6f6";
-const app_key = "aac177748420f51c660a6f9eb6d5879d"
+    method: 'GET',
+    redirect: 'follow'
+  };
+  const clientID = "9dccf6f6";
+  const app_key = "aac177748420f51c660a6f9eb6d5879d"
+  for(i in mealTypes){
+    let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=&app_id=${clientID}&app_key=${app_key}&mealTypes=${mealTypes[i]}&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}`, requestOptions)
+    let result = await response.json(); //.then(response => response.json())
+    console.log(result); 
+  }//useApiData(result); */
+}
 
-let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}&app_id=${clientID}&app_key=${app_key}`, requestOptions)
-let result = await response.json(); //.then(response => response.json())
+function GetSelectedGoal(){
+    //console.log("hello");
+    var e = document.getElementById("goal");
+    goal = e.options[e.selectedIndex].value;
+    console.log(goal);
+    //document.getElementById("result").innerHTML = result;
+  }
+function GetSelectedLevel(){
+    //console.log("hello");
+    var e = document.getElementById("level");
+    level = e.options[e.selectedIndex].value;
+    console.log(level);
+    //document.getElementById("result").innerHTML = result;
+}
+ 
+
+async function getRecipe(){
+  dietURL();
+  let food = document.getElementById("textarea1").value;
+  let calories = document.getElementById("textarea2").value;
+  if(calories === "")
+    calories = 1000;
+
+
+    var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  const clientID = "9dccf6f6";
+  const app_key = "aac177748420f51c660a6f9eb6d5879d"
+
+  let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}${dietFrag}&app_id=${clientID}&app_key=${app_key}&calories=${calories}`, requestOptions)
+  let result = await response.json(); //.then(response => response.json())
   console.log(result); 
   useApiData(result); 
-//.then(response => response.text())
-  //.then(result => console.log(result))
-  //.catch(error => console.log('error', error));
+
 }
 
   
  function useApiData(data){
-/*<p><a href="${data.hits[0].recipe.url}">More Details </a></p>*/
+
   let card = document.querySelector("#content");  
   let html = '';
 
@@ -75,6 +202,15 @@ let result = await response.json(); //.then(response => response.json())
   }
   else{
   for(i in data.hits){
+
+  var dlabels = ``;
+  for(j in data.hits[i].recipe.dietLabels){
+    dlabels +=  `${data.hits[i].recipe.dietLabels[j]}`+`<br>`;
+  }
+  var hlabels = ``;
+  for(k in data.hits[i].recipe.healthLabels){
+    hlabels += `${data.hits[i].recipe.healthLabels[k]}`+`<br>`;
+  }
   html += `
   <div class="row">
     <div class="col s12 m7">
@@ -84,14 +220,18 @@ let result = await response.json(); //.then(response => response.json())
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">${data.hits[i].recipe.label}<i class="material-icons right">more_vert</i></span>
-       
+        </div> 
         <div class="card-action">
           <a id="details" href="${data.hits[i].recipe.url}" target="_blank">Detailed Instructions<i class="material-icons">call_made</i></a>
         </div>
-      </div>
+     
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">${data.hits[i].recipe.label}<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        <p>Diet Labels:</p>
+        <p>${dlabels}</p>
+        <p>Health Labels:</p>
+        <p>${hlabels}</p>
+        
       </div>
     </div>
   </div>
@@ -101,13 +241,15 @@ let result = await response.json(); //.then(response => response.json())
   card.innerHTML = html;}
  }
 
-  document.getElementById("myButton").onclick = function(){
-    let am = document.getElementById("myText1").value; 
-    let w = document.getElementById("myText2").value; 
-    getBurndedCalories(am,w);
-  }
+/*
+async function getBurndedCalories(){
 
-  async function getBurndedCalories(am,w){
+   
+  //document.getElementById("myButton").onclick = function(){
+  let am = document.getElementById("myText1").value; 
+  let w = document.getElementById("myText2").value; 
+    //getBurndedCalories(am,w);
+  //};
   const options = {
       method: 'GET',
       headers: {
@@ -139,15 +281,6 @@ fetch('https://exercisedb.p.rapidapi.com/exercises', options)
   .catch(err => console.error(err));
 
 
-  
-
-
-
-
-
-
-
-  /*
     const result = {
     method: 'GET',
     headers: {
@@ -162,35 +295,7 @@ fetch('https://exercisedb.p.rapidapi.com/exercises', options)
     .catch(err => console.error(err));
   
 
-    const res = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
-      'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
-    }
-  };
-
-  fetch('https://fitness-calculator.p.rapidapi.com/food?foodid=SR25_1_1', res)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
-
-
-    const ops = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
-    'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
-  }
-};
-
-fetch('https://fitness-calculator.p.rapidapi.com/foodids?subtablename=Fo1_2', ops)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
-
-
-  const op = {
+const op = {
     method: 'GET',
     headers: {
       'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
@@ -204,17 +309,4 @@ fetch('https://fitness-calculator.p.rapidapi.com/dailycalorie?age=25&gender=male
 .catch(err => console.error(err));
 
 
-
-const tions = {
-method: 'GET',
-headers: {
-    'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
-    'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
-}
-};
-
-fetch('https://fitness-calculator.p.rapidapi.com/activities?intensitylevel=3', tions)
-.then(response => response.json())
-.then(response => console.log(response))
-.catch(err => console.error(err));
 */

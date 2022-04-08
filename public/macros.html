@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template App</title>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li ><a href="meal.html">Meal Search</a></li>
+            <li class="active"><a href="macros.html">Macro Meal Planner</a></li>
+            <li ><a href="bmi.html">BMI Calculator</a></li>
+          </ul>
+        </div>
+      </nav>
+        
+      <main class="container"c>
+        <h1>Macro Meal Planner</h1>
+
+
+        <div>
+
+        <div class="row">
+            <form class="col s5">
+              <div class="row" >
+                <div class="input-field col s12" >
+                  <textarea id="t1" class="materialize-textarea"></textarea>
+                  <label for="t1">Gender</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea id="t2" class="materialize-textarea"></textarea>
+                  <label for="t2">Age</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="t3" class="materialize-textarea"></textarea>
+                    <label for="t3">Height</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="t4" class="materialize-textarea"></textarea>
+                    <label for="t4">Weight</label>
+                  </div>
+
+                <div class="input-field col s12">
+                    <select onclick="GetSelectedGoal()" class="browser-default" id = "goal">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="maintain">Maintain Weight</option>
+                      <option value="mildlose">Mild weight Loss</option>
+                      <option value="weightlose">Weight Loss</option>
+                      <option value="extremelose">Extreme Weight loss</option>
+                      <option value="mildgain">Mild Weight Gain</option>
+                      <option value="weightgain">Weight Gain</option>
+                      <option value="extremegain">Extreme weight gain</option>
+                      
+                    </select>
+                    <!-- <label>Materialize Select</label> -->
+                </div>
+                <div class="input-field col s12">
+                  <select onclick="GetSelectedLevel()" class="browser-default" id = "level">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">BMR</option>
+                    <option value="2">Sedentary: little or no exercise</option>
+                    <option value="3">Exercise: 1-3 times/week</option>
+                    <option value="4">Exercise: 4-5 times/week</option>
+                    <option value="5">Daily exercise or intense exercise: 3-4 times/week</option>
+                    <option value="6">Intense exercise: 6-7 times/week</option>
+                    <option value="7">Very intense exercise daily, or physical job</option>
+                    
+                    
+                  </select>
+                  <!-- <label>Materialize Select</label> -->
+              </div>
+              </div>
+            </form>
+        </div>
+
+          <button id= "bigbutton2" class="btn waves-effect waves-light" type="submit" onclick ="getMacros()" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+
+        </div>
+
+        <br> <br>
+      <div id ="content"></div> 
+      <div id ="searchResults"></div> 
+      
+      <div class="carousel carousel-slider center">
+        <div class="carousel-fixed-item center">
+          <a class="btn waves-effect white grey-text darken-text-2">button</a>
+        </div>
+        <div class="carousel-item red white-text" href="#one!">
+          <h2>First Panel</h2>
+          <p class="white-text">This is your first panel</p>
+        </div>
+        <div class="carousel-item amber white-text" href="#two!">
+          <h2>Second Panel</h2>
+          <p class="white-text">This is your second panel</p>
+        </div>
+        <div class="carousel-item green white-text" href="#three!">
+          <h2>Third Panel</h2>
+          <p class="white-text">This is your third panel</p>
+        </div>
+        <div class="carousel-item blue white-text" href="#four!">
+          <h2>Fourth Panel</h2>
+          <p class="white-text">This is your fourth panel</p>
+        </div>
+      </div>
+
+      <br> <br>
+      </main>
+
+
+    <script src="script.js">
+         M.AutoInit();
+       
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template App</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="meal.html">Meal Search</a></li>
+            <li ><a href="macros.html">Macro Meal Planner</a></li>
+            <li ><a href="bmi.html">BMI Calculator</a></li>
+          </ul>
+        </div>
+      </nav>
+        
+      <main class="container"c>
+        <h1>Meal Search</h1>
+
+
+        <div>
+
+          <div class="row">
+            <form class="col s5">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Food</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea id="textarea2" class="materialize-textarea"></textarea>
+                  <label for="textarea2">Calories(Kcal/per-serving)</label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <form action="#">
+              <label>
+                <input id = "balancedStat" type="checkbox" onclick="Checkme()"  />
+                <span for = "balancedStat">Balanced</span>
+              </label>
+              <br>
+              <label>
+                <input id = "fibreStat" type="checkbox" onclick="Checkme()"  />
+                <span>High Fibre</span>
+              </label>
+              <br>
+              <label>
+                <input id = "protStat" type="checkbox"  onclick="Checkme()" />
+                <span>High Protein</span>
+              </label>
+              <br>
+              <label>
+                <input id = "carbStat" type="checkbox" onclick="Checkme()" />
+                <span>Low Carb</span>
+              </label>
+              <br>
+              <label>
+                <input id = "fatStat" type="checkbox" onclick="Checkme()"  />
+                <span>Low Fat</span>
+              </label>
+              <br>
+              <label>
+                <input id = "saltStat" type="checkbox"  onclick="Checkme()" />
+                <span>Low Sodium</span>
+              </label>
+            </p>
+            
+          </form>
+
+          <button id= "bigbutton" class="btn waves-effect waves-light" onclick ="getRecipe()"type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+
+        </div>
+
+      <div id ="content"></div> 
+      <div id ="searchResults"></div> 
+      </main>
+
+
+    <script src="script.js">
+        // M.AutoInit();
+        
+    </script>
+    
+</body>
+</html>
