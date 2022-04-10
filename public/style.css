@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /*scroll-behavior: smooth; */
+    font-family: 'Oswald', sans-serif;
+}
+
+
+body {
+background-color: white;
+
+
+}
+.navbar {
+    display:flex;
+    background-color: #03396c;/*rgb(28, 35, 51); /* 20 16 20 */
+    height:80px;
+    justify-content: flex-start; 
+    align-items: center; 
+    position: sticky;
+}
+
+
+#logo {
+  width: 100px;
+  height: inherit;
+}
+
+.schbar { 
+    
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    background-color: grey;
+}
+
+#sch {
+  width: 175px;
+  height: 25px;
+  background: transparent;
+  color: white;
+  border: 1px solid grey; 
+  border-radius: 3px;
+  margin: 5px;
+  margin-right:1px;
+}
+
+#sch::placeholder {
+  color: black;
+}
+
+
+.navBot{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+ul {
+  text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    
+} 
+
+ul li {
+  text-decoration: none;
+    margin-left: 30px;
+    margin-right: 30px;
+    list-style: none;
+    display: inline-block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+ul li a:hover{
+
+    color:#03396c;
+    background-color:#b3cde0 ;
+    text-decoration: none;
+}
+
+.dropbtn {
+  background-color:transparent;
+  color: white;
+  padding: 16px;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display:none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
+}
+
+.dropdown-content a {
+  color: #03396c;
+  text-decoration: none;
+  display: block;
+  
+}
+
+.dropdown-content a:hover {background-color:#b3cde0;}
+
+.dropdown:hover .dropdown-content {
+  
+display: block;
+position: absolute;
+}
+
+.dropdown:hover .dropbtn {background-color:#b3cde0;}
+
+#home img{
+  padding: 0;
+  width: 50%;
+  height: 100vh;
+  position: relative;
+  /*display: flex; */
+  background-position: center;
+  background-size: cover;  
+}
+
+.homeimg {
+  display: flex;
+  flex-direction: row;
+}  
+
+.hometext{
+  top: 90%;
+  color: white; 
+  position: absolute;
+  /*padding: 20px; */
+  text-align: center; 
+}
+
+.hometext h1{
+  padding-left: 150px;
+}
+
+.hometext p {
+  margin-top: 5px;
+  padding-left: 150px;
+}
+
+.carousel-inner{
+width: 80%;
+margin: auto;
+
+}
+

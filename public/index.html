@@ -4,53 +4,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Junkies</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Plan-It Fitness</title>
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Compiled and minified JavaScript -->
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-            
 </head>
-<body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Fitness Junkies</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li ><a href="meal.html">Meal Search</a></li>
-            <li ><a href="macros.html">Macro Meal Planner</a></li>
-            <li ><a href="bmi.html">BMI Calculator</a></li>
-          </ul>
-        </div>
-      </nav>
-      <div class="parallax-container">
-        <div class="parallax"><img src="pexels-ella-olsson-1640777.jpg" style ="width: 50px;"></div>
-      </div>
-      <div class="section white">
-        <div class="row container">
-      <main class="container">
-        
-        <section>
-          <h1>Plan-it Fitness</h1>
-        </section>
-        
-      </main>
-    </div>
-  </div>
-  <div class="parallax-container">
-    <div class="parallax"><img src="pexels-karolina-grabowska-4397840.jpg" style ="width: 50px; height: 1000px"></div>
-  </div>
 
-    <script src="script.js">
-      
-         
-    </script>
+<body>
     
+        <nav class="navbar">
+            <div class="links">
+                    <ul>
+                        <a href="index.html">
+                        <img id="logo" src="logo (2).jpg"/>
+                        </a>
+
+                        <li><a href="#login">Login/Sign up</a></li>
+                        <li><a href="#Workoutbuilder">Workout Builder</a></li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Meals</button>
+                            <div class="dropdown-content">
+                              <a href="#ms">Meal Search</a>
+                              <a href="#mmp">Macro Meal Planner</a>
+                          
+                            </div>
+                          </div>
+                        <div class="dropdown">
+                                <button class="dropbtn">Calculators</button>
+                                <div class="dropdown-content">
+                                  <a href="#bmi">BMI Calculator</a>
+                                  <a href="#bfp">Body Fat Percentage</a>
+                              
+                                </div>
+                              </div>
+                        </a>
+                        <li><a href="About.html">About</a></li>
+                        <div class="schbar" style="float:right">
+                            <input id="sch" type="text" placeholder="Search"/>
+                            <img src="searchsymbol.png" width="30" height="30"/>
+                            <!--<button id="schbtn" type="submit">Search</button>-->
+                        </div>
+        
+                    </ul>
+                
+            </div> 
+        </nav>
+    
+
+    <main>
+
+        <section id="home">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+              
+                
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="gallery1.png" alt="situp" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h1>Find the right workout that suits your needs with our 
+                            <a href="#Workoutbuilder">Workout Builder</a>
+                        !</h1>
+                      </div>
+                  </div>
+              
+                  <div class="item">
+                    <img src="scale3.jpeg" alt="scale" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h1> Track your progress towards your goals with our 
+                            <a href="#BMI">BMI</a> and <a href="#BFP">Body Fat percentage </a>
+                         Calculators!</h1>
+                      </div>
+                  </div>
+              
+                  <div class="item">
+                    <img src="gallery3.png" alt="food" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h1> Not sure which foods compliment your workouts and fitness plans? Our 
+                            <a href="#mealplanner">Meal Planner </a>
+                         will help you get your nutrition right!</h1>
+                      </div>
+                </div>
+              
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+          
+        </section>
+
+        <section id="about">
+            <p><span>Info about website and goals etc...</span></p>
+        </section>
+
+        
+        
+        
+    </main>
 </body>
 </html>
-
-
