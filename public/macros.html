@@ -13,7 +13,61 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-         
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <style>
+    
+     /* The heart of the matter */
+ @import "https://unpkg.com/open-props";
+ /* @import "https://unpkg.com/open-props/normalize.min.css"; */
+   .media-scroller {
+--_spacer: var(--size-3);
+display: grid;
+gap: var(--_spacer);
+grid-auto-flow: column;
+grid-auto-columns: 21%;
+
+padding: 0 var(--_spacer) var(--_spacer);
+
+overflow-x: auto;
+overscroll-behavior-inline: contain;
+}
+
+.media-scroller--with-groups {
+grid-auto-columns: 80%;
+}
+
+.media-group {
+display: grid;
+gap: var(--_spacer);
+grid-auto-flow: column;
+}
+
+.media-element {
+display: grid;
+grid-template-rows: min-content;
+gap: var(--_spacer);
+padding: var(--_spacer);
+background: var(--surface-2);
+border-radius: var(--radius-2);
+box-shadow: var(--shadow-2);
+}
+
+.media-element > img {
+inline-size: 100%;
+aspect-ratio: 1 / 1;
+object-fit: cover;
+}
+
+.snaps-inline {
+scroll-snap-type: inline mandatory;
+scroll-padding-inline: var(--_spacer, 1rem);
+}
+
+.snaps-inline > * {
+scroll-snap-align: start;
+}
+  
+    </style>
 </head>
 <body>
     <nav>
@@ -65,7 +119,7 @@
                       <option value="weightgain">Weight Gain</option>
                       <option value="extremegain">Extreme weight gain</option>
                       
-                    </select>
+                    </select> 
                     <!-- <label>Materialize Select</label> -->
                 </div>
                 <div class="input-field col s12">
@@ -95,29 +149,18 @@
 
         <br> <br>
       <div id ="content"></div> 
-      <div id ="searchResults"></div> 
-      
-      <div class="carousel carousel-slider center">
-        <div class="carousel-fixed-item center">
-          <a class="btn waves-effect white grey-text darken-text-2">button</a>
-        </div>
-        <div class="carousel-item red white-text" href="#one!">
-          <h2>First Panel</h2>
-          <p class="white-text">This is your first panel</p>
-        </div>
-        <div class="carousel-item amber white-text" href="#two!">
-          <h2>Second Panel</h2>
-          <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-          <h2>Third Panel</h2>
-          <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-          <h2>Fourth Panel</h2>
-          <p class="white-text">This is your fourth panel</p>
-        </div>
-      </div>
+      <!-- <div ></div>  -->
+      <section>
+        <!-- <div ></div> -->
+    <div  id ="searchResults1" class="media-scroller snaps-inline" ></div>
+    <br>
+    <div  id ="searchResults2" class="media-scroller snaps-inline" ></div>
+    <br>
+    <div  id ="searchResults3" class="media-scroller snaps-inline" ></div>
+    <br>
+    <div  id ="searchResults4" class="media-scroller snaps-inline" ></div>
+    <br>
+    </section>
 
       <br> <br>
       </main>
