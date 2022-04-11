@@ -48,43 +48,56 @@
             </form>
           </div>
 
-          <form action="#">
-              <label>
-                <input id = "balancedStat" type="checkbox" onclick="Checkme()"  />
-                <span for = "balancedStat">Balanced</span>
-              </label>
-              <br>
-              <label>
-                <input id = "fibreStat" type="checkbox" onclick="Checkme()"  />
-                <span>High Fibre</span>
-              </label>
-              <br>
-              <label>
-                <input id = "protStat" type="checkbox"  onclick="Checkme()" />
-                <span>High Protein</span>
-              </label>
-              <br>
-              <label>
-                <input id = "carbStat" type="checkbox" onclick="Checkme()" />
-                <span>Low Carb</span>
-              </label>
-              <br>
-              <label>
-                <input id = "fatStat" type="checkbox" onclick="Checkme()"  />
-                <span>Low Fat</span>
-              </label>
-              <br>
-              <label>
-                <input id = "saltStat" type="checkbox"  onclick="Checkme()" />
-                <span>Low Sodium</span>
-              </label>
-            </p>
-            
-          </form>
-
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Include</a>
+          <br>
+          <br>
           <button id= "bigbutton" class="btn waves-effect waves-light" onclick ="getRecipe()"type="submit" name="action">Submit
             <i class="material-icons right">send</i>
           </button>
+          
+
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <form action="#">
+                <label>
+                  <input id = "balancedStat" type="checkbox" onclick="Checkme()"  />
+                  <span for = "balancedStat">Balanced</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "fibreStat" type="checkbox" onclick="Checkme()"  />
+                  <span>High Fibre</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "protStat" type="checkbox"  onclick="Checkme()" />
+                  <span>High Protein</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "carbStat" type="checkbox" onclick="Checkme()" />
+                  <span>Low Carb</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "fatStat" type="checkbox" onclick="Checkme()"  />
+                  <span>Low Fat</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "saltStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Low Sodium</span>
+                </label>
+              </p>
+              
+            </form>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Include</a>
+            </div>
+          </div>
 
         </div>
 
