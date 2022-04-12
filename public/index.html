@@ -18,8 +18,8 @@
                 margin: 0;
                 padding:0;
             }
-            .parallax-containe{
-                height:100vh;
+            .parallax-container{
+                height:400px;
             }
             #logo {
                 width: 100px;
@@ -53,12 +53,29 @@
             #myBtn:hover {
             background-color: #555; /* Add a dark-grey background on hover */
             }
-            
+            #btnScrollToTop {
+              position: fixed;
+              right: 10px;
+              bottom: 10px;
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              background: #e62739;
+              box-shadow: 0 0 10px Orgba(0, 0,0, 0.25);
+              color : #ffffff;
+              border: none;
+              outline: none;
+              cursor: pointer;
+            }
+            #btnScrollToTop:active {
+              background: #cc2333;
+            }
         </style>
     </head>
 
     <body>
         
+      <button id="btnScrollToTop"><i class="material-icons">arrow_upward</i></button>
         <ul id="dropdown1" class="dropdown-content " coverTrigger = "false">
             <li ><a href="bmi.html">BMI Calculator</a></li>
             <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
@@ -95,7 +112,7 @@
         
 
         <div class="parallax-container">
-            <div class="parallax"><img src="pexels-ella-olsson-1640777.jpg" style="width: 80%;"></div>
+            <div class="parallax"><img src="pexels-ella-olsson-1640777.jpg" class="responsive-img"></div>
           </div>
           <div class="section white">
             <div class="row container">
@@ -104,7 +121,7 @@
             </div>
           </div>
           <div class="parallax-container" >
-            <div class="parallax" ><img src="pexels-karolina-grabowska-4498606.jpg" style="width: 80%;"></div>
+            <div class="parallax" ><img src="pexels-karolina-grabowska-4498606.jpg" class="responsive-img"></div>
           </div>
 
 
@@ -136,7 +153,7 @@
 
         
       </footer>
-      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+      
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <!-- Compiled and minified JavaScript -->    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -145,29 +162,21 @@
                 $('.sidenav').sidenav({edge:'right'});
             })
         </script>
-        <script>
-            M.AutoInit();
-            
+        <script src="script.js">
+              
         </script>
-        <script>//Get the button:
-            mybutton = document.getElementById("myBtn");
-            
-            // When the user scrolls down 20px from the top of the document, show the button
-            window.onscroll = function() {scrollFunction()};
-            
-            function scrollFunction() {
-              if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-              } else {
-                mybutton.style.display = "none";
-              }
-            }
-            
-            // When the user clicks on the button, scroll to the top of the document
-            function topFunction() {
-              document.body.scrollTop = 0; // For Safari
-              document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            }</script>
+
+        <script>
+        const btnScrollToTop = document.querySelector ("#btnScrollToTop");
+          btnScrollToTop.addEventListener ("click", function () {
+              // window.scrollTo(0, 0):
+              $("html, body").animate({ scrollTop: 0 }, "slow");
+
+
+          });
+          
+          </script>
+        
         
     </body>
     
