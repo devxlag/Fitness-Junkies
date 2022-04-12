@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Junkies</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        #logo {
+        width: 100px;
+        height: 60px;
+      }
+    </style>
+            
+</head>
+<body>
+  <ul id="dropdown1" class="dropdown-content " coverTrigger = "false">
+    <li ><a href="bmi.html">BMI Calculator</a></li>
+    <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+    <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
+  </ul>
+
+  <nav class="nav-wrapper indigo">
+      <div class="container">
+          <div><a href="index.html" class="brand-logo"><img id="logo" src="logo (2).jpg"/></a></div>
+          <a href="#" class="brand-logo">Plan-it Fitness</a>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+              <i class="material-icons right">menu</i>
+          </a> 
+          
+          <ul class ="right hide-on-med-and-down">
+              <li><a href="meal.html">Meals</a></li>
+              <li><a href="macros.html">Macro Meal Planner</a></li>
+              <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
+              <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+              <li><a href="#" onclick="signOut();">Sign out</a></li>
+              
+          </ul>
+      </div>
+      
+  </nav>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="meal.html">Meals</a></li>
+        <li><a href="macros.html">Macro Meal Planner</a></li>
+        <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
+        <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+        <li><a href="#" onclick="signOut();">Sign out</a></li>
+    </ul>
+     
+      <main class="container center">
+        
+        <section>
+          <h1 style="text-align: center;">Body Fat Percentage Calculator</h1>
+          <div class="row">
+            <form class="col s5 offset-s4 offset-m4">
+              <div class="row">
+                <div class="input-field col s6">
+                    <textarea id="age2" class="materialize-textarea"></textarea>
+                    <label for="age2">Age:</label>
+                  </div>
+                <div class="input-field col s6">
+                  <textarea id="height2" class="materialize-textarea"></textarea>
+                  <label for="height2">Height(cm):</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <textarea id="weight2" class="materialize-textarea"></textarea>
+                  <label for="weight2">Weight(kg):</label>
+                </div>
+                <div class="input-field col s6">
+                    <textarea id="neck" class="materialize-textarea"></textarea>
+                    <label for="neck">Neck(cm):</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                    <textarea id="waist" class="materialize-textarea"></textarea>
+                    <label for="waist">Waist(cm):</label>
+                </div>
+                <div class="input-field col s6">
+                    <textarea id="hip" class="materialize-textarea"></textarea>
+                    <label for="hip">Hip(cm):</label>
+                </div>
+              </div>
+            </form> 
+        </div>
+
+        <button  id= "bigbutton3" class="btn waves-effect waves-light " onclick =""type="submit" name="action">Calculate
+          <i class="material-icons right">send</i>
+        </button>
+          <br><br>
+        </section>
+        <section> 
+          <div id="res2"></div>
+        </section >
+         
+      </main>
+      <footer class="page-footer indigo">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Plan-it Fitness</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">General</h5>
+              <ul id="foot">
+                <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2022 Fitness Junkies
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+
+        
+      </footer>
+
+    <script src="calc.js">
+      
+         
+    </script>
+    
+</body>
+</html>
+
+

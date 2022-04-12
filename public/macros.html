@@ -16,6 +16,8 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <style>
     
+      
+    
      /* The heart of the matter */
  @import "https://unpkg.com/open-props";
  /* @import "https://unpkg.com/open-props/normalize.min.css"; */
@@ -66,90 +68,185 @@ scroll-padding-inline: var(--_spacer, 1rem);
 .snaps-inline > * {
 scroll-snap-align: start;
 }
+#logo {
+        width: 100px;
+        height: 60px;
+  }
   
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Logo</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="index.html">Home</a></li>
-            <li ><a href="meal.html">Meal Search</a></li>
-            <li class="active"><a href="macros.html">Macro Meal Planner</a></li>
-            <li ><a href="bmi.html">BMI Calculator</a></li>
+  <ul id="dropdown1" class="dropdown-content " coverTrigger = "false">
+    <li ><a href="bmi.html">BMI Calculator</a></li>
+    <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+    <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
+  </ul>
+
+  <nav class="nav-wrapper indigo">
+      <div class="container">
+          <div><a href="index.html" class="brand-logo"><img id="logo" src="logo (2).jpg"/></a></div>
+          <a href="#" class="brand-logo">Plan-it Fitness</a>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+              <i class="material-icons right">menu</i>
+          </a> 
+          
+          <ul class ="right hide-on-med-and-down">
+              <li><a href="meal.html">Meals</a></li>
+              <li><a href="macros.html">Macro Meal Planner</a></li>
+              <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
+              <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+              <li><a href="#" onclick="signOut();">Sign out</a></li>
+              
           </ul>
-        </div>
-      </nav>
+      </div>
+      
+  </nav>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="meal.html">Meals</a></li>
+        <li><a href="macros.html">Macro Meal Planner</a></li>
+        <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
+        <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+        <li><a href="#" onclick="signOut();">Sign out</a></li>
+    </ul>
         
-      <main class="container"c>
-        <h1>Macro Meal Planner</h1>
-
-
-        <div>
-
-        <div class="row">
-            <form class="col s5">
-              <div class="row" >
-                <div class="input-field col s12" >
-                  <textarea id="t1" class="materialize-textarea"></textarea>
-                  <label for="t1">Gender</label>
+  <main class="container">
+    <section>
+    <h1 style="text-align: center;">Macro Meal Planner</h1>
+    
+    <div class="row">
+        <form class="col s5 offset-s3 offset-m3">
+          <div class="row" >
+            <div class="input-field col s6" >        
+              <select onclick="GetSelectedLevel()" class="browser-default" id = "gender">
+                <option value="" disabled selected>Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="input-field col s6">
+              <textarea id="t2" class="materialize-textarea"></textarea>
+              <label for="t2">Age</label>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="input-field col s6">
+                <textarea id="t3" class="materialize-textarea"></textarea>
+                <label for="t3">Height</label>
+            </div>
+            <div class="input-field col s6">
+                <textarea id="t4" class="materialize-textarea"></textarea>
+                <label for="t4">Weight</label>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="input-field col s6">
+                <select onclick="GetSelectedGoal()" class="browser-default" id = "goal">
+                  <option value="" disabled selected>Fitness Goal</option>
+                  <option value="maintain">Maintain Weight</option>
+                  <option value="mildlose">Mild weight Loss</option>
+                  <option value="weightlose">Weight Loss</option>
+                  <option value="extremelose">Extreme Weight loss</option>
+                  <option value="mildgain">Mild Weight Gain</option>
+                  <option value="weightgain">Weight Gain</option>
+                  <option value="extremegain">Extreme weight gain</option>              
+                </select> 
+              
+            </div>
+            <div class="input-field col s6">
+              <select onclick="GetSelectedLevel()" class="browser-default" id = "level">
+                <option value="" disabled selected>Activity Level</option>
+                <option value="1">BMR</option>
+                <option value="2">Sedentary: little or no exercise</option>
+                <option value="3">Exercise: 1-3 times/week</option>
+                <option value="4">Exercise: 4-5 times/week</option>
+                <option value="5">Daily exercise or intense exercise: 3-4 times/week</option>
+                <option value="6">Intense exercise: 6-7 times/week</option>
+                <option value="7">Very intense exercise daily, or physical job</option>
+                
+                
+              </select>
+              <!-- <label>Materialize Select</label> -->
+            </div>
+          </div>
+        
+          <div class="row">
+            <div class="input-field col s7">            
+              <select onclick="GetSelectedLevel()" class="browser-default" id = "diet">
+                <option value="" disabled selected>Diet Type</option>
+                <option value="highprotein">High Protein</option>
+                <option value="balanced">Balanced</option>
+                <option value="lowcarbs">Low Carbs</option>
+                <option value="lowfat">Low Fat</option>
+                <option value="keto">Keto </option>
+                <option value="vegan">Vegan</option>
+                <option value="vege">Vegetatian</option>
+              </select>
+              
+              <!-- <label>Materialize Select</label> -->
+            </div>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Dietary Restrictions</a>
+          </div>
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <h4>Select your Dietary Restrictions</h4>
+                           
+                <div>
+                  
+                  <form action="#" id="form">
+                    <label>
+                      <input id = "glutenStat" type="checkbox" onclick="Checkme()"  />
+                      <span>Gluten Free</span>
+                    </label>
+                    <br>
+                    <label>
+                      <input id = "peanutStat" type="checkbox" onclick="Checkme()"  />
+                      <span>Peanut Free</span>
+                    </label>
+                    <br>
+                    <label>
+                      <input id = "soyStat" type="checkbox"  onclick="Checkme()" />
+                      <span>Soy Free</span>
+                    </label>
+                    <br>
+                    <label>
+                      <input id = "fishStat" type="checkbox" onclick="Checkme()"  />
+                      <span>No Shell Fish</span>
+                    </label>
+                    <br>
+                    <label>
+                      <input id = "meatStat" type="checkbox"  onclick="Checkme()" />
+                      <span>No Red Meat</span>
+                    </label>
+                    <br>
+                    <label>
+                      <input id = "porkStat" type="checkbox"  onclick="Checkme()" />
+                      <span>No Pork</span>
+                    </label>
+                    <br>
+                    <label>
+                      <input id = "eggStat" type="checkbox"  onclick="Checkme()" />
+                      <span>Eggless</span>
+                    </label>
+                  </form>
                 </div>
-                <div class="input-field col s12">
-                  <textarea id="t2" class="materialize-textarea"></textarea>
-                  <label for="t2">Age</label>
-                </div>
-                <div class="input-field col s12">
-                    <textarea id="t3" class="materialize-textarea"></textarea>
-                    <label for="t3">Height</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <textarea id="t4" class="materialize-textarea"></textarea>
-                    <label for="t4">Weight</label>
-                  </div>
-
-                <div class="input-field col s12">
-                    <select onclick="GetSelectedGoal()" class="browser-default" id = "goal">
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="maintain">Maintain Weight</option>
-                      <option value="mildlose">Mild weight Loss</option>
-                      <option value="weightlose">Weight Loss</option>
-                      <option value="extremelose">Extreme Weight loss</option>
-                      <option value="mildgain">Mild Weight Gain</option>
-                      <option value="weightgain">Weight Gain</option>
-                      <option value="extremegain">Extreme weight gain</option>
-                      
-                    </select> 
-                    <!-- <label>Materialize Select</label> -->
-                </div>
-                <div class="input-field col s12">
-                  <select onclick="GetSelectedLevel()" class="browser-default" id = "level">
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">BMR</option>
-                    <option value="2">Sedentary: little or no exercise</option>
-                    <option value="3">Exercise: 1-3 times/week</option>
-                    <option value="4">Exercise: 4-5 times/week</option>
-                    <option value="5">Daily exercise or intense exercise: 3-4 times/week</option>
-                    <option value="6">Intense exercise: 6-7 times/week</option>
-                    <option value="7">Very intense exercise daily, or physical job</option>
-                    
-                    
-                  </select>
-                  <!-- <label>Materialize Select</label> -->
               </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Include</a>
+                </div>
               </div>
-            </form>
-        </div>
+        </form>
+      </div>
 
-          <button id= "bigbutton2" class="btn waves-effect waves-light" type="submit" onclick ="getMacros()" name="action">Submit
-            <i class="material-icons right">send</i>
-          </button>
 
-        </div>
-
+      <div class = "center">
+        <button id= "bigbutton2"  class="btn waves-effect waves-light " type="submit" onclick ="getMacros()" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
         <br> <br>
-      <div id ="content"></div> 
-      <!-- <div ></div>  -->
+      </section>
+      
       <section>
         <!-- <div ></div> -->
     <div  id ="searchResults1" class="media-scroller snaps-inline" ></div>
@@ -164,6 +261,34 @@ scroll-snap-align: start;
 
       <br> <br>
       </main>
+
+      <footer class="page-footer indigo">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Plan-it Fitness</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">General</h5>
+              <ul id="foot">
+                <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2022 Fitness Junkies
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+
+        
+      </footer>
 
 
     <script src="script.js">

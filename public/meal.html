@@ -12,54 +12,86 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-         
+    <style>
+      #logo {
+      width: 100px;
+      height: 60px;
+    }
+  </style>  
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Logo</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="index.html">Home</a></li>
-            <li class="active"><a href="meal.html">Meal Search</a></li>
-            <li ><a href="macros.html">Macro Meal Planner</a></li>
-            <li ><a href="bmi.html">BMI Calculator</a></li>
+  <ul id="dropdown1" class="dropdown-content " coverTrigger = "false">
+    <li ><a href="bmi.html">BMI Calculator</a></li>
+    <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+    <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
+  </ul>
+
+  <nav class="nav-wrapper indigo">
+      <div class="container">
+          <a href="index.html" class="brand-logo"><img id="logo" src="logo (2).jpg"/></a>
+          <a href="#" class="brand-logo">Plan-it Fitness</a>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+              <i class="material-icons right">menu</i>
+          </a> 
+          
+          <ul class ="right hide-on-med-and-down">
+              <li><a href="meal.html">Meals</a></li>
+              <li><a href="macros.html">Macro Meal Planner</a></li>
+              <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
+              <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+              <li><a href="#" onclick="signOut();">Sign out</a></li>
+              
           </ul>
-        </div>
-      </nav>
+      </div>
+      
+  </nav>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="meal.html">Meals</a></li>
+        <li><a href="macros.html">Macro Meal Planner</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
+        <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+        <li><a href="#" onclick="signOut();">Sign out</a></li>
+    </ul>
         
-      <main class="container"c>
-        <h1>Meal Search</h1>
+      <main class="container">
+        <h1 style="text-align: center;">Meal Search</h1>
 
 
-        <div>
+        <section>
 
           <div class="row">
-            <form class="col s5">
+            <form class="col s5 offset-s4 offset-m4">
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                   <textarea id="textarea1" class="materialize-textarea"></textarea>
                   <label for="textarea1">Food</label>
                 </div>
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                   <textarea id="textarea2" class="materialize-textarea"></textarea>
-                  <label for="textarea2">Calories(Kcal/per-serving)</label>
+                  <label for="textarea2">Calories(Kcal/serving)</label>
                 </div>
               </div>
             </form>
           </div>
-
-          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Include</a>
+          <div class="row center">
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Inclusions</a>
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Exclusions</a>
+          </div>
           <br>
           <br>
+          <div class="center">
           <button id= "bigbutton" class="btn waves-effect waves-light" onclick ="getRecipe()"type="submit" name="action">Submit
             <i class="material-icons right">send</i>
           </button>
+        </div>
+        <br><br>
           
 
           <!-- Modal Structure -->
           <div id="modal1" class="modal">
             <div class="modal-content">
-              <h4>Modal Header</h4>
+              <h4>Choose your Meal Inclusions</h4>
               <form action="#">
                 <label>
                   <input id = "balancedStat" type="checkbox" onclick="Checkme()"  />
@@ -90,7 +122,26 @@
                   <input id = "saltStat" type="checkbox"  onclick="Checkme()" />
                   <span>Low Sodium</span>
                 </label>
-              </p>
+                <br>
+                <label>
+                  <input id = "veganStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Vegan</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "vegeStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Vegetarian</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "ketoStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Keto</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "paleoStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Paleo</span>
+                </label>
               
             </form>
             </div>
@@ -99,12 +150,86 @@
             </div>
           </div>
 
-        </div>
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4>Select your Dietary Restrictions:</h4>
+              <form action="#">
+                <label>
+                  <input id = "glutenStat" type="checkbox" onclick="Checkme()"  />
+                  <span>Gluten Free</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "peanutStat" type="checkbox" onclick="Checkme()"  />
+                  <span>Peanut Free</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "soyStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Soy Free</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "fishStat" type="checkbox" onclick="Checkme()"  />
+                  <span>No Shell Fish</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "meatStat" type="checkbox"  onclick="Checkme()" />
+                  <span>No Red Meat</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "porkStat" type="checkbox"  onclick="Checkme()" />
+                  <span>No Pork</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "eggStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Eggless</span>
+                </label>
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Exclude</a>
+            </div>
+          </div>
 
+        </section>
+
+        <section>
       <div id ="content"></div> 
       <div id ="searchResults"></div> 
+    </section>
       </main>
+      <footer class="page-footer indigo">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Plan-it Fitness</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">General</h5>
+              <ul id="foot">
+                <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2022 Fitness Junkies
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
 
+        
+      </footer>
 
     <script src="script.js">
         // M.AutoInit();

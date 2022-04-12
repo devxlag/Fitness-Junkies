@@ -12,35 +12,114 @@
     <!-- Compiled and minified JavaScript -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+    <style>
+      #logo {
+      width: 100px;
+      height: 60px;
+    }
+  </style>
             
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Fitness Junkies</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li ><a href="index.html">Home</a></li>
-            <li ><a href="meal.html">Meal Search</a></li>
-            <li ><a href="macros.html">Macro Meal Planner</a></li>
-            <li class="active"><a href="bmi.html">BMI Calculator</a></li>
+  <ul id="dropdown1" class="dropdown-content " coverTrigger = "false">
+    <li ><a href="bmi.html">BMI Calculator</a></li>
+    <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+    <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
+  </ul>
+
+  <nav class="nav-wrapper indigo">
+      <div class="container">
+          <div><a href="index.html" class="brand-logo"><img id="logo" src="logo (2).jpg"/></a></div>
+          <a href="#" class="brand-logo">Plan-it Fitness</a>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+              <i class="material-icons right">menu</i>
+          </a> 
+          
+          <ul class ="right hide-on-med-and-down">
+              <li><a href="meal.html">Meals</a></li>
+              <li><a href="macros.html">Macro Meal Planner</a></li>
+              <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
+              <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+              <li><a href="#" onclick="signOut();">Sign out</a></li>
+              
           </ul>
-        </div>
-      </nav>
+      </div>
+      
+  </nav>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="meal.html">Meals</a></li>
+        <li><a href="macros.html">Macro Meal Planner</a></li>
+        <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
+        <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+        <li><a href="#" onclick="signOut();">Sign out</a></li>
+    </ul>
      
-      <main class="container">
+      <main class="container center">
         
         <section>
-          <h1>BMI</h1>
-         
-          <p id= "res"></p>
+          <h1 style="text-align: center;">Body Mass Index</h1>
+          <div class="row">
+            <form class="col s5 offset-s4 offset-m4" >
+              <div class="row">
+                <div class="input-field col s8" >
+                    <textarea id="age1" class="materialize-textarea"></textarea>
+                    <label for="age1">Age:</label>
+                  </div>
+                  <div class="input-field col s8">
+                    <textarea id="height1" class="materialize-textarea"></textarea>
+                    <label for="height1">Height(cm):</label>
+                  </div>
+                  <div class="input-field col s8">
+                    <textarea id="weight1" class="materialize-textarea"></textarea>
+                    <label for="weight1">Weight(kg):</label><br>
+                  </div>
+              </div>
+              
+            </form>
+          </div>
+          <div class = "center">
+            <button id= "bigbutton2"  class="btn waves-effect waves-light " type="submit" onclick ="getMacros()" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+          
         </section>
-        
-            
-         
-      </main>
 
-    <script src="script.js">
+        <section>
+          <div id="res1"></div>
+        </section>
+          <br><br>
+      </main>
+      <footer class="page-footer indigo">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Plan-it Fitness</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">General</h5>
+              <ul id="foot">
+                <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2022 Fitness Junkies
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+
+        
+      </footer>
+
+    <script src="calc.js">
       
          
     </script>
