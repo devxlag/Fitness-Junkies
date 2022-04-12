@@ -56,6 +56,7 @@ var dietFrag = "";
 var incFrag = "";
 var excFrag = "";
 var goal ="";
+var gender="";
 var mealTypes = ["Breakfast","Lunch", "Dinner", "Snack"];
 var level = 0;
 var foodlunch = ["chicken", "wrap", "pasta","fish", "tuna", "salmon","rice"];
@@ -163,7 +164,7 @@ function dietURL(){
 
 
 async function getMacros(){
-  let gender = document.getElementById("t1").value;
+  // let gender = document.getElementById("t1").value;
   let age = document.getElementById("t2").value;
   let height = document.getElementById("t3").value;
   let weight = document.getElementById("t4").value;
@@ -335,6 +336,13 @@ function GetSelectedLevel(){
     console.log(level);
     //document.getElementById("result").innerHTML = result;
 }
+function GetSelectedGender(){
+  //console.log("hello");
+  var e = document.getElementById("gender");
+  gender = e.options[e.selectedIndex].value;
+  console.log(gender);
+  //document.getElementById("result").innerHTML = result;
+}
  
 
 async function getRecipe(){
@@ -368,6 +376,7 @@ async function getRecipe(){
   var output = `<div class = "container">`;
   if(data.count == 0){
     output += `<div class="row">
+    
       <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
       <div class="card-panel green darken-3" style="text-align: center">
       <span class="white-text">No recipes found. Please include at least one (1) ingredient.<br><br>Don't forget to + your ingredients!</span>
@@ -388,8 +397,8 @@ async function getRecipe(){
     hlabels += `${data.hits[i].recipe.healthLabels[k]}`+`<br>`;
   }
   html += `
-  <div class="row">
-    <div class="col s12 m7">
+  <div class="row" >
+    <div class="col s12 m7 col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
       <div  class="card ">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="${data.hits[i].recipe.images.REGULAR.url}">

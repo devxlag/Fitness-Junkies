@@ -74,7 +74,7 @@
     </head>
 
     <body>
-        
+      <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
       <button id="btnScrollToTop"><i class="material-icons">arrow_upward</i></button>
         <ul id="dropdown1" class="dropdown-content " coverTrigger = "false">
             <li ><a href="bmi.html">BMI Calculator</a></li>
@@ -83,31 +83,35 @@
         </ul>
         
         <nav class="nav-wrapper indigo">
-            <div class="container">
-                <div><a href="index.html" class="brand-logo"><img id="logo" src="logo (2).jpg"/></a></div>
-                <a href="#" class="brand-logo">Plan-it Fitness</a>
-                <a href="#" class="sidenav-trigger" data-target="mobile-links">
-                    <i class="material-icons right">menu</i>
-                </a> 
-                
-                <ul class ="right hide-on-med-and-down">
-                    <li><a href="meal.html">Meals</a></li>
-                    <li><a href="macros.html">Macro Meal Planner</a></li>
-                    <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>        
-                    <li><a href="#" onclick="signOut();">Sign out</a></li>
-                    
-                </ul>
-            </div>
-            
-        </nav>
-        
+          <div class="container">
+            <!-- <a href="index.html" class="brand-logo"><i class="material-icons">cloud</i>Plan-it Fitness</a> -->
+            <a href="index.html" class="brand-logo"><img id="logo" src="logo (2).jpg"/></a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+              <i class="material-icons right">menu</i>
+          </a>
+              <ul class ="right hide-on-med-and-down">
+                  <li><a href="meal.html">Meals</a></li>
+                  <li><a href="macros.html">Macro Meal Planner</a></li>
+                  <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+                  <li ><a href="bmi.html">BMI Calculator</a></li>
+                  <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+                  <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
+                  <li><a href="#" onclick="signOut();">Sign out</a></li>
+                  
+              </ul>
+          </div>
+          
+      </nav>
+      
         <ul class="sidenav" id="mobile-links">
             <li><a href="meal.html">Meals</a></li>
-            <li><a href="macros.html">Macro Meal Planner</a></li>
-            <li><a  class="dropdown-trigger" href="#!" data-target="dropdown1">Calculators<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>        
+            <li><a href="macros.html">Macro Meal Planner</a></li>        
+            <li ><a href="bmi.html">BMI Calculator</a></li>
+            <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+            <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
             <li><a href="#" onclick="signOut();">Sign out</a></li>
+            
+            <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->    
         </ul>
         
 

@@ -1,5 +1,8 @@
 M.AutoInit();
 
+var level = "";
+var gender = "";
+
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.dropdown-trigger');
   M.Dropdown.init(elems, {coverTrigger:false});
@@ -14,9 +17,26 @@ function signOut() {
 
   async function getBMI(){
 
-    let age = document.getgetElementById("").value;
-    let height = document.getgetElementById("").value; 
-    let weight = document.getElementById("").value; 
+    let age = document.getElementById("age1").value;
+    let height = document.getElementById("height1").value; 
+    let weight = document.getElementById("weight1").value; 
+    let BMI = document.getElementById('res1');
+    let html = '';
+    if(weight === "" || height === ""){
+      html += `<br><br><br><div class = "container">
+                  <div class="row">
+                  <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+                  <div class="card-panel blue lighten-4">
+                      <p>Please enter valid values.</p>
+                  </div>
+                  </div>
+                  </div>
+                  </div>`
+  
+    BMI.innerHTML = html;
+    $('body, html').animate({ scrollTop: $("#res").offset().top }, 1000);
+    }
+    else{
      
     const options = {
         method: 'GET',
@@ -25,25 +45,65 @@ function signOut() {
           'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
         }
       };
-    let response =  await fetch(`ttps://fitness-calculator.p.rapidapi.com/bmi?age=${age}&weight=${weight}&height=${height}`, options)
+    let response =  await fetch(`https://fitness-calculator.p.rapidapi.com/bmi?age=${age}&weight=${weight}&height=${height}`, options)
     let result = await response.json();
-    console.log(result.data.bmi);  
+    console.log(result.data);
+    
+      if(result.data.bmi < 18.5){     
+        recommend  = "Weighing too little can contribute to a weakened immune system, fragile bones and feeling tired.<br><br>Talk with your healthcare provider to determine possible causes and implications of your being underweight.";
+      }
+      else if(result.data.bmi >= 18.5 && result.data.bmi < 24.9){    
+        recommend = "Maintaining a healthy weight can reduce the risk of chronic diseases associated with being overweight or obese. It can also reduce weakening of the immune system and feelings of fatigue associated with being underweight";
+      }
+      else if(result.data.bmi > 24.9 && result.data.bmi < 29.9){
+        
+        recommend = "People who are overweight are at higher risk for chronic conditions such as high blood pressure, diabetes, and high cholesterol.<br><br>Anyone who is overweight should try to avoid gaining additional weight. Additionally, if you are overweight with other risk factors (such as high LDL cholesterol, low HDL cholesterol, or high blood pressure), you should try to lose weight. Even a small weight loss (just 10% of your current weight) may help lower the risk of disease. Talk with your healthcare provider to determine appropriate ways to lose weight.";
+      }
+      else if(result.data.bmi > 30){      
+        recommend = "Obesity is a complex disease involving an excessive amount of body fat. Obesity isn't just a cosmetic concern. It is a medical problem that increases your risk of other diseases and health problems, such as heart disease, diabetes, high blood pressure and certain cancers.<br><br>People who are overweight or obese are at higher risk for chronic conditions such as high blood pressure, diabetes, and high cholesterol.<br><br>Anyone who is overweight should try to avoid gaining additional weight. Additionally, if you are overweight with other risk factors (such as high LDL cholesterol, low HDL cholesterol, or high blood pressure), you should try to lose weight. Even a small weight loss (just 10% of your current weight) may help lower the risk of disease. Talk with your healthcare provider to determine appropriate ways to lose weight.";
+      }
       
-    let bmi = document.querySelector('');  
-    let html = '';
-    html += `${result.data.bmi}${result.data.health}${result.data.healthy_bmi_range}`;
-    bmi.innerHTML = html;
+      html += `
+            <br><br><br>
+              <div class = "container">
+              <div class="row">
+              <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+              <div class="card-panel blue lighten-4">
+                  <p>Your BMI is: ${result.data.bmi}<br><b>This indicates your weight is in the ${result.data.health} category of your height.</b>
+                  <br><br>${recommend}<br><br></p>
+              </div>
+              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Food</a> page!</p>
+              </div>
+              </div>
+            </div>
+      `;
+      BMI.innerHTML = html;
+    }
   }
-
   //Daily Calories Calculator
-/*
+  function GetSelectedLevel(){
+    //console.log("hello");
+    var e = document.getElementById("level");
+    level = e.options[e.selectedIndex].value;
+    console.log(level);
+    //document.getElementById("result").innerHTML = result;
+}
+
+function GetSelectedGender(){
+  //console.log("hello");
+  var e = document.getElementById("gender");
+  gender = e.options[e.selectedIndex].value;
+  console.log(gender);
+  //document.getElementById("result").innerHTML = result;
+}
+
+
 async function getCalories(){
 
-  let age = document.getgetElementById("").value;
-  let gender = document.getgetElementById("").value;
-  let height = document.getgetElementById("").value; 
-  let weight = document.getElementById("").value; 
-  let level = document.getElementById("").value;
+  let age = document.getElementById("age3").value;
+  let height = document.getElementById("height3").value; 
+  let weight = document.getElementById("weight3").value; 
+  
    
   const options = {
       method: 'GET',
@@ -52,41 +112,46 @@ async function getCalories(){
         'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
       }
     };
-  let response =  await fetch(`https://fitness-calculator.p.rapidapi.com/dailycalorie?age=${age}&gender=${gender}&height=${height}&weigth=${weight}&activitylevel=${level}`, options)
+  let response =  await fetch(`https://fitness-calculator.p.rapidapi.com/dailycalorie?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${level}`, options)
   let result = await response.json(); 
-  console.log(result.data); )
-    
-  let calories = document.querySelector('');  
+  console.log(result.data); 
+   
+  let calories = document.getElementById('res3');  
   let html = '';
-  html += `${result.data.BMR}
-            ${result.data.goals['maintain weight']}
-              ${result.data.goals['Mild weight loss']['loss weight']}
-              ${result.data.goals['Mild weight loss']['calory']}
-              ${result.data.goals['Weight loss']['loss weight']}
-              ${result.data.goals['Weight loss']['calory']}
-              ${result.data.goals['Extreme weight loss']['loss weight']}
-              ${result.data.goals['Extreme weight loss']['calory']}
-              ${result.data.goals['Mild weight gain']['gain weight']}
-              ${result.data.goals['Mild weight gain']['calory']}
-              ${result.data.goals['Weight gain']['gain weight']}
-              ${result.data.goals['Weight gain']['calory']}
-              ${result.data.goals['Extreme weight gain']['gain weight']}
-              ${result.data.goals['Extreme weight gain']['calory']}
+  html += `              
+              <br><br><br>
+              <div class = "container">
+              <div class="row">
+              <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+              <div class="card-panel blue lighten-4">
+                  <p>Your Basal Metabolic Rate is: ${result.data.BMR}<br>
+                  <b>Daily Maintainence Calories ${result.data.goals['maintain weight']}</b><br>
+                  <b>Mild Weight Loss(${result.data.goals['Mild weight loss']['loss weight']}) Calories: ${result.data.goals['Mild weight loss']['calory']} </b><br>
+                  <b>Weight Loss(${result.data.goals['Weight loss']['loss weight']}) Calories: ${result.data.goals['Weight loss']['calory']} </b><br>
+                  <b>Extreme Weight Loss(${result.data.goals['Extreme weight loss']['loss weight']}) Calories: ${result.data.goals['Mild weight loss']['calory']} </b><br>
+                  <b>Mild Weight Gain(${result.data.goals['Mild weight gain']['gain weight']}) Calories: ${result.data.goals['Mild weight gain']['calory']} </b><br>
+                  <b>Weight Gain(${result.data.goals['Weight gain']['gain weight']}) Calories: ${result.data.goals['Mild weight gain']['calory']} </b><br>
+                  <b>Extreme Weight Gain(${result.data.goals['Extreme weight gain']['gain weight']}}) Calories: ${result.data.goals['Extreme weight gain']['calory']} </b><br>
+                  <p>
+              </div>
+              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Food</a> page!</p>
+              </div>
+              </div>
+            </div>
               `;
   calories.innerHTML = html;
   
-}*/
-/*
+}
+
 //Body Fat
 async function getBodyFat(){
 
-  let age = document.getgetElementById("").value;
-  let gender = document.getgetElementById("").value;
-  let height = document.getgetElementById("").value; 
-  let weight = document.getElementById("").value; 
-  let waist = document.getElementById("").value;
-  let neck = document.getElementById("").value
-  let hips = document.getElementById("").value;
+  let age = document.getElementById("age2").value;
+  let height = document.getElementById("height2").value; 
+  let weight = document.getElementById("weight2").value; 
+  let waist = document.getElementById("waist").value;
+  let neck = document.getElementById("neck").value
+  let hips = document.getElementById("hip").value;
    
   const options = {
       method: 'GET',
@@ -99,14 +164,26 @@ async function getBodyFat(){
   let result = await response.json(); 
   console.log(result)
     
-  let bodyfat = document.querySelector('');  
+  let bodyfat = document.getElementById('res2');  
   let html = '';
   html += `
-            ${result.data.goals['Body Fat (U.S. Navy Method)']}
-              ${result.data['Body Fat Category']}
-              ${result.data['Body Fat Mass']}
-              ${result.data['Lean Body Mass']}
-              ${result.data['Body Fat (BMI method)']}`;
+  <br><br><br>
+              <div class = "container">
+              <div class="row">
+              <div class="col s20 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+              <div class="card-panel blue lighten-4">
+                  <p>Your Body Fat Category: ${result.data['Body Fat Category']}<br>
+                  <b>Body Fat (U.S. Navy Method): ${result.data['Body Fat (U.S. Navy Method)']}</b><br>
+                  <b>Body Fat Mass:  ${result.data['Body Fat Mass']}</b><br>
+                  <b>Lean Lean Body Mass: ${result.data['Lean Body Mass']}</b><br>
+                  <b>Body Fat (BMI method): ${result.data['Body Fat (BMI method)']}</b><br>
+                  </p>
+              </div>
+              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Food</a> page!</p>
+              </div>
+              </div>
+            </div>      
+              `;
               
-  calories.innerHTML = html; 
-}*/
+  bodyfat.innerHTML = html; 
+}
