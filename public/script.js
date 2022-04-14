@@ -438,10 +438,29 @@ async function getRecipe(){
 
 async function UseMacrosData(macros){
   //healthURL();
+  displaymacros(macros);
   var cal = (Math.round(macros.data.calorie)/4);
-  var pro = Math.round(macros.data.diet.protein);
-  var carbs = Math.round(macros.data.diet.carbs);
-  var fat = Math.round(macros.data.diet.fat);
+
+  if(diet === "highprotein"){
+    var pro = Math.round(macros.data.highprotein.protein);
+    var carbs = Math.round(macros.data.highprotein.carbs);
+    var fat = Math.round(macros.data.highprotein.fat);
+  }
+  if(diet === "lowcarbs"){
+    var pro = Math.round(macros.data.lowcarbs.protein);
+    var carbs = Math.round(macros.data.lowcarbs.carbs);
+    var fat = Math.round(macros.data.lowcarbs.fat);
+  }
+  if(diet === "lowfat"){
+    var pro = Math.round(macros.data.lowfat.protein);
+    var carbs = Math.round(macros.data.lowfat.carbs);
+    var fat = Math.round(macros.data.lowfat.fat);
+  }
+  if(diet === "balanced"){
+    var pro = Math.round(macros.data.balanced.protein);
+    var carbs = Math.round(macros.data.balanced.carbs);
+    var fat = Math.round(macros.data.balanced.fat);
+  }
   let b  = Math.floor(Math.random() * (2 + 1));
   let l  = Math.floor(Math.random() * (1 + 1));
   let d  = Math.floor(Math.random() * (2 + 1));
@@ -464,60 +483,83 @@ async function UseMacrosData(macros){
   const clientID = "9dccf6f6";
   const app_key = "aac177748420f51c660a6f9eb6d5879d"
   //for(i in mealTypes){
-    let r1 = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${foodbreakfast[fb]}${dishTypesB[b]}&app_id=${clientID}&app_key=${app_key}&mealTypes=Breakfast&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}`, requestOptions)
+    
+    let r1 = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${foodbreakfast[fb]}${dishTypesB[b]}&health=${meal}&app_id=${clientID}&app_key=${app_key}&mealTypes=Breakfast&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}&calories=${cal}`, requestOptions)
     let result1 = await r1.json(); //.then(response => response.json())
     console.log(result1);
     displayData(result1,1);
 
-    let r2 = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${foodlunch[fl]}${dishTypesL[l]}&app_id=${clientID}&app_key=${app_key}&mealTypes=Lunch&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}`, requestOptions)
+    let r2 = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${foodlunch[fl]}${dishTypesL[l]}&health=${meal}&app_id=${clientID}&app_key=${app_key}&mealTypes=Lunch&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}&calories=${cal}`, requestOptions)
     let result2 = await r2.json(); //.then(response => response.json())
     console.log(result2);
     displayData(result2,2);
 
-    let r3 = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${dishTypesD[d]}&app_id=${clientID}&app_key=${app_key}&mealTypes=Dinner&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}`, requestOptions)
+    let r3 = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${dishTypesD[d]}&app_id=${clientID}&health=${meal}&app_key=${app_key}&mealTypes=Dinner&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}&calories=${cal}`, requestOptions)
     let result3 = await r3.json(); //.then(response => response.json())
     console.log(result3);
     displayData(result3,3);
 
-    let r4 = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${dishTypesS[s]}&app_id=${clientID}&app_key=${app_key}&mealTypes=Snack&to=40&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}`, requestOptions)
+    let r4 = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${dishTypesS[s]}&app_id=${clientID}&health=${meal}&app_key=${app_key}&mealTypes=Snack&to=40&nutrients%5BCHOCDF%5D=${carbs}&nutrients%5BFAT%5D=${fat}&nutrients%5BPROCNT%5D=${pro}&calories=${cal}`, requestOptions)
     let result4 = await r4.json(); //.then(response => response.json())
     console.log(result4);
     displayData(result4,4);
    
   //}//useApiData(result); */
 }
+
+function displaymacros(macros){
+  let output = "";
+  output += `<div class="row">
+  
+    <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+    <div class="card-panel green darken-3" style="text-align: center">
+    <span class="white-text">The daily amount of calories needed to reach your goal are ${macros.data.calorie}.</span><br>
+    <span class="white-text">Below are Breakfast, Lunch, Dinner and Snack suggestion that caters to your diet type</span>
+    </div>
+    </div>
+    </div>`;
+  document.getElementById('content0').innerHTML = output;
+
+
+}
 function displayData(meals,foo){
+
   if(foo===1){
-  let minicard = document.getElementById("searchResults1");  
-  let html = '';
-  let header = ''; header+=`<h1>Breakfast</h1>`;
-  minicard.innerHTML = header;
-  for(i in meals.hits){
-    html+=`
-   
-    <h2> BreakFast </h2>
-      <div class="card" class="media-element">
-        <div class="card-image">
-          <img src="${meals.hits[i].recipe.images.SMALL.url}">
-          <span class="card-title">${meals.hits[i].recipe.label}</span>
-          <a href="${meals.hits[i].recipe.url}"target="_blank"class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>
+    let minicard = document.getElementById("searchResults1");
+    let foodtitle = document.getElementById("content1");
+
+    let html = '';
+    let header = ''; header+=`<h1> BreakFast </h1> <br>`;
+    foodtitle.innerHTML = header;
+
+    for(i in meals.hits){
+      html+=`
+    
+        <div class="card" class="media-element">
+          <div class="card-image">
+            <img src="${meals.hits[i].recipe.images.SMALL.url}">
+            <span class="card-title">${meals.hits[i].recipe.label}</span>
+            <a href="${meals.hits[i].recipe.url}"target="_blank"class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>
+          </div>
+          <div class="card-content">
+            <p>${meals.hits[i].recipe.label}</p>
+          </div>
         </div>
-        <div class="card-content">
-          <p>I am a very simple card.</p>
-        </div>
-      </div>
-      
-    `;
-  };
-  minicard.innerHTML = html;
+        
+      `;
+    };
+    minicard.innerHTML = html;
 }
 if(foo===2){
   let minicard = document.getElementById("searchResults2");  
   let html = '';
-  
+
+  let foodtitle = document.getElementById("content2");  
+  let header = ''; header+=`<h1> Lunch </h1> <br>`;
+  foodtitle.innerHTML = header;
   for(i in meals.hits){
     html+=`
-    <h2> Lunch </h2>
+    
     <div class="card" class="media-element">
     <div class="card-image">
       <img src="${meals.hits[i].recipe.images.SMALL.url}">
@@ -525,7 +567,7 @@ if(foo===2){
       <a href="${meals.hits[i].recipe.url} "target="_blank" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>
     </div>
     <div class="card-content">
-      <p>I am a very simple card.</p>
+      <p>${meals.hits[i].recipe.label}</p>
     </div>
   </div>
       
@@ -537,9 +579,13 @@ if(foo===3){
   let minicard = document.getElementById("searchResults3");  
   let html = '';
 
+  let foodtitle = document.getElementById("content3");  
+  let header = ''; header+=`<h1> Dinner </h1> <br>`;
+  foodtitle.innerHTML = header;
+
   for(i in meals.hits){
     html+=`
-    <h2> Dinner </h2>
+    
     <div class="card" class="media-element">
     <div class="card-image">
       <img src="${meals.hits[i].recipe.images.SMALL.url}">
@@ -547,7 +593,7 @@ if(foo===3){
       <a href="${meals.hits[i].recipe.url}" target="_blank"class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>
     </div>
     <div class="card-content">
-      <p>I am a very simple card.</p>
+      <p>${meals.hits[i].recipe.label}</p>
     </div>
   </div>
       
@@ -559,9 +605,13 @@ if(foo===4){
   let minicard = document.getElementById("searchResults4");  
   let html = '';
 
+  let foodtitle = document.getElementById("content4");  
+  let header = ''; header+=`<h1> Snack </h1> <br>`;
+  foodtitle.innerHTML = header;
+
   for(i in meals.hits){
     html+=`
-    <h2> Snack </h2>
+   
     <div class="card" class="media-element">
     <div class="card-image">
       <img src="${meals.hits[i].recipe.images.SMALL.url}">
@@ -569,7 +619,7 @@ if(foo===4){
       <a href="${meals.hits[i].recipe.url}" target="_blank" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>
     </div>
     <div class="card-content">
-      <p>I am a very simple card.</p>
+      <p>${meals.hits[i].recipe.label}</p>
     </div>
   </div>
       
