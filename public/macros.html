@@ -175,72 +175,87 @@ scroll-snap-align: start;
           </div>
         
           <div class="row">
-            <div class="input-field col s7">            
-              <select onclick="GetSelectedLevel()" class="browser-default" id = "diet">
+            <div class="input-field col s6">            
+              <select onclick="GetSelectedDiet()" class="browser-default" id = "diet">
                 <option value="" disabled selected>Diet Type</option>
                 <option value="highprotein">High Protein</option>
                 <option value="balanced">Balanced</option>
-                <option value="lowcarbs">Low Carbs</option>
+                <option value="lowcarbs">Low Carb</option>
                 <option value="lowfat">Low Fat</option>
-                <option value="keto">Keto </option>
-                <option value="vegan">Vegan</option>
-                <option value="vege">Vegetatian</option>
               </select>
               
               <!-- <label>Materialize Select</label> -->
             </div>
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Dietary Restrictions</a>
+
+            <div class="input-field col s6">            
+              <select onclick="GetSelectedMeal()" class="browser-default" id = "meal">
+                <option value="" disabled selected>Meal Type</option>          
+                <option value="keto-friendly">Keto </option>
+                <option value="paleo">Paleo </option>
+                <option value="vegan">Vegan</option>
+                <option value="vegetarian">Vegetatian</option>
+                <option value="pecatarian">Pescatarian</option>
+              </select>
+              
+              <!-- <label>Materialize Select</label> -->
+            </div>
+            
           </div>
-            <div id="modal1" class="modal">
-              <div class="modal-content">
-                <h4>Select your Dietary Restrictions</h4>
-                           
-                <div>
-                  
-                  <form action="#" id="form">
-                    <label>
-                      <input id = "glutenStat" type="checkbox" onclick="Checkme()"  />
-                      <span>Gluten Free</span>
-                    </label>
-                    <br>
-                    <label>
-                      <input id = "peanutStat" type="checkbox" onclick="Checkme()"  />
-                      <span>Peanut Free</span>
-                    </label>
-                    <br>
-                    <label>
-                      <input id = "soyStat" type="checkbox"  onclick="Checkme()" />
-                      <span>Soy Free</span>
-                    </label>
-                    <br>
-                    <label>
-                      <input id = "fishStat" type="checkbox" onclick="Checkme()"  />
-                      <span>No Shell Fish</span>
-                    </label>
-                    <br>
-                    <label>
-                      <input id = "meatStat" type="checkbox"  onclick="Checkme()" />
-                      <span>No Red Meat</span>
-                    </label>
-                    <br>
-                    <label>
-                      <input id = "porkStat" type="checkbox"  onclick="Checkme()" />
-                      <span>No Pork</span>
-                    </label>
-                    <br>
-                    <label>
-                      <input id = "eggStat" type="checkbox"  onclick="Checkme()" />
-                      <span>Eggless</span>
-                    </label>
-                  </form>
-                </div>
-              </div>
-                <div class="modal-footer">
-                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Include</a>
-                </div>
-              </div>
         </form>
-      </div>
+      </div> 
+          <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Dietary Restrictions</a>
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4>Select your Dietary Restrictions:</h4>
+              <form action="#">
+                <label>
+                  <input id = "dairyStat" type="checkbox" onclick="Checkme()"  />
+                  <span>Dairy Free</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "glutenStat" type="checkbox" onclick="Checkme()"  />
+                  <span>Gluten Free</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "peanutStat" type="checkbox" onclick="Checkme()"  />
+                  <span>Peanut Free</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "soyStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Soy Free</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "fishStat" type="checkbox" onclick="Checkme()"  />
+                  <span>No Shell Fish</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "meatStat" type="checkbox"  onclick="Checkme()" />
+                  <span>No Red Meat</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "porkStat" type="checkbox"  onclick="Checkme()" />
+                  <span>No Pork</span>
+                </label>
+                <br>
+                <label>
+                  <input id = "eggStat" type="checkbox"  onclick="Checkme()" />
+                  <span>Eggless</span>
+                </label>
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Exclude</a>
+            </div>
+          </div> -->
+        
+      
 
 
       <div class = "center">
