@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/uwidcit/mat-starter#readme",
   "dependencies": {
-    "live-server": "^1.2.1"
+    "live-server": "^1.1.0"
   }
 }
