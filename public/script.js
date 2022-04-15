@@ -404,7 +404,7 @@ async function getRecipe(){
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">${data.hits[i].recipe.label}<i class="material-icons right">close</i></span>
         <p>Diet Labels:</p>
-        <p>${dlabels}</p>
+        <p styl>${dlabels}</p>
         <p>Health Labels:</p>
         <p>${hlabels}</p>
         
@@ -512,15 +512,13 @@ function displaymacros(macros){
   output += `<div class="row">
   
     <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
-    <div class="card-panel green darken-3" style="text-align: center">
+    <div class="card-panel blue darken-3" style="text-align: center">
     <span class="white-text">The daily amount of calories needed to reach your goal are ${macros.data.calorie}.</span><br>
     <span class="white-text">Below are Breakfast, Lunch, Dinner and Snack suggestion that caters to your diet type</span>
     </div>
     </div>
     </div>`;
   document.getElementById('content0').innerHTML = output;
-
-
 }
 function displayData(meals,foo){
 
