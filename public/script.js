@@ -372,7 +372,7 @@ async function getRecipe(){
     output += `<div class="row">
     
       <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
-      <div class="card-panel green darken-3" style="text-align: center">
+      <div class="card-panel green darken-3" style="text-align: center;">
       <span class="white-text">No recipes found. Please include at least one (1) ingredient.<br><br>Don't forget to + your ingredients!</span>
       </div>
       </div>
@@ -393,12 +393,12 @@ async function getRecipe(){
   html += `
   <div class="row" >
     <div class="col s12 m7 col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
-      <div  class="card ">
+      <div  class="card">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="${data.hits[i].recipe.images.REGULAR.url}">
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">${data.hits[i].recipe.label}<i class="material-icons right">more_vert</i></span>
+              <span class="card-title activator grey-text text-darken-4" style="font-family:Times New Roman;">${data.hits[i].recipe.label}<i class="material-icons right">more_vert</i></span>
         </div> 
         <div class="card-action">
           <a id="details" href="${data.hits[i].recipe.url}" target="_blank">Detailed Instructions<i class="material-icons">call_made</i></a>
