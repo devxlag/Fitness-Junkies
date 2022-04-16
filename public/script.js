@@ -57,7 +57,7 @@ var dietFrag = "";
 
 var goal ="";
 var gender="";
-var meal = "";
+var timeframe = "";
 var diet = "";
 var mealTypes = ["Breakfast","Lunch", "Dinner", "Snack"];
 var level = 0;
@@ -420,6 +420,46 @@ async function getRecipe(){
   card.innerHTML = html;}
  }
 
+
+
+ function GetSelectedGoal(){
+  //console.log("hello");
+  var e = document.getElementById("goal");
+  goal = e.options[e.selectedIndex].value;
+  console.log(goal);
+  //document.getElementById("result").innerHTML = result;
+}
+function GetSelectedLevel(){
+  //console.log("hello");
+  var e = document.getElementById("level");
+  level = e.options[e.selectedIndex].value;
+  console.log(level);
+  //document.getElementById("result").innerHTML = result;
+}
+function GetSelectedGender(){
+//console.log("hello");
+var e = document.getElementById("gender");
+gender = e.options[e.selectedIndex].value;
+console.log(gender);
+//document.getElementById("result").innerHTML = result;
+}
+function GetSelectedTimeFrame(){
+//console.log("hello");
+var e = document.getElementById("time_frame");
+timeframe = e.options[e.selectedIndex].value;
+console.log(timeframe);
+//document.getElementById("result").innerHTML = result;
+}
+
+function GetSelectedDiet(){
+//console.log("hello");
+var e = document.getElementById("diet");
+diet = e.options[e.selectedIndex].value;
+console.log(diet);
+//document.getElementById("result").innerHTML = result;
+}
+
+
  async function getMacros(){
   // let gender = document.getElementById("t1").value;
   let age = document.getElementById("t2").value;
@@ -436,9 +476,115 @@ async function getRecipe(){
   let response = await fetch(`https://fitness-calculator.p.rapidapi.com/macrocalculator?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${level}&goal=${goal}`, options)
   let result = await response.json();
   console.log(result);
-  UseMacrosData(result);
+  GetMealPlan(result);
 }
 
+
+async function GetMealPlan(macs){
+
+  var cal = (Math.round(macs.data.calorie));
+  
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  };
+
+  let response = await fetch(`https://api.spoonacular.com/mealplanner/generate?&apiKey=9e2aa0c0c1864afeae040f883e224c38&timeFrame=${timeframe}&targetCalories=${cal}&diet=${diet}`, options)
+  let result = await response.json();
+  console.log(result);
+  var ids=[];
+  for(i in result.meals){
+    ids[i] = result.meals[i].id
+  }
+  var foo =0;
+  for(i in ids){
+    //console.log(ids[i]);
+    let response = await fetch(`https://api.spoonacular.com/recipes/${ids[i]}/information?apiKey=9e2aa0c0c1864afeae040f883e224c38&includeNutrition=false`, options)
+    let result = await response.json();
+    console.log(result.title);
+    displayMealPlan(result,foo);
+    foo++;
+  }
+
+  //;
+}
+
+function displayMealPlan(MP,foo){
+
+  if(foo===0){
+    let html ='';
+    html += `
+            <div class="col l4 m4 s12">
+              <div class="card " >
+                <div class="card-image">
+                  <img src="${MP.image}">                  
+                  <a href= "${MP.sourceUrl}" target="_blank" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>
+                </div>
+                <div class="card-content">
+                  <p>${MP.title}</p>
+                </div>
+              </div>
+            </div>
+          `;
+
+    document.getElementById('test1').innerHTML = html;
+  }
+  if(foo===1){
+    let html ='';
+    html += `
+            <div class="col l4 m4 s12">
+              <div class="card " >
+                <div class="card-image">
+                  <img src="${MP.image}">                  
+                  <a href= "${MP.sourceUrl}" target="_blank" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>
+                </div>
+                <div class="card-content">
+                  <p>${MP.title}</p>
+                </div>
+              </div>
+            </div>
+          `;
+
+    document.getElementById('test2').innerHTML = html;
+  }
+  if(foo===2){
+    let html ='';
+    html += `
+            <div class="col l4 m4 s12">
+              <div class="card " >
+                <div class="card-image">
+                  <img src="${MP.image}">
+                  <a href= "${MP.sourceUrl}" target="_blank" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>                
+                </div>
+                <div class="card-content">
+                  <p>${MP.title}</p>
+                </div>
+              </div>
+            </div>
+          `;
+
+    document.getElementById('test3').innerHTML = html;
+  }
+}
+/*
+function displaymacros(macros){
+  let output = "";
+  output += `<div class="row">
+  
+    <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+    <div class="card-panel blue darken-3" style="text-align: center">
+    <span class="white-text">The daily amount of calories needed to reach your goal are ${macros.data.calorie}.</span><br>
+    <span class="white-text">Below are Breakfast, Lunch, Dinner and Snack suggestion that caters to your diet type</span>
+    </div>
+    </div>
+    </div>`;
+  document.getElementById('content0').innerHTML = output;
+}*/
+
+
+/*
 async function UseMacrosData(macros){
   //healthURL();
   displaymacros(macros);
@@ -507,22 +653,10 @@ async function UseMacrosData(macros){
     console.log(result4);
     displayData(result4,4);
    
-  //}//useApiData(result); */
+  //}//useApiData(result); 
 }
 
-function displaymacros(macros){
-  let output = "";
-  output += `<div class="row">
-  
-    <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
-    <div class="card-panel blue darken-3" style="text-align: center">
-    <span class="white-text">The daily amount of calories needed to reach your goal are ${macros.data.calorie}.</span><br>
-    <span class="white-text">Below are Breakfast, Lunch, Dinner and Snack suggestion that caters to your diet type</span>
-    </div>
-    </div>
-    </div>`;
-  document.getElementById('content0').innerHTML = output;
-}
+
 function displayData(meals,foo){
 
   if(foo===1){
@@ -629,43 +763,8 @@ if(foo===4){
   minicard.innerHTML = html;
 }
 
-}
-function GetSelectedGoal(){
-    //console.log("hello");
-    var e = document.getElementById("goal");
-    goal = e.options[e.selectedIndex].value;
-    console.log(goal);
-    //document.getElementById("result").innerHTML = result;
-  }
-function GetSelectedLevel(){
-    //console.log("hello");
-    var e = document.getElementById("level");
-    level = e.options[e.selectedIndex].value;
-    console.log(level);
-    //document.getElementById("result").innerHTML = result;
-}
-function GetSelectedGender(){
-  //console.log("hello");
-  var e = document.getElementById("gender");
-  gender = e.options[e.selectedIndex].value;
-  console.log(gender);
-  //document.getElementById("result").innerHTML = result;
-}
-function GetSelectedDiet(){
-  //console.log("hello");
-  var e = document.getElementById("diet");
-  diet = e.options[e.selectedIndex].value;
-  console.log(diet);
-  //document.getElementById("result").innerHTML = result;
-}
+}*/
 
-function GetSelectedMeal(){
-  //console.log("hello");
-  var e = document.getElementById("meal");
-  meal = e.options[e.selectedIndex].value;
-  console.log(meal);
-  //document.getElementById("result").innerHTML = result;
-}
  
 
 
