@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Calorie Count</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+      #logo {
+      width: 100px;
+      height: 60px;
+    }
+    
+  </style>
+            
+</head>
+<body>
+  <ul id="dropdown1" class="dropdown-content">
+    <li ><a href="bmi.html">BMI Calculator</a></li>
+    <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+    <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
+</ul>
+<ul id="dropdown2" class="dropdown-content">
+  <li ><a href="bmi.html">BMI Calculator</a></li>
+  <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+  <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
+</ul>
+<div class="navbar fixed">
+  <nav class="nav-wrapper indigo ">
+    <div class="container" > 
+      
+      <a href="index.html" class="brand-logo"><img id="logo" src="logo (2).jpg"/></a>
+      <a href="#" class="sidenav-trigger" data-target="mobile-links">
+        <i class="material-icons right">menu</i>
+      </a>
+      <ul id="navbar-items" class ="right hide-on-med-and-down">
+          <li><a href="meal.html">Meals</a></li>
+          <li><a href="macros.html">Macro Meal Planner</a></li>
+          <li ><a href="workouts.html">Workouts</a></li>
+          <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+          <li><a class='dropdown-trigger' href='#' data-target='dropdown2'>Calculators</a></li>
+          <li><a href="#" onclick="signOut();">Sign out</a></li>                
+      </ul>              
+    </div>          
+  </nav>
+</div>
+
+<ul class="sidenav" id="mobile-links">
+    <li><a href="meal.html">Meals</a></li>
+    <li><a href="macros.html">Macro Meal Planner</a></li>
+    <li ><a href="workouts.html">Workouts</a></li>
+    <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>Calculators</a></li>
+    <li><a href="#" onclick="signOut();">Sign out</a></li>
+    
+    <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->    
+</ul>
+     
+      
+<h1 style="text-align: center;"> Top-rated workouts by type:</h1>
+     
+      
+<section>
+
+
+  <div class="container">
+
+      <h3>Legs: </h3>
+    <div class="row">
+
+        <div class="col s3 m3">
+        
+        
+          <div class="card" style="height: 300px;">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="legs1.gif">
+              </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">Kettlebell Pistol Squat<i class="material-icons right">more_vert</i></span>
+                </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Kettlebell Pistol Squat<i class="material-icons right">close</i></span>
+                    <p>How: Hold one kettlebell with both hands just under your chin.
+                      Lift one leg off the floor and squat down with the other.
+                      Drive through the heel and bring yourself back up to standing position, without letting your leg touch the floor. Lower back down and repeat.<br><br>
+                      Why: “A great single leg exercise to challenge hip mobility and stability that transfers over directly to daily life,” says Dick. It's also incredibly tricky to master, requiring strength, dexterity and balance in equal measure - giving those who can execute it flawlessly a free pass to gloat.</p>
+                  </div>
+            </div>
+
+        </div>
+
+      
+
+        <div class="col s3 m3">
+
+          <div class="card" style="height: 300px;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="legs2.gif">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Goblet Squat<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Goblet Squat<i class="material-icons right">close</i></span>
+              <p>How: Stand with your legs wider than your shoulders and hold a dumbbell with both hands in line with your thighs.
+                Stick your backside out, bend your knees and lower yourself into a squat until the dumbbell touches the floor. Drive back up and repeat.
+                <br><br>Why: You get the lower body muscle-building benefits reaped from traditional squats while torching your shoulders and arms at the same time. “Goblet squats are a great alternative for those who lack the shoulder mobility to maintain proper back squat form,” says Dick. “Positioning the load in the front of the body will challenge the core and quadriceps more.”</p>
+            </div>
+          </div>
+
+        </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="legs3.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Romanian Deadlift<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Romanian Deadlift<i class="material-icons right">close</i></span>
+            <p>How: Stand behind a grounded barbell. Bend your knees slightly to grab it, keeping your shins, back and hips straight.
+              Without bending your back, push your hips forwards to lift the bar. From upright, push your hips back to lower the bar, bending your knees only slightly.
+              <br><br>Why: “It's a great variation on the traditional deadlift that focuses on your glutes and superior end of your hamstrings,” says Leonard. Practising hip flexion exercises like the Romanian deadlift can seriously improve your sprint speed and agility. After eight weeks of hip flexor-specific training, participants in a University of Florida study saw their sprint and shuttle run PBs improve by around four per cent and nine per cent respectively.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="legs4.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Single Leg Curl<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Single Leg Curl<i class="material-icons right">close</i></span>
+            <p>How: Lie face down on the leg curl machine with your heels against the lower pad and the bench against your thighs.
+              Bend one knee to pull the pad up towards your backside as far as possible, then return to the start position and repeat on the other side.
+              <br><br> “Single leg curls are great for strengthening the hamstrings, and doing so can help bulletproof your knees,” explains Dick. “A great thing to try is eccentric-focused reps - use both legs to perform the curl and use only one leg to return the weight back to the start. This allows you to overload each leg without risking injury.”</p>
+          </div>
+        </div>
+
+      </div>
+
+      
+
+    </div>
+    
+    <h3>Arms: </h3>
+    <div class="row">
+
+      <div class="col s3 m3">
+      
+      
+        <div class="card" style="height: 300px;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="bicepworkout.gif">
+            </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Concentration Curl<i class="material-icons right">more_vert</i></span>
+              </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Concentration Curl<i class="material-icons right">close</i></span>
+                  <p>How to: Sit down on bench and rest your right arm against your right leg, letting the weight hang down. Curl the weight up, pause, then lower. Repeat with the other arm.
+                    <br><br>
+                    Why: This isolates the arm flexors and hits the lateral head of the biceps for peak performance (and appearance).</p>
+                </div>
+          </div>
+
+      </div>
+
+    
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="bicep2.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Leant-forward EZ Bar Curl<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Leant-forward EZ Bar Curl<i class="material-icons right">close</i></span>
+            <p>How to: Hold the EZ bar in front of your thighs with an underhand, shoulder-width grip. Lean forward slightly, so your torso's around 30-degrees to your hips. As you breathe in, curl the bar until your hands are at your shoulders. Squeeze your biceps, then lower under control.
+              <br><br>
+              Why: You're working the main flexor muscle involved in finger strength, which will earn you a vice-like grip for the bigger lifts - and a bone-crushing handshake for good measure. Plus, that forward tilt means using your hips to swing up the final few reps is a no-no. Perfect form for perfect gains.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="bicep3.gif">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">One Arm Seated Tricep Extension<i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">One Arm Seated Tricep Extension<i class="material-icons right">close</i></span>
+          <p>How to: Hold a dumbbell in one hand directly behind your head, with your elbow bent and pointed towards the ceiling. Extend through your elbow until your arm is straight and the dumbbell is directly above you. Lower your arm back to starting position and repeat.
+            <br><br>
+            Why: This move builds arm strength and adds stability to your shoulders and elbows. Plus, working unilaterally will put an end to any muscle imbalances.</p>
+        </div>
+      </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="bicep4.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Diamond Press-up<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Diamond Press-up<i class="material-icons right">close</i></span>
+            <p>How to: Lie on the floor with your body straight and form a diamond shape with your hands. Lower your body down until your chest is almost touching the floor. Press your body back up to the starting position, squeezing your triceps and chest at the same time.
+            <br><br>
+              Why: Narrowing your grip works all three heads of your triceps, along with your chest, to sculpt eye-catching definition.</p>
+          </div>
+        </div>
+
+      </div>
+
+    
+
+    </div>
+
+
+    <h3> Chest:</h3>
+    <div class="row">
+
+      <div class="col s3 m3">
+      
+      
+        <div class="card" style="height: 300px;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="chest1.gif">
+            </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Dumbbell Squeeze Press<i class="material-icons right">more_vert</i></span>
+              </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Dumbbell Squeeze Press<i class="material-icons right">close</i></span>
+                  <p>Why: Squeezing the dumbbells together during a chest press moves the emphasis of the movement onto your pecs. This simple tweak engages them throughout the entire range of motion — a key factor to maximise muscle gain.
+                    <br><br>
+                    How: Lie on a flat bench and hold a dumbbell in each hand. Maintain a neutral grip and begin with your arms straight, directly above you. Bend your arms and lower them to the side of your body so the dumbbells lie just above your chest. Pause and then lift your arms to repeat.</p>
+                </div>
+          </div>
+
+      </div>
+
+    
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="chest2.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Decline press-up<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Decline press-up<i class="material-icons right">close</i></span>
+            <p>Why: Decline bench press-ups place the muscle-building emphasis on your lower pectorals, helping you build a well-rounded and more defined chest.
+              <br><br>
+              How: Place your feet on a bench with your hands planted on the floor in front of you. Lower your body down until your chest almost reaches the floor. Press your body back up to the starting position while squeezing your chest. Pause briefly at the top before repeating.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="chest3.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Cable fly<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Cable fly<i class="material-icons right">close</i></span>
+            <p>Why: Give your pectorals and deltoids a new stimulus instead of pressing. Add the cable fly to your chest day to provide constant tension throughout the full movement.
+              <br><br>
+              How: Attach stirrup handles to the high pulleys of a cable crossover machine. Take one in each hand – your arms should be outstretched with a slight bend. Place one foot slightly forward, brace your core, and pull the handles downward and across your body. Return to the start position under control</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="chest4.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Chest dips<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Chest dips<i class="material-icons right">close</i></span>
+            <p>Why: If you want to burn chest fat and lose your man boobs, dips are one of the best ways to go about it. Working the entire upper-body, dips also work your arms, shoulders and upper back. As you descend, you'll be fighting to stabilise your entire body as it moves through space, giving your body a huge hormonal boost.
+              <br><br>
+              How: Grab the bars of a dip station with your palms facing inward and your arms straight. Slowly lower until your elbows are at right angles, ensuring they stay tucked against your body and don't flare out. Drive yourself back up to the top and repeat.</p>
+          </div>
+        </div>
+
+      </div>
+    
+    
+
+
+    </div>
+
+
+      <h3> Abdominals:</h3>
+    <div class="row">
+
+        <div class="col s3 m3">
+        
+        
+          <div class="card" style="height: 300px;">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="ab1.gif">
+              </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">Barbell Roll Outs<i class="material-icons right">more_vert</i></span>
+                </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Barbell Roll Outs<i class="material-icons right">close</i></span>
+                    <p>- Load a barbell with 5kg plates and grab the bar with an overhand, shoulder-width grip.
+                      <br><br>
+                      - Position your shoulders directly over the barbell and slowly roll the bar forwards.
+                      <br><br>
+                      - Pause, then reverse the move.
+                      <br><br>
+                      - Roll out to a distance that's challenging, but doesn't force your hips to sag.
+                      
+                      </p>
+                  </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="col s3 m3">
+
+          <div class="card" style="height: 300px;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="ab2.gif">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Russian Twists<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Russian Twists<i class="material-icons right">close</i></span>
+              <p>- Sit holding the weight plate, dumbbell or kettlebell with your arms extended and feet off the floor.
+                <br><br>
+                -Under control, quickly twist at the torso, turning from side to side.</p>
+            </div>
+          </div>
+
+        </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="ab3.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Bear Crawls<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Bear Crawls<i class="material-icons right">close</i></span>
+            <p>- Assume a press-up position with your knees bent at 90-degree angles and directly underneath your hips. Your knees should be elevated.
+              <br><br>
+              - Without allowing your lower back to rise or round, brace your abs as if you were about to punched in the gut. Hold this contraction the entire time. This is your starting position.
+              <br><br>
+              - Walk” your right hand and left foot forward a few inches. Pause, and then return to the starting position.
+              <br><br>
+              - Next, “walk” your left hand and right foot forward. Return to the starting position.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="ab4.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Cable Crunch<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Cable Crunch<i class="material-icons right">close</i></span>
+            <p>- Attach a rope to a high pulley and kneel in front of it, with the handles held either side of your neck.
+              <br><br>
+              - Without moving your hips, contract your abs to bring your elbows to your thighs.
+              <br><br>
+              - Pause for a moment then slowly return to the starting position.</p>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+    <h3> Shoulders:</h3>
+    <div class="row">
+
+      <div class="col s3 m3">
+      
+      
+        <div class="card" style="height: 300px;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="shoulder1.gif">
+            </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Barbell Push Press<i class="material-icons right">more_vert</i></span>
+              </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Barbell Push Press<i class="material-icons right">close</i></span>
+                  <p>Grab a barbell and hold it at shoulder height with palms facing forwards. Set your feet shoulder width apart and slightly bend your knees to inititate the move. Push up with your legs to explosively press the barbell straight above your head. Return under control to the start position.</p>
+                </div>
+          </div>
+
+      </div>
+
+
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="shoulder2.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Dumbbell Upright Row<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Dumbbell Upright Row<i class="material-icons right">close</i></span>
+            <p>Hold a dumbbell in each hand, resting in front of your thigh. Lift the dumbbells vertically until they're in line with your collar bone, with your elbow pointing towards the ceiling. Lower the dumbbell back down and repeat.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="shoulder3.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Seated Bent-over Rear-delt Fly<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Seated Bent-over Rear-delt Fly<i class="material-icons right">close</i></span>
+            <p>Sit down, lean forward and hold a dumbbell in either hand so that they're resting above your feet. Stay bent forward as you raise your arms to the side, lining the dumbbells with your shoulders. Bring the weights back down and repeat.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="shoulder4.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Single Dumbbell Front Raise<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Single Dumbbell Front Raise<i class="material-icons right">close</i></span>
+            <p>Hold the end of a dumbbell with both hands and let it hang between your legs, positioned shoulder width apart. Lift the dumbbell directly above you, keeping your arms extended, then lower it back down and repeat.</p>
+          </div>
+        </div>
+
+    </div>
+
+
+    <h3> Back:</h3>
+    <div class="row">
+
+      <div class="col s3 m3">
+      
+      
+        <div class="card" style="height: 300px;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="back1.gif">
+            </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Band Bent-Over Row<i class="material-icons right">more_vert</i></span>
+              </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Band Bent-Over Row<i class="material-icons right">close</i></span>
+                  <p>You'll get used to the row in its many forms if you're working on your back—so start out with a light-resistance version that can serve as a warmup or a key part of your routine. The band will allow you to work through the range of motion without breaking out the weights, while still challenging you with some resistance.
+                    <br><br>
+                    DO THIS: Grab a low-resistance band and set it out on the ground. Stand on the middle of the band, grabbing the two ends in either hand with a pronated (overhand) grip, hinging at the hips and slightly bending your knees in an athletic stance. Make sure that your back isn't rounded.
+                    <br><br>
+                    Squeeze your back to pull the band ends simultaneously to your chest, or as close as the band allows. Pause for a moment at the top of the motion, then slowly return to the original position, working against the band's resistance.</p>
+                </div>
+          </div>
+
+      </div>
+
+
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="back2.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Renegade Row<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Renegade Row<i class="material-icons right">close</i></span>
+            <p>Why: A great way to target those traps and lats, with a little bit of bicep building thrown in for good measure.
+              <br><br>
+              How: Get into a press-up position with your hands on the handles of two dumbbells. Keeping your core tensed, row the right dumbbell up to your abs then return to the start position. Repeat with the left dumbbell to complete one rep.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="back3.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Bent-Over Dumbbell Alternating Row<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Bent-Over Dumbbell Alternating Row<i class="material-icons right">close</i></span>
+            <p>Work on each side of your body individually without using a bench for support. You shouldn't be focused on pulling big weight here, especially with your back in the bent position, so err to the lighter side, especially if you're just starting out.
+              <br><br>
+              DO THIS: Grab a pair of dumbbells, hinge at your hips and knees, and lower your torso until it's almost parallel to the floor. Your feet should be shoulder-width apart, and your lower back should be naturally arched; just make sure to avoid rounding your lower back.
+              <br><br>
+              Let the dumbbells hang at arm's length from your shoulders with your palms facing each other. Keeping your position, lift one dumbbell to your side, pause at the top of the movement, and slowly lower it. Then repeat with your other arm.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s3 m3">
+
+        <div class="card" style="height: 300px;">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="back4.gif">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><br><br><br>Pull-up<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Pull-up<i class="material-icons right">close</i></span>
+            <p>Why: If you want a V-shape physique — you do, that's why you're here — then there's no avoiding pull-ups. Targeting your lats directly, you’ll gain a wider frame and will appear slimmer. Plus, you’ll get major gym kudos once your chin goes above that bar.
+              <br><br>
+              How: Grab the handles of the pull-up station with your palms facing away from you and your arms fully extended. Your hands should be around shoulder-width apart. Squeeze your shoulder blades together, exhale and drive your elbows towards your hips to bring your chin above the bar. Lower under control back to the start position.
+            </p>
+          </div>
+        </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+ </div>
+
+</div>  
+
+</section>
+    
+    
+
+
+<div class="parallax-container">
+  <div class="parallax"><img src="pexels-karolina-grabowska-4397840.jpg" style ="width: 50px; height: 1000px"></div>
+</div>
+
+  
+
+        <script>
+
+        </script>
+ 
+
+  
+
+</body>
+
+
+
+
+
+</html>
