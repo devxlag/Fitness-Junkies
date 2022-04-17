@@ -505,7 +505,7 @@ function displayMealPlan(MP,foo){
   if(foo===0){
     let html ='';
     html += `
-            <div class="col l5 m4 s12">
+            <div class="col l4 m4 s12">
               <div class="card " >
                 <div class="card-image">
                   <img src="${MP.image}">                  
@@ -527,7 +527,7 @@ function displayMealPlan(MP,foo){
   if(foo===1){
     let html ='';
     html += `
-            <div class="col l5 m4 s12">
+            <div class="col l4 m4 s12">
               <div class="card " >
                 <div class="card-image">
                   <img src="${MP.image}">                  
@@ -549,7 +549,7 @@ function displayMealPlan(MP,foo){
   if(foo===2){
     let html ='';
     html += `
-            <div class="col l5 m4 s12">
+            <div class="col l4 m4 s12">
               <div class="card " >
                 <div class="card-image">
                   <img src="${MP.image}">
