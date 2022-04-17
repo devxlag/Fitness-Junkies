@@ -123,32 +123,36 @@
         </section>
         
       </main>
+      <div id="joke1" class="modal">
+        <div id="joke" class="modal-content">  
+        </div>
+      </div>
+      
       <footer class="page-footer indigo">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Plan-it Fitness</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">General</h5>
-              <ul id="foot">
-                <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
-                <!--<li><a class="grey-text text-lighten-3" href="#!">About</a></li>-->
-                <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer-copyright">
           <div class="container">
-          © 2022 Fitness Junkies
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Plan-it Fitness</h5>
+                <a onclick="getJoke();" class="grey-text text-lighten-3 modal-trigger"  href="#joke1">Random Food Joke</a>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">General</h5>
+                <ul id="foot">
+                  <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+                  <!--<li><a class="grey-text text-lighten-3" href="#!">About</a></li> -->
+                  <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-
-        
+          <div class="footer-copyright">
+            <div class="container">
+            © 2022 Fitness Junkies
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+  
       </footer>
 
     <script src="calc.js">

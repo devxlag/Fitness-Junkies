@@ -494,6 +494,7 @@ async function GetMealPlan(macs){
   let response = await fetch(`https://api.spoonacular.com/mealplanner/generate?&apiKey=9e2aa0c0c1864afeae040f883e224c38&timeFrame=${timeframe}&targetCalories=${cal}&diet=${diet}`, options)
   let result = await response.json();
   console.log(result);
+  displayMacros(result);
   var ids=[];
   for(i in result.meals){
     ids[i] = result.meals[i].id
@@ -508,7 +509,28 @@ async function GetMealPlan(macs){
     foo++;
   }
 
-  //;
+}
+
+function displayMacros(data){
+
+  let html = '';
+  html += 
+      
+     `<div class="row">
+        <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+          <div class="card-panel green lighten" style="text-align: center">
+          <span class="white-text">Macros</span><br>
+          <span class="white-text"><ul>
+            <li>Calories: ${data.nutrients.calories}</li>
+            <li>Carbohydrates: ${data.nutrients.carbohydrates}</li>
+            <li>Fat: ${data.nutrients.fat}</li>
+            <li>Protein: ${data.nutrients.protein}</li>
+          </ul>
+          </div></span>
+        </div>
+      </div>`;
+
+    document.getElementById('content0').innerHTML = html;
 }
 
 function displayMealPlan(MP,foo){
@@ -516,14 +538,18 @@ function displayMealPlan(MP,foo){
   if(foo===0){
     let html ='';
     html += `
-            <div class="col l4 m4 s12">
+            <div class="col l5 m4 s12">
               <div class="card " >
                 <div class="card-image">
                   <img src="${MP.image}">                  
                   <a href= "${MP.sourceUrl}" target="_blank" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">open_in_new</i></a>
                 </div>
                 <div class="card-content">
-                  <p>${MP.title}</p>
+                  <p>${MP.title}</p>                                    
+                <ul>
+                  <li>Preparation time: ${MP.readyInMinutes} mins</li>
+                  <li>Number of servings: ${MP.servings}</li>
+                </ul>
                 </div>
               </div>
             </div>
@@ -534,7 +560,7 @@ function displayMealPlan(MP,foo){
   if(foo===1){
     let html ='';
     html += `
-            <div class="col l4 m4 s12">
+            <div class="col l5 m4 s12">
               <div class="card " >
                 <div class="card-image">
                   <img src="${MP.image}">                  
@@ -542,6 +568,10 @@ function displayMealPlan(MP,foo){
                 </div>
                 <div class="card-content">
                   <p>${MP.title}</p>
+                  <ul>
+                  <li>Preparation time: ${MP.readyInMinutes} mins</li>
+                  <li>Number of servings: ${MP.servings}</li>
+                </ul>
                 </div>
               </div>
             </div>
@@ -552,7 +582,7 @@ function displayMealPlan(MP,foo){
   if(foo===2){
     let html ='';
     html += `
-            <div class="col l4 m4 s12">
+            <div class="col l5 m4 s12">
               <div class="card " >
                 <div class="card-image">
                   <img src="${MP.image}">
@@ -560,6 +590,10 @@ function displayMealPlan(MP,foo){
                 </div>
                 <div class="card-content">
                   <p>${MP.title}</p>
+                  <ul>
+                    <li>Preparation time: ${MP.readyInMinutes} mins</li>
+                    <li>Number of servings: ${MP.servings}</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -567,6 +601,29 @@ function displayMealPlan(MP,foo){
 
     document.getElementById('test3').innerHTML = html;
   }
+}
+
+
+async function getJoke(){
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  };
+
+  let response = await fetch(`https://api.spoonacular.com/food/jokes/random?&apiKey=9e2aa0c0c1864afeae040f883e224c38`, options)
+  let result = await response.json();
+  console.log(result);
+  writeJoke(result);
+}
+
+function writeJoke(data){
+  let html = "";
+  html+=`<p style="text-align: center;">${data.text}</p>`;
+  document.getElementById('joke').innerHTML = html;
+
 }
 /*
 function displaymacros(macros){

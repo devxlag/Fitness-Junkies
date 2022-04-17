@@ -135,14 +135,17 @@
             <div class="parallax" ><img src="pexels-karolina-grabowska-4498606.jpg" class="responsive-img"></div>
           </div>
 
-
+    <div id="joke1" class="modal">
+      <div id="joke" class="modal-content">  
+      </div>
+    </div>
     
     <footer class="page-footer indigo">
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
               <h5 class="white-text">Plan-it Fitness</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              <a onclick="getJoke();" class="grey-text text-lighten-3 modal-trigger"  href="#joke1">Random Food Joke</a>
             </div>
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">General</h5>
@@ -162,8 +165,7 @@
           </div>
         </div>
 
-        
-      </footer>
+    </footer>
       
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <!-- Compiled and minified JavaScript -->    
@@ -178,14 +180,15 @@
         </script>
 
         <script>
-        /*const btnScrollToTop = document.querySelector ("#btnScrollToTop");
+        const btnScrollToTop = document.querySelector ("#btnScrollToTop");
           btnScrollToTop.addEventListener ("click", function () {
               // window.scrollTo(0, 0):
               $("html, body").animate({ scrollTop: 0 }, "slow");
-          }); */
+          }); 
+
           window.addEventListener('scroll', function(){
             var scroll = document.querySelector("#btnScrollToTop");
-            scroll.classList.toggle("active", window.scrollY > 200)
+            scroll.classList.toggle("active", window.scrollY > 100)
           })
 
           function scrollToTop(){

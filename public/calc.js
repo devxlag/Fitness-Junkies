@@ -3,6 +3,8 @@ M.AutoInit();
 var level = "";
 var gender = "";
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.dropdown-trigger');
   M.Dropdown.init(elems, {coverTrigger:false});
@@ -67,12 +69,12 @@ function signOut() {
             <br><br><br>
               <div class = "container">
               <div class="row">
-              <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+              <div class="col s20 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
               <div class="card-panel blue lighten-4">
                   <p>Your BMI is: ${result.data.bmi}<br><b>This indicates your weight is in the ${result.data.health} category of your height.</b>
                   <br><br>${recommend}<br><br></p>
               </div>
-              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Food</a> page!</p>
+              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Meals Search</a> or <a id="foodredir" href="macros.html">Macros Meals Planner</a> page!</p>
               </div>
               </div>
             </div>
@@ -134,7 +136,7 @@ async function getCalories(){
                   <b>Extreme Weight Gain(${result.data.goals['Extreme weight gain']['gain weight']}}) Calories: ${result.data.goals['Extreme weight gain']['calory']} </b><br>
                   <p>
               </div>
-              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Food</a> page!</p>
+              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Meals Search</a> or <a id="foodredir" href="macros.html">Macro Meal Planner</a> page!</p>
               </div>
               </div>
             </div>
@@ -179,11 +181,33 @@ async function getBodyFat(){
                   <b>Body Fat (BMI method): ${result.data['Body Fat (BMI method)']}</b><br>
                   </p>
               </div>
-              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Food</a> page!</p>
+              <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Meals Search</a> or <a id="foodredir" href="macros.html">Macro Meal Planner</a> page!</p>
               </div>
               </div>
             </div>      
               `;
               
   bodyfat.innerHTML = html; 
+}
+
+async function getJoke(){
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  };
+
+  let response = await fetch(`https://api.spoonacular.com/food/jokes/random?&apiKey=9e2aa0c0c1864afeae040f883e224c38`, options)
+  let result = await response.json();
+  console.log(result);
+  writeJoke(result);
+}
+
+function writeJoke(data){
+  let html = "";
+  html+=`<p style="text-align: center;">${data.text}</p>`;
+  document.getElementById('joke').innerHTML = html;
+
 }
