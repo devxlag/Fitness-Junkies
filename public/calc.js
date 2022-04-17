@@ -1,11 +1,29 @@
 M.AutoInit();
 
+
+
 var level = "";
 var gender = "";
 
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.dropdown-trigger');
   M.Dropdown.init(elems, {coverTrigger:false});
+});
+
+
+var btn = $('#myybutton');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 50) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
 });
 
   

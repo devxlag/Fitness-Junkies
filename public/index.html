@@ -9,7 +9,9 @@
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <title>Plan-it Fitness</title>
+        
         <style>
             body {
                 display: flex;
@@ -21,10 +23,7 @@
             .parallax-container{
                 height:300px;
             }
-            #logo {
-                width: 100px;
-                height: 60px;
-            }
+            
             
 
             main {
@@ -34,55 +33,22 @@
             /* ul li{
                 display: inline;
             } */
-           #myBtn {
-                display: none; /* Hidden by default */
-                position: fixed; /* Fixed/sticky position */
-                bottom: 20px; /* Place the button at the bottom of the page */
-                right: 30px; /* Place the button 30px from the right */
-                z-index: 99; /* Make sure it does not overlap */
-                border: none; /* Remove borders */
-                outline: none; /* Remove outline */
-                background-color: red; /* Set a background color */
-                color: white; /* Text color */
-                cursor: pointer; /* Add a mouse pointer on hover */
-                padding: 15px; /* Some padding */
-                border-radius: 10px; /* Rounded corners */
-                font-size: 18px; /* Increase font size */
-            } 
+           
 
-            #myBtn:hover {
-            background-color: #555; /* Add a dark-grey background on hover */
-            }
-            #btnScrollToTop {
-              position: fixed;
-              right: 15px;
-              bottom: 20px;
-              width: 50px;
-              height: 50px;
-              border-radius: 50%;
-              background: #e62739;
-              box-shadow: 0 0 10px Orgba(0, 0,0, 0.25);
-              color : #ffffff;
-              border: none;
-              outline: none;
-              cursor: pointer;
-              z-index: 99;
-              visibility: hidden;
-              opacity: 0; 
-              transition: 0.5s;
-            }
-            #btnScrollToTop.active {
-              background: #cc2333;
-              visibility: visible;
-              opacity: 1;
-            }
+            
+
+
+          
         </style>
     </head>
 
     <body>
+      
       <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li> -->
-      <button onclick="scrollToTop()" id="btnScrollToTop"><i class="material-icons">arrow_upward</i></button>
-        
+      
+      <a id="myybutton">
+        <i class="material-icons">expand_less</i></i>
+      </a> 
       <ul id="dropdown1" class="dropdown-content">
           <li ><a href="bmi.html">BMI Calculator</a></li>
           <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
@@ -136,6 +102,8 @@
             <div class="parallax" ><img src="./images/pexels-karolina-grabowska-4498606.jpg" class="responsive-img"></div>
           </div>
 
+         
+
     <div id="joke1" class="modal">
       <div id="joke" class="modal-content">  
       </div>
@@ -167,38 +135,18 @@
         </div>
 
     </footer>
-      
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <!-- Compiled and minified JavaScript -->    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-           $(document).ready(function(){
-                $('.sidenav').sidenav({edge:'left'});
-            })
-        </script>
-        <script src="script.js">
-              
-        </script>
-
-        <script>
-        const btnScrollToTop = document.querySelector ("#btnScrollToTop");
-          btnScrollToTop.addEventListener ("click", function () {
-              // window.scrollTo(0, 0):
-              $("html, body").animate({ scrollTop: 0 }, "slow");
-          }); 
-
-          window.addEventListener('scroll', function(){
-            var scroll = document.querySelector("#btnScrollToTop");
-            scroll.classList.toggle("active", window.scrollY > 100)
-          })
-
-          function scrollToTop(){
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera 
-          }
-          
-        </script>
-        
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+ 
+    <!-- Compiled and minified JavaScript -->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function(){
+            $('.sidenav').sidenav({edge:'left'});
+        })
+    </script>
+    <script src="script.js"></script>
         
     </body>
     

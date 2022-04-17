@@ -12,62 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
     
       
     
-     /* The heart of the matter */
- @import "https://unpkg.com/open-props";
- /* @import "https://unpkg.com/open-props/normalize.min.css"; */
-   .media-scroller {
---_spacer: var(--size-3);
-display: grid;
-gap: var(--_spacer);
-grid-auto-flow: column;
-grid-auto-columns: 21%;
-
-padding: 0 var(--_spacer) var(--_spacer);
-
-overflow-x: auto;
-overscroll-behavior-inline: contain;
-}
-
-.media-scroller--with-groups {
-grid-auto-columns: 80%;
-}
-
-.media-group {
-display: grid;
-gap: var(--_spacer);
-grid-auto-flow: column;
-}
-
-.media-element {
-display: grid;
-grid-template-rows: min-content;
-gap: var(--_spacer);
-padding: var(--_spacer);
-background: var(--surface-2);
-border-radius: var(--radius-2);
-box-shadow: var(--shadow-2);
-}
-
-.media-element > img {
-inline-size: 100%;
-aspect-ratio: 1 / 1;
-object-fit: cover;
-}
-
-.snaps-inline {
-scroll-snap-type: inline mandatory;
-scroll-padding-inline: var(--_spacer, 1rem);
-}
-
-.snaps-inline > * {
-scroll-snap-align: start;
-}
+    
 
 /* .nutrients{
   align-items: center;
@@ -99,6 +51,9 @@ body {
     </style>
 </head>
 <body>
+  <a id="myybutton">
+    <i class="material-icons">expand_less</i></i>
+  </a>
   <ul id="dropdown1" class="dropdown-content">
     <li ><a href="bmi.html">BMI Calculator</a></li>
     <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
@@ -284,11 +239,10 @@ body {
   
       </footer>
 
-
-    <script src="script.js">
-        //  M.AutoInit();
-       
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+    
     
 </body>
 </html>

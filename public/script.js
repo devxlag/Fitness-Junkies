@@ -6,6 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+var btn = $('#myybutton');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 50) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
 
 
 function onSignIn(googleUser) {

@@ -1,3 +1,95 @@
+#logo {
+  width: 100px;
+  height: 60px;
+}
+
+#myybutton {
+  display: inline-block;
+  background-color:#dc3545;
+  width: 45px;
+  height: 40px;
+  line-height:60px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+  opacity .5s, visibility .5s;
+  opacity: 0;
+  z-index: 1000;
+}
+
+#myybutton i{
+  font-size:32px;
+  color:white;
+}
+
+
+
+#myybutton:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+
+#myybutton.show {
+  opacity: 1;
+}
+
+
+ /* The heart of the matter 
+ @import "https://unpkg.com/open-props";
+ /* @import "https://unpkg.com/open-props/normalize.min.css"; 
+   .media-scroller {
+--_spacer: var(--size-3);
+display: grid;
+gap: var(--_spacer);
+grid-auto-flow: column;
+grid-auto-columns: 21%;
+
+padding: 0 var(--_spacer) var(--_spacer);
+
+overflow-x: auto;
+overscroll-behavior-inline: contain;
+}
+
+.media-scroller--with-groups {
+grid-auto-columns: 80%;
+}
+
+.media-group {
+display: grid;
+gap: var(--_spacer);
+grid-auto-flow: column;
+}
+
+.media-element {
+display: grid;
+grid-template-rows: min-content;
+gap: var(--_spacer);
+padding: var(--_spacer);
+background: var(--surface-2);
+border-radius: var(--radius-2);
+box-shadow: var(--shadow-2);
+}
+
+.media-element > img {
+inline-size: 100%;
+aspect-ratio: 1 / 1;
+object-fit: cover;
+}
+
+.snaps-inline {
+scroll-snap-type: inline mandatory;
+scroll-padding-inline: var(--_spacer, 1rem);
+}
+
+.snaps-inline > * {
+scroll-snap-align: start;
+}*/
+
+
+
 /*  {
     box-sizing: border-box;
     margin: 0;
