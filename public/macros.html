@@ -93,7 +93,7 @@ scroll-snap-align: start;
         height: 60px;
   }
 body {
-  background-image: url(./pexels-ella-olsson-1640770.jpg);
+  background-image: url(./images/pexels-ella-olsson-1640770.jpg);
   background-size: 50%;
 }  
     </style>
@@ -113,17 +113,17 @@ body {
   <nav class="nav-wrapper indigo ">
     <div class="container" > 
       
-      <a href="index.html" class="brand-logo"><img id="logo" src="logo (2).jpg"/></a>
+      <a href="index.html" class="brand-logo"><img id="logo" src="./images/logo (2).jpg"/></a>
       <a href="#" class="sidenav-trigger" data-target="mobile-links">
         <i class="material-icons right">menu</i>
       </a>
-      <ul id="navbar-items" class ="right hide-on-med-and-down">
+      <ul id="navbar-items" class ="right hide-on-med-and-down">          
           <li><a href="meal.html">Meals</a></li>
           <li><a href="macros.html">Macro Meal Planner</a></li>
           <li ><a href="workouts.html">Workouts</a></li>
           <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
           <li><a class='dropdown-trigger' href='#' data-target='dropdown2'>Calculators</a></li>
-          <li><a href="#" onclick="signOut();">Sign out</a></li>                
+          <li><a href="#">Sign out</a></li>                
       </ul>              
     </div>          
   </nav>
@@ -200,16 +200,7 @@ body {
           </div>
         
           <div class="row">
-            <div class="input-field col s6">            
-              <select onclick="GetSelectedTimeFrame()" class="browser-default" id = "time_frame">
-                <option value="" disabled selected>Meal Plan Time Frame</option>
-                <option value="day">Day</option>
-                <option value="week">Week</option>
-              </select>
-              
-              <!-- <label>Materialize Select</label> -->
-            </div>
-
+          
             <div class="input-field col s6">            
               <select onclick="GetSelectedDiet()" class="browser-default" id = "diet">
                 <option value="" disabled selected>Diet Tpye</option>          
@@ -232,7 +223,6 @@ body {
           <i class="material-icons right">send</i>
         </button>
       </div>
-        <br> <br>
       </section>
       
       <section>
