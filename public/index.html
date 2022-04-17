@@ -21,7 +21,7 @@
                 padding:0;
             }
             .parallax-container{
-                height:300px;
+                height:350px;
             }
             
             
@@ -33,7 +33,115 @@
             /* ul li{
                 display: inline;
             } */
-           
+            .formBox{
+              width: 350px;
+              height: 450px;
+              position: relative; 
+              margin:auto;
+              padding: 10px;
+              background: white;
+              border-radius: 5%;
+              overflow: hidden; 
+            }
+            .buttons{
+              font-size: large;
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+              width: 220px;
+              margin:auto;
+              position: relative;
+              box-shadow: 9px;
+              border-radius: 30px;
+            }
+            .toggle_btn{
+              cursor: pointer;
+              position: relative;
+              outline: none;
+              border: 0;
+              background: transparent;
+              color: none;
+            }
+            #btn{
+              position: absolute;
+              width: 100px;
+              height: 100%;
+              border-radius: 30px;
+              background: lightskyblue;
+              transition: 0.5s;
+              left: 0px;
+            }
+            .inputLoginGroup{
+              position: absolute;
+              width: 280px;
+              transition: 0.5s;
+              top: 50px;
+            }
+            .inputRegisterGroup
+            {
+              position: absolute;
+              width: 280px;
+              transition: 0.5s;
+              top: 50px;
+            }
+            form h4{
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              text-align: center;
+              font-weight: 600;
+            }
+            form label{
+              display: flex;
+              margin-top: 20px;
+              font-size: 15px;
+              color: #000;
+              font-style: italic;
+            }
+            #login{
+              left: 50px;
+            }
+            #register{
+              left: 450px;
+            }
+            #login input{
+              width: 100%;
+              padding: 7px;
+              height: 40%;
+              border: none;
+              border: 1px solid grey;
+              border-radius: 6px;
+              
+            }
+            #register input{
+              width: 100%;
+              padding: 7px;
+              height: 40%;
+              border: none;
+              border: 1px solid grey;
+              border-radius: 6px;
+            }
+            #login .submit_btn{
+              width: 75px;
+              height: 25px;
+              margin-top: 10px;
+              border: none;
+              border-radius: 6px;
+              font-size: 18px;
+              font-weight: 600;
+              background-color: rgb(57, 129, 156);
+            }
+            #register .submit_btn{
+              width: 100px;
+              height: 25px;
+              margin-top: 10px;
+              border: none;
+              border-radius: 6px;
+              font-size: 18px;
+              font-weight: 600;
+              background-color: rgb(57, 129, 156);
+            }
+            form p{
+              text-align: center;
+              padding-top: 20px;
+              font-size: 18px;
+            }
 
             
 
@@ -73,6 +181,8 @@
                 <li ><a href="workouts.html">Workouts</a></li>
                 <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
                 <li><a class='dropdown-trigger' href='#' data-target='dropdown2'>Calculators</a></li>
+                <li><a href="#">|</a></li>
+                <li><a class= "modal-trigger" href="#signIn">Sign In</a></li>
                 <li><a href="#">Sign out</a></li>                
             </ul>              
           </div>          
@@ -88,13 +198,48 @@
         <li><a href="#">Sign out</a></li>
     </ul>
         
+    <!--Modal For Sign In--> 
+    <div id="signIn" class="modal">
+      <div class="formBox">
+        <div class="buttons">
+          <div id="btn"></div>
+          <div class="center">
+            <button type="button" onclick="login()" class="toggle_btn">Log In</button>
+            <button type="button" onclick="register()" class="toggle_btn">Sign Up</button>
+          </div>
+        </div>
+        <form id="login" class="inputLoginGroup"> 
+          <h4>Login To Your Account</h4>
+          <label>Email</label>
+          <input type="email"placeholder="" required>
+          <label>Password</label>
+          <input type="password" placeholder="" required>
+          <button type="submit" class="submit_btn">Log In</button>
+        </form>
+        <form id="register" class="inputRegisterGroup">
+          <h4>Create an Account</h4>
+          <label>First Name</label>
+          <input type="text" placeholder="" required>
+          <label>Last Name</label>
+          <input type="text" placeholder="" required>
+          <label>Email</label>
+          <input type="email"placeholder="" required>
+          <label>Create Password</label>
+          <input type="password" placeholder="" required>
+          <label>Confirm Password</label>
+          <input type="password" placeholder="" required>
+          <button type="submit" class="submit_btn">Sign Up</button>
+          <span><p>By registering, you have agreed to the <u>Terms and Conditions</u> and <u>Privacy Policy</u>.</p></span>
+        </form>
+      </div>
+    </div>
 
         <div class="parallax-container">
             <div class="parallax"><img src="./images/pexels-ella-olsson-1640777.jpg" class="responsive-img"></div>
           </div>
           <div class="section white">
             <div class="row container">
-              <h2 class="header">Plan-it Fitness</h2>
+              <h2 class="header" style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Plan-it Fitness</h2>
               <p class="grey-text text-darken-3 lighten-3">About</p>
             </div>
           </div>
@@ -147,7 +292,22 @@
         })
     </script>
     <script src="script.js"></script>
-        
+    <script>
+      var x=document.getElementById("login");
+      var y=document.getElementById("register");
+      var z=document.getElementById("btn");
+      function login (){
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0px";
+      }
+      function register(){
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+      }
+    </script>
+
     </body>
     
   </html>
