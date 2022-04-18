@@ -1,11 +1,29 @@
+@font-face {
+  font-family: "fitFont";
+  src: url("./fonts/LeagueGothic-Italic.otf"),
+  url("./fonts/LeagueGothic-Regular.otf"),
+  url("./fonts/LeagueGothic-CondensedRegular.otf");
+}
+
+
+* {
+
+  font-family: fitFont;
+}
+
+
+p{
+  font-size: x-large;
+}
+
 #logo {
   width: 100px;
-  height: 60px;
+  height: 80px;
 }
 
 #myybutton {
   display: inline-block;
-  background-color:#dc3545;
+  background-color:indigo;
   width: 45px;
   height: 40px;
   line-height:60px;
@@ -89,24 +107,7 @@ scroll-snap-align: start;
 }*/
 
 
-
-/*  {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    /*scroll-behavior: smooth; 
-    font-family: 'Oswald', sans-serif;
-}
-
-
-body {
-background-color: white;
-
-
-}
-.navbar {
-    display:flex;
-    background-color: #03396c;/*rgb(28, 35, 51); /* 20 16 20 
+/*rgb(28, 35, 51); /* 20 16 20 
     height:80px;
     justify-content: flex-start; 
     align-items: center; 
