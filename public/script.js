@@ -377,7 +377,7 @@ async function getRecipe(){
 
   
 function displayRecipe(data){
-  let card = document.querySelector("#content");  
+  
   let html = '';
   var error = `<div class = "container">`;
   if(data.count == 0){
@@ -389,41 +389,46 @@ function displayRecipe(data){
                   </div>
               </div>`;
     document.getElementById('searchResults').innerHTML = error;
+    $('body, html').animate({ scrollTop: $("#searchResults").offset().top }, 1000);
+    
   }
   else{
-  for(i in data.hits){
-    var dlabels = ``;
-    for(j in data.hits[i].recipe.dietLabels){
-      dlabels +=  `${data.hits[i].recipe.dietLabels[j]}`+`<br>`;
-    }
-    var hlabels = ``;
-    for(k in data.hits[i].recipe.healthLabels){
-      hlabels += `${data.hits[i].recipe.healthLabels[k]}`+`<br>`;
-    }
-    html += `<div class="row" >
-                <div class="col s12 m7 col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
-                  <div  class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                      <img class="activator" src="${data.hits[i].recipe.images.REGULAR.url}">
-                    </div>
-                    <div class="card-content">
-                      <span class="card-title activator grey-text text-darken-4" style="font-family:Times New Roman;">${data.hits[i].recipe.label}<i class="material-icons right">more_vert</i></span>
-                    </div> 
-                    <div class="card-action">
-                      <a id="details" href="${data.hits[i].recipe.url}" target="_blank">Detailed Instructions<i class="material-icons">call_made</i></a>
-                    </div>     
-                    <div class="card-reveal">
-                      <span class="card-title grey-text text-darken-4">${data.hits[i].recipe.label}<i class="material-icons right">close</i></span>
-                      <p>Diet Labels:</p>
-                      <p styl>${dlabels}</p>
-                      <p>Health Labels:</p>
-                      <p>${hlabels}</p>
+    for(i in data.hits){
+      var dlabels = ``;
+      for(j in data.hits[i].recipe.dietLabels){
+        dlabels +=  `${data.hits[i].recipe.dietLabels[j]}`+`<br>`;
+      }
+      var hlabels = ``;
+      for(k in data.hits[i].recipe.healthLabels){
+        hlabels += `${data.hits[i].recipe.healthLabels[k]}`+`<br>`;
+      }
+      html += `<div class="row" >
+                  <div class="col s12 m7 col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+                    <div  class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="${data.hits[i].recipe.images.REGULAR.url}">
+                      </div>
+                      <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4" style="font-family:Times New Roman;">${data.hits[i].recipe.label}<i class="material-icons right">more_vert</i></span>
+                      </div> 
+                      <div class="card-action">
+                        <a id="details" href="${data.hits[i].recipe.url}" target="_blank">Detailed Instructions<i class="material-icons">call_made</i></a>
+                      </div>     
+                      <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">${data.hits[i].recipe.label}<i class="material-icons right">close</i></span>
+                        <p>Diet Labels:</p>
+                        <p styl>${dlabels}</p>
+                        <p>Health Labels:</p>
+                        <p>${hlabels}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>`;
-  };
-  card.innerHTML = html;}
+                </div>`;
+      };
+    document.getElementById('mealresult').innerHTML= html;
+    $('body, html').animate({ scrollTop: $("#mealresult").offset().top }, 1000);
+
+  }
  }
 
  function GetSelectedGoal(){
@@ -514,6 +519,7 @@ function displayMacros(data){
             </div>
           </div>`;
     document.getElementById('content0').innerHTML = html;
+    $('body, html').animate({ scrollTop: $("#content0").offset().top }, 1000);    
 }
 
 function displayMealPlan(MP,foo){
@@ -536,7 +542,6 @@ function displayMealPlan(MP,foo){
               </div>
             </div>
           `;
-
     document.getElementById('test1').innerHTML = html;
   }
   if(foo===1){

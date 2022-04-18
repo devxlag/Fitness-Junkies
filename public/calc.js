@@ -1,7 +1,15 @@
 M.AutoInit();
 
-
-
+/*
+function submit(event){
+  event.preventDefault();//prevents page redirection
+      
+ }
+ 
+ //attach the submit function to the submit event of myForm    
+ document.forms['myForm1'].addEventListener('submit', submit);
+ document.forms['myForm2'].addEventListener('submit', submit);
+*/
 var level = "";
 var gender = "";
 
@@ -58,7 +66,7 @@ async function getBMI(){
                 </div>`
 
   BMI.innerHTML = html;
-  $('body, html').animate({ scrollTop: $("#res").offset().top }, 1000);
+  $('body, html').animate({ scrollTop: $("#res1").offset().top }, 1000);
   }
   else{    
     const options = {
@@ -106,6 +114,7 @@ function displayBMI(result){
             </div>
           </div>`;
   BMI.innerHTML = html;
+  $('body, html').animate({ scrollTop: $("#res1").offset().top }, 1000);
   
 }
 
@@ -152,6 +161,7 @@ function displayDCR(result){
               </div>
             </div>`;
   calories.innerHTML = html;
+  $('body, html').animate({ scrollTop: $("#res3").offset().top }, 1000);
 }
 
 //Body Fat Percentage
@@ -196,6 +206,7 @@ function displayBFP(result){
           </div> `;
               
   document.getElementById('res2').innerHTML = html;
+  $('body, html').animate({ scrollTop: $("#res2").offset().top }, 1000);
 }
 
 async function getJoke(){
