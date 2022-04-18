@@ -403,7 +403,7 @@ function displayRecipe(data){
         hlabels += `${data.hits[i].recipe.healthLabels[k]}`+`<br>`;
       }
       html += `<div class="row" >
-                  <div class="col s12 m7 col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+                  <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                     <div  class="card">
                       <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="${data.hits[i].recipe.images.REGULAR.url}">
