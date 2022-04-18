@@ -505,11 +505,11 @@ async function GetMealPlan(macs){
 
 function displayMacros(data){
   let html = '';
-  html += `<div class="row">
+  html += `<div class="row" style="font-size: 20px;">
             <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
               <div class="card-panel blue lighten-4" style="text-align: center">
-              <span class="white-text">Macros</span><br>
-              <span class="white-text"><ul>
+              <span><b>Macros</b></span><br>
+              <span><ul>
                 <li>Calories: ${(data.nutrients.calories).toFixed(0)}</li>
                 <li>Carbohydrates: ${(data.nutrients.carbohydrates).toFixed(0)}</li>
                 <li>Fat: ${(data.nutrients.fat).toFixed(0)}</li>
