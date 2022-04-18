@@ -1,264 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Search</title>
-    
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- Compiled and minified JavaScript -->
-    
-    <style>
-      
-    body{
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Search</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Compiled and minified JavaScript -->
+
+  <style>
+    body {
       background-image: url(./images/pexels-ella-olsson-1640774.jpg);
       background-size: 50%;
     }
-  </style>  
+  </style>
 </head>
+
 <body>
   <a id="myybutton">
     <i class="material-icons">expand_less</i></i>
   </a>
   <ul id="dropdown1" class="dropdown-content">
-    <li ><a href="bmi.html">BMI Calculator</a></li>
-    <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
-    <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
-</ul>
-<ul id="dropdown2" class="dropdown-content">
-  <li ><a href="bmi.html">BMI Calculator</a></li>
-  <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
-  <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
-</ul>
-<div class="navbar fixed">
-  <nav class="nav-wrapper indigo ">
-    <div class="container" > 
-      
-      <a href="index.html" class="brand-logo"><img id="logo" src="./images/logo.png"/></a>
-      <a href="#" class="sidenav-trigger" data-target="mobile-links">
-        <i class="material-icons right">menu</i>
-      </a>
-      <ul id="navbar-items" class ="right hide-on-med-and-down">
+    <li><a href="bmi.html">BMI Calculator</a></li>
+    <li><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+    <li><a href="dcr.html">Daily Calorie Requirements</a></li>
+  </ul>
+  <ul id="dropdown2" class="dropdown-content">
+    <li><a href="bmi.html" style="color:#1a237e;">BMI Calculator</a></li>
+    <li><a href="bfp.html" style="color:#1a237e;">Body Fat Percentage Calculator</a></li>
+    <li><a href="dcr.html" style="color:#1a237e;">Daily Calorie Requirements</a></li>
+  </ul>
+  <div class="navbar fixed">
+    <nav class="nav-wrapper indigo ">
+      <div class="container">
+
+        <a href="index.html" class="brand-logo"><img id="logo" src="./images/logo.png" /></a>
+        <a href="#" class="sidenav-trigger" data-target="mobile-links">
+          <i class="material-icons right">menu</i>
+        </a>
+        <ul id="navbar-items" class="right hide-on-med-and-down">
           <li><a href="meal.html">Meals</a></li>
           <li><a href="macros.html">Macro Meal Planner</a></li>
-          <li ><a href="workouts.html">Workouts</a></li>
+          <li><a href="workouts.html">Workouts</a></li>
           <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
           <li><a class='dropdown-trigger' href='#' data-target='dropdown2'>Calculators</a></li>
-          <li><a href="#">|</a></li>
-          <li><a href="#" >Sign out</a></li>                
-      </ul>              
-    </div>          
-  </nav>
-</div>
+          <li>| &nbsp;</li>
+          <li><a href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-<ul class="sidenav" id="mobile-links">
-  <li><a href="index.html"><i class="material-icons prefix">home</i>Home</a></li>
-  <li><a href="meal.html"><i class="material-icons prefix">local_dining</i>Meals</a></li>
-  <li><a href="macros.html"><i class="material-icons prefix">local_dining</i>Macro Meal Planner</a></li>
-  <li ><a href="workouts.html"><i class="material-icons prefix">fitness_center</i>Workouts</a></li>
-  <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons prefix">exposure</i>Calculators</a></li>
-  <li><a href="#">Sign out</a></li>
-</ul>
-        
-      <main class="container z-depth-5" style="background-color: white;">
-        <h1 style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">Meal Search</h1>
+  <ul class="sidenav" id="mobile-links">
+    <li><a href="index.html"><i class="material-icons prefix">home</i>Home</a></li>
+    <li><a href="meal.html"><i class="material-icons prefix">local_dining</i>Meals</a></li>
+    <li><a href="macros.html"><i class="material-icons prefix">local_dining</i>Macro Meal Planner</a></li>
+    <li><a href="workouts.html"><i class="material-icons prefix">fitness_center</i>Workouts</a></li>
+    <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i
+          class="material-icons prefix">exposure</i>Calculators</a></li>
+    <li><a href="#">Sign out</a></li>
+  </ul>
+
+  <main class="container z-depth-5" style="background-color: white;">
+    <h1 style="text-align: center;">Meal Search</h1>
 
 
-        <section>
+    <section>
 
-          <div class="row">
-            <form class="col s5 offset-s4 offset-m4">
-             
-                <div class="input-field col s8">
-                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Food</label>
-                </div>
-                <div class="input-field col s8">
-                  <textarea id="textarea2" class="materialize-textarea"></textarea>
-                  <label for="textarea2">Calories(Kcal/serving)(Optional)</label>
-                </div>
-              
-            </form>
+      <div class="row">
+        <form class="col s5 offset-s4 offset-m4">
+
+          <div class="input-field col s8">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Food</label>
           </div>
-          <div class="row center">
-          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Inclusions</a>
-          <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Exclusions</a>
+          <div class="input-field col s8">
+            <textarea id="textarea2" class="materialize-textarea"></textarea>
+            <label for="textarea2">Calories(Kcal/serving)(Optional)</label>
           </div>
-          <br>
-          <br>
-          <div class="center">
-          <button id= "bigbutton" class="btn waves-effect waves-light" onclick ="getRecipe()"type="submit" name="action">Search
-            <i class="material-icons left">search</i>
-          </button>
+
+        </form>
+      </div>
+      <div class="row center">
+        <a class="waves-effect waves-light btn modal-trigger indigo" href="#modal1">Inclusions</a>
+        <a class="waves-effect waves-light btn modal-trigger indigo" href="#modal2">Exclusions</a>
+      </div>
+      <br>
+      <br>
+      <div class="center">
+        <button id="bigbutton" class="btn waves-effect waves-light indigo" onclick="getRecipe()" type="submit"
+          name="action">Search
+          <i class="material-icons left">search</i>
+        </button>
+      </div>
+      <br><br>
+
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Choose your Meal Inclusions</h4>
+          <form action="#">
+            <label>
+              <input id="balancedStat" type="checkbox" onclick="Checkme()" />
+              <span>Balanced</span>
+            </label>
+            <br>
+            <label>
+              <input id="fibreStat" type="checkbox" onclick="Checkme()" />
+              <span>High Fibre</span>
+            </label>
+            <br>
+            <label>
+              <input id="protStat" type="checkbox" onclick="Checkme()" />
+              <span>High Protein</span>
+            </label>
+            <br>
+            <label>
+              <input id="carbStat" type="checkbox" onclick="Checkme()" />
+              <span>Low Carb</span>
+            </label>
+            <br>
+            <label>
+              <input id="fatStat" type="checkbox" onclick="Checkme()" />
+              <span>Low Fat</span>
+            </label>
+            <br>
+            <label>
+              <input id="saltStat" type="checkbox" onclick="Checkme()" />
+              <span>Low Sodium</span>
+            </label>
+            <br>
+            <label>
+              <input id="veganStat" type="checkbox" onclick="Checkme()" />
+              <span>Vegan</span>
+            </label>
+            <br>
+            <label>
+              <input id="vegeStat" type="checkbox" onclick="Checkme()" />
+              <span>Vegetarian</span>
+            </label>
+            <br>
+            <label>
+              <input id="ketoStat" type="checkbox" onclick="Checkme()" />
+              <span>Keto</span>
+            </label>
+            <br>
+            <label>
+              <input id="paleoStat" type="checkbox" onclick="Checkme()" />
+              <span>Paleo</span>
+            </label>
+            <br>
+            <label>
+              <input id="pesStat" type="checkbox" onclick="Checkme()" />
+              <span>Pescatarian</span>
+            </label>
+
+          </form>
         </div>
-        <br><br>
-          
-
-          <!-- Modal Structure -->
-          <div id="modal1" class="modal">
-            <div class="modal-content">
-              <h4>Choose your Meal Inclusions</h4>
-              <form action="#">
-                <label>
-                  <input id = "balancedStat" type="checkbox" onclick="Checkme()"  />
-                  <span>Balanced</span>
-                </label>
-                <br>              
-                <label>
-                  <input id = "fibreStat" type="checkbox" onclick="Checkme()"  />
-                  <span>High Fibre</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "protStat" type="checkbox"  onclick="Checkme()" />
-                  <span>High Protein</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "carbStat" type="checkbox" onclick="Checkme()" />
-                  <span>Low Carb</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "fatStat" type="checkbox" onclick="Checkme()"  />
-                  <span>Low Fat</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "saltStat" type="checkbox"  onclick="Checkme()" />
-                  <span>Low Sodium</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "veganStat" type="checkbox"  onclick="Checkme()" />
-                  <span>Vegan</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "vegeStat" type="checkbox"  onclick="Checkme()" />
-                  <span>Vegetarian</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "ketoStat" type="checkbox"  onclick="Checkme()" />
-                  <span>Keto</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "paleoStat" type="checkbox"  onclick="Checkme()" />
-                  <span>Paleo</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "pesStat" type="checkbox"  onclick="Checkme()" />
-                  <span>Pescatarian</span>
-                </label>
-              
-            </form>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Include</a>
-            </div>
-          </div>
-
-          <div id="modal2" class="modal">
-            <div class="modal-content">
-              <h4>Select your Dietary Restrictions:</h4>
-              <form action="#">
-                <label>
-                  <input id = "dairyStat" type="checkbox" onclick="Checkme()"  />
-                  <span>Dairy Free</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "glutenStat" type="checkbox" onclick="Checkme()"  />
-                  <span>Gluten Free</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "peanutStat" type="checkbox" onclick="Checkme()"  />
-                  <span>Peanut Free</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "soyStat" type="checkbox"  onclick="Checkme()" />
-                  <span>Soy Free</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "fishStat" type="checkbox" onclick="Checkme()"  />
-                  <span>No Shell Fish</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "meatStat" type="checkbox"  onclick="Checkme()" />
-                  <span>No Red Meat</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "porkStat" type="checkbox"  onclick="Checkme()" />
-                  <span>No Pork</span>
-                </label>
-                <br>
-                <label>
-                  <input id = "eggStat" type="checkbox"  onclick="Checkme()" />
-                  <span>Eggless</span>
-                </label>
-    
-            </form>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Exclude</a>
-            </div>
-          </div>
-
-        </section>
-
-        <section >
-          <div class="containter">
-            <div id ="mealresult"></div> 
-            <div id ="searchResults"></div> 
-          </div>
-        </section>
-      </main>
-      <div id="joke1" class="modal">
-        <div id="joke" class="modal-content">  
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Include</a>
         </div>
       </div>
-      
-      <footer class="page-footer indigo">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Plan-it Fitness</h5>
-                <a onclick="getJoke();" class="grey-text text-lighten-3 modal-trigger"  href="#joke1">Random Food Joke</a>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">General</h5>
-                <ul id="foot">
-                  <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
-                  <!--<li><a class="grey-text text-lighten-3" href="#!">About</a></li> -->
-                  <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2022 Fitness Junkies
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-  
-      </footer>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <script src="script.js"></script>
-    
+
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Select your Dietary Restrictions:</h4>
+          <form action="#">
+            <label>
+              <input id="dairyStat" type="checkbox" onclick="Checkme()" />
+              <span>Dairy Free</span>
+            </label>
+            <br>
+            <label>
+              <input id="glutenStat" type="checkbox" onclick="Checkme()" />
+              <span>Gluten Free</span>
+            </label>
+            <br>
+            <label>
+              <input id="peanutStat" type="checkbox" onclick="Checkme()" />
+              <span>Peanut Free</span>
+            </label>
+            <br>
+            <label>
+              <input id="soyStat" type="checkbox" onclick="Checkme()" />
+              <span>Soy Free</span>
+            </label>
+            <br>
+            <label>
+              <input id="fishStat" type="checkbox" onclick="Checkme()" />
+              <span>No Shell Fish</span>
+            </label>
+            <br>
+            <label>
+              <input id="meatStat" type="checkbox" onclick="Checkme()" />
+              <span>No Red Meat</span>
+            </label>
+            <br>
+            <label>
+              <input id="porkStat" type="checkbox" onclick="Checkme()" />
+              <span>No Pork</span>
+            </label>
+            <br>
+            <label>
+              <input id="eggStat" type="checkbox" onclick="Checkme()" />
+              <span>Eggless</span>
+            </label>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Exclude</a>
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <div class="containter">
+        <div id="mealresult"></div>
+        <div id="searchResults"></div>
+      </div>
+    </section>
+  </main>
+  <div id="joke1" class="modal">
+    <div id="joke" class="modal-content">
+    </div>
+  </div>
+
+  <footer class="page-footer indigo">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Plan-it Fitness</h5>
+          <a onclick="getJoke();" class="grey-text text-lighten-3 modal-trigger" href="#joke1">Random Food Joke</a>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">General</h5>
+          <ul id="foot">
+            <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+            <!--<li><a class="grey-text text-lighten-3" href="#!">About</a></li> -->
+            <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2022 Fitness Junkies
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="script.js"></script>
+
 </body>
+
 </html>

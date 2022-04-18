@@ -1,108 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macro Meal Planner</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macro Meal Planner</title>
 
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-    
-      
-    
-    
+  <!-- Compiled and minified JavaScript -->
 
-/* .nutrients{
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* .nutrients{
   align-items: center;
 } */
-.nutrients ul {
- display: flex;
- /* width: 25rem; */
- justify-content: space-evenly;
- list-style: none;
-}
+    .nutrients ul {
+      display: flex;
+      /* width: 25rem; */
+      justify-content: space-evenly;
+      list-style: none;
+    }
 
-@media only screen and (max-width: 550px) {
-  
-  .nutrients ul {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-}
+    @media only screen and (max-width: 550px) {
 
-#logo {
-        width: 100px;
-        height: 60px;
-  }
-body {
-  background-image: url(./images/pexels-ella-olsson-1640770.jpg);
-  background-size: 50%;
-}  
-    </style>
+      .nutrients ul {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+
+    #logo {
+      width: 100px;
+      height: 80px;
+    }
+
+    body {
+      background-image: url(./images/pexels-ella-olsson-1640770.jpg);
+      background-size: 50%;
+    }
+  </style>
 </head>
+
 <body>
   <a id="myybutton">
     <i class="material-icons">expand_less</i></i>
   </a>
   <ul id="dropdown1" class="dropdown-content">
-    <li ><a href="bmi.html">BMI Calculator</a></li>
-    <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
-    <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
-</ul>
-<ul id="dropdown2" class="dropdown-content">
-  <li ><a href="bmi.html">BMI Calculator</a></li>
-  <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
-  <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
-</ul>
-<div class="navbar fixed">
-  <nav class="nav-wrapper indigo ">
-    <div class="container" > 
-      
-      <a href="index.html" class="brand-logo"><img id="logo" src="./images/logo.png"/></a>
-      <a href="#" class="sidenav-trigger" data-target="mobile-links">
-        <i class="material-icons right">menu</i>
-      </a>
-      <ul id="navbar-items" class ="right hide-on-med-and-down">          
+    <li><a href="bmi.html">BMI Calculator</a></li>
+    <li><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+    <li><a href="dcr.html">Daily Calorie Requirements</a></li>
+  </ul>
+  <ul id="dropdown2" class="dropdown-content">
+    <li><a href="bmi.html" style="color:#1a237e;">BMI Calculator</a></li>
+    <li><a href="bfp.html" style="color:#1a237e;">Body Fat Percentage Calculator</a></li>
+    <li><a href="dcr.html" style="color:#1a237e;">Daily Calorie Requirements</a></li>
+  </ul>
+  <div class="navbar fixed">
+    <nav class="nav-wrapper indigo ">
+      <div class="container">
+
+        <a href="index.html" class="brand-logo"><img id="logo" src="./images/logo.png" /></a>
+        <a href="#" class="sidenav-trigger" data-target="mobile-links">
+          <i class="material-icons right">menu</i>
+        </a>
+        <ul id="navbar-items" class="right hide-on-med-and-down">
           <li><a href="meal.html">Meals</a></li>
           <li><a href="macros.html">Macro Meal Planner</a></li>
-          <li ><a href="workouts.html">Workouts</a></li>
+          <li><a href="workouts.html">Workouts</a></li>
           <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
           <li><a class='dropdown-trigger' href='#' data-target='dropdown2'>Calculators</a></li>
           <li><a href="#">|</a></li>
-          <li><a href="#">Sign out</a></li>                
-      </ul>              
-    </div>          
-  </nav>
-</div>
+          <li><a href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-<ul class="sidenav" id="mobile-links">
-  <li><a href="index.html"><i class="material-icons prefix">home</i>Home</a></li>
-  <li><a href="meal.html"><i class="material-icons prefix">local_dining</i>Meals</a></li>
-  <li><a href="macros.html"><i class="material-icons prefix">local_dining</i>Macro Meal Planner</a></li>
-  <li ><a href="workouts.html"><i class="material-icons prefix">fitness_center</i>Workouts</a></li>
-  <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons prefix">exposure</i>Calculators</a></li>
-  <li><a href="#">Sign out</a></li>
-</ul>
-        
+  <ul class="sidenav" id="mobile-links">
+    <li><a href="index.html"><i class="material-icons prefix">home</i>Home</a></li>
+    <li><a href="meal.html"><i class="material-icons prefix">local_dining</i>Meals</a></li>
+    <li><a href="macros.html"><i class="material-icons prefix">local_dining</i>Macro Meal Planner</a></li>
+    <li><a href="workouts.html"><i class="material-icons prefix">fitness_center</i>Workouts</a></li>
+    <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i
+          class="material-icons prefix">exposure</i>Calculators</a></li>
+    <li><a href="#">Sign out</a></li>
+  </ul>
+
   <main class="container z-depth-5" style="background-color:white;">
     <section>
-    <h1 style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">Macro Meal Planner</h1>
-    
-    <div class="row">
+      <h1 style="text-align: center;">Macro Meal Planner</h1>
+
+      <div class="row">
         <form class="col s5 offset-s3 offset-m3">
-          <div class="row" >
-            <div class="input-field col s6" >        
-              <select onclick="GetSelectedGender()" class="browser-default" id = "gender">
+          <div class="row">
+            <div class="input-field col s6">
+              <select onclick="GetSelectedGender()" class="browser-default" id="gender">
                 <option value="" disabled selected>Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -113,32 +112,32 @@ body {
               <label for="t2">Age</label>
             </div>
           </div>
-          <div class="row" >
+          <div class="row">
             <div class="input-field col s6">
-                <textarea id="t3" class="materialize-textarea"></textarea>
-                <label for="t3">Height</label>
+              <textarea id="t3" class="materialize-textarea"></textarea>
+              <label for="t3">Height</label>
             </div>
             <div class="input-field col s6">
-                <textarea id="t4" class="materialize-textarea"></textarea>
-                <label for="t4">Weight</label>
+              <textarea id="t4" class="materialize-textarea"></textarea>
+              <label for="t4">Weight</label>
             </div>
           </div>
-          <div class="row" >
+          <div class="row">
             <div class="input-field col s6">
-                <select onclick="GetSelectedGoal()" class="browser-default" id = "goal">
-                  <option value="" disabled selected>Fitness Goal</option>
-                  <option value="maintain">Maintain Weight</option>
-                  <option value="mildlose">Mild weight Loss</option>
-                  <option value="weightlose">Weight Loss</option>
-                  <option value="extremelose">Extreme Weight loss</option>
-                  <option value="mildgain">Mild Weight Gain</option>
-                  <option value="weightgain">Weight Gain</option>
-                  <option value="extremegain">Extreme weight gain</option>              
-                </select> 
-              
+              <select onclick="GetSelectedGoal()" class="browser-default" id="goal">
+                <option value="" disabled selected>Fitness Goal</option>
+                <option value="maintain">Maintain Weight</option>
+                <option value="mildlose">Mild weight Loss</option>
+                <option value="weightlose">Weight Loss</option>
+                <option value="extremelose">Extreme Weight loss</option>
+                <option value="mildgain">Mild Weight Gain</option>
+                <option value="weightgain">Weight Gain</option>
+                <option value="extremegain">Extreme weight gain</option>
+              </select>
+
             </div>
             <div class="input-field col s6">
-              <select onclick="GetSelectedLevel()" class="browser-default" id = "level">
+              <select onclick="GetSelectedLevel()" class="browser-default" id="level">
                 <option value="" disabled selected>Activity Level</option>
                 <option value="1">BMR</option>
                 <option value="2">Sedentary: little or no exercise</option>
@@ -147,103 +146,105 @@ body {
                 <option value="5">Daily exercise or intense exercise: 3-4 times/week</option>
                 <option value="6">Intense exercise: 6-7 times/week</option>
                 <option value="7">Very intense exercise daily, or physical job</option>
-                
-                
+
+
               </select>
               <!-- <label>Materialize Select</label> -->
             </div>
           </div>
-        
+
           <div class="row">
-          
-            <div class="input-field col s6">            
-              <select onclick="GetSelectedDiet()" class="browser-default" id = "diet">
-                <option value="" disabled selected>Diet Tpye</option>          
+
+            <div class="input-field col s6">
+              <select onclick="GetSelectedDiet()" class="browser-default" id="diet">
+                <option value="" disabled selected>Diet Tpye</option>
                 <option value="keto">Keto </option>
                 <option value="paleo">Paleo </option>
                 <option value="vegan">Vegan</option>
                 <option value="vegetarian">Vegetarian</option>
                 <option value="pescatarian">Pescatarian</option>
               </select>
-              
+
               <!-- <label>Materialize Select</label> -->
             </div>
-            
+
           </div>
         </form>
-      </div> 
-         
-      <div class = "center">
-        <button id= "bigbutton2"  class="btn waves-effect waves-light " type="submit" onclick ="getMacros()" name="action">Submit
+      </div>
+
+      <div class="center">
+        <button id="bigbutton2" class="btn waves-effect waves-light indigo" type="submit" onclick="getMacros()"
+          name="action">Submit
           <i class="material-icons right">send</i>
         </button>
       </div>
-      </section>
-      
-      <section>
-    <div class= "nutrients" id="content0"></div>
-    <br>
-    <br>
+    </section>
+
+    <section>
+      <div class="nutrients" id="content0"></div>
+      <br>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div id="test1"></div>
+          <div id="test2"></div>
+          <div id="test3"></div>
+        </div>
+      </div>
+
+      <div id="content1"></div>
+      <div id="searchResults1" class="media-scroller snaps-inline"></div>
+      <br>
+      <div id="content2"></div>
+      <div id="searchResults2" class="media-scroller snaps-inline"></div>
+      <br>
+      <div id="content3"></div>
+      <div id="searchResults3" class="media-scroller snaps-inline"></div>
+      <br>
+      <div id="content4"></div>
+      <div id="searchResults4" class="media-scroller snaps-inline"></div>
+      <br>
+    </section>
+
+  </main>
+
+  <div id="joke1" class="modal">
+    <div id="joke" class="modal-content">
+    </div>
+  </div>
+
+  <footer class="page-footer indigo">
     <div class="container">
       <div class="row">
-        <div id="test1"></div>
-        <div id="test2"></div>
-        <div id="test3"></div>
+        <div class="col l6 s12">
+          <h5 class="white-text">Plan-it Fitness</h5>
+          <a onclick="getJoke();" class="grey-text text-lighten-3 modal-trigger" href="#joke1">Random Food Joke</a>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">General</h5>
+          <ul id="foot">
+            <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+            <!--<li><a class="grey-text text-lighten-3" href="#!">About</a></li> -->
+            <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2022 Fitness Junkies
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
 
-    <div id="content1"></div>
-    <div  id ="searchResults1" class="media-scroller snaps-inline" ></div>
-    <br>
-    <div id="content2"></div>
-    <div  id ="searchResults2" class="media-scroller snaps-inline" ></div>
-    <br>
-    <div id="content3"></div>
-    <div  id ="searchResults3" class="media-scroller snaps-inline" ></div>
-    <br>
-    <div id="content4"></div>
-    <div  id ="searchResults4" class="media-scroller snaps-inline" ></div>
-    <br>
-    </section>
+  </footer>
 
-      </main>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="script.js"></script>
 
-      <div id="joke1" class="modal">
-        <div id="joke" class="modal-content">  
-        </div>
-      </div>
-      
-      <footer class="page-footer indigo">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Plan-it Fitness</h5>
-                <a onclick="getJoke();" class="grey-text text-lighten-3 modal-trigger"  href="#joke1">Random Food Joke</a>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">General</h5>
-                <ul id="foot">
-                  <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
-                  <!--<li><a class="grey-text text-lighten-3" href="#!">About</a></li> -->
-                  <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2022 Fitness Junkies
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-  
-      </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="script.js"></script>
-    
-    
 </body>
+
 </html>

@@ -1,317 +1,419 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-signin-client_id" content="188555344130-ef7io3brnbchhmuq3s4e0lph1gg85gco.apps.googleusercontent.com">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <title>Plan-it Fitness</title>
-        
-        <style>
-            body {
-                display: flex;
-                min-height: 100vh;
-                flex-direction: column;
-                margin: 0;
-                padding:0;
-            }
-            .parallax-container{
-                height:350px;
-            }
-            
-            
+<html>
 
-            main {
-                flex: 1 0 auto;
-            }
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-signin-client_id"
+    content="188555344130-ef7io3brnbchhmuq3s4e0lph1gg85gco.apps.googleusercontent.com">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Plan-it Fitness</title>
 
-            /* ul li{
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+
+    .parallax-container {
+      height: 350px;
+    }
+
+
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    /* ul li{
                 display: inline;
             } */
-            .formBox{
-              width: 350px;
-              height: 450px;
-              position: relative; 
-              margin:auto;
-              padding: 10px;
-              background: white;
-              border-radius: 5%;
-              overflow: hidden; 
-            }
-            .buttons{
-              font-size: large;
-              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-              width: 220px;
-              margin:auto;
-              position: relative;
-              box-shadow: 9px;
-              border-radius: 30px;
-            }
-            .toggle_btn{
-              cursor: pointer;
-              position: relative;
-              outline: none;
-              border: 0;
-              background: transparent;
-              color: none;
-            }
-            #btn{
-              position: absolute;
-              width: 100px;
-              height: 100%;
-              border-radius: 30px;
-              background: lightskyblue;
-              transition: 0.5s;
-              left: 0px;
-            }
-            .inputLoginGroup{
-              position: absolute;
-              width: 280px;
-              transition: 0.5s;
-              top: 50px;
-            }
-            .inputRegisterGroup
-            {
-              position: absolute;
-              width: 280px;
-              transition: 0.5s;
-              top: 50px;
-            }
-            form h4{
-              font-family: Verdana, Geneva, Tahoma, sans-serif;
-              text-align: center;
-              font-weight: 600;
-            }
-            form label{
-              display: flex;
-              margin-top: 20px;
-              font-size: 15px;
-              color: #000;
-              font-style: italic;
-            }
-            #login{
-              left: 50px;
-            }
-            #register{
-              left: 450px;
-            }
-            #login input{
-              width: 100%;
-              padding: 7px;
-              height: 40%;
-              border: none;
-              border: 1px solid grey;
-              border-radius: 6px;
-              
-            }
-            #register input{
-              width: 100%;
-              padding: 7px;
-              height: 40%;
-              border: none;
-              border: 1px solid grey;
-              border-radius: 6px;
-            }
-            #login .submit_btn{
-              width: 75px;
-              height: 25px;
-              margin-top: 10px;
-              border: none;
-              border-radius: 6px;
-              font-size: 18px;
-              font-weight: 600;
-              background-color: rgb(57, 129, 156);
-            }
-            #register .submit_btn{
-              width: 100px;
-              height: 25px;
-              margin-top: 10px;
-              border: none;
-              border-radius: 6px;
-              font-size: 18px;
-              font-weight: 600;
-              background-color: rgb(57, 129, 156);
-            }
-            form p{
-              text-align: center;
-              padding-top: 20px;
-              font-size: 18px;
-            }
+    .formBox {
+      width: 350px;
+      height: 450px;
+      position: relative;
+      margin: auto;
+      padding: 10px;
+      background: white;
+      border-radius: 5%;
+      overflow: hidden;
+    }
 
-            
+    .buttons {
+      font-size: large;
+      font-family: fitFont;
+      width: 220px;
+      margin: auto;
+      position: relative;
+      box-shadow: 9px;
+      border-radius: 30px;
+    }
 
+    .toggle_btn {
+      cursor: pointer;
+      position: relative;
+      outline: none;
+      border: 0;
+      background: transparent;
+      color: none;
+    }
 
-          
-        </style>
-    </head>
+    .toggle_btn:focus {
+      background-color: transparent;
+    }
 
-    <body>
-      
-      <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li> -->
-      
-      <a id="myybutton">
-        <i class="material-icons">expand_less</i></i>
-      </a> 
-      <ul id="dropdown1" class="dropdown-content">
-          <li ><a href="bmi.html">BMI Calculator</a></li>
-          <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
-          <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
-      </ul>
-      <ul id="dropdown2" class="dropdown-content">
-        <li ><a href="bmi.html">BMI Calculator</a></li>
-        <li ><a href="bfp.html">Body Fat Percentage Calculator</a></li>
-        <li ><a href="dcr.html">Daily Calorie Requirements</a></li>
-      </ul>
-      <div class="navbar fixed">
-        <nav class="nav-wrapper indigo ">
-          <div class="container" > 
-            
-            <a href="index.html" class="brand-logo"><img id="logo" src="./images/logo.png"/></a>
-            <a href="#" class="sidenav-trigger" data-target="mobile-links">
-              <i class="material-icons right">menu</i>
-            </a>
-            <ul id="navbar-items" class ="right hide-on-med-and-down">
-                <li><a href="meal.html">Meals</a></li>
-                <li><a href="macros.html">Macro Meal Planner</a></li>
-                <li ><a href="workouts.html">Workouts</a></li>
-                <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
-                <li><a class='dropdown-trigger' href='#' data-target='dropdown2'>Calculators</a></li>
-                <li><a href="#">|</a></li>
-                <li><a class= "modal-trigger" href="#signIn">Sign In</a></li>
-                <li><a href="#">Sign out</a></li>                
-            </ul>              
-          </div>          
-        </nav>
+    #btn {
+      position: absolute;
+      width: 100px;
+      height: 100%;
+      border-radius: 30px;
+      background: lightskyblue;
+      transition: 0.5s;
+      left: 0px;
+    }
+
+    .inputLoginGroup {
+      position: absolute;
+      width: 280px;
+      transition: 0.5s;
+      top: 50px;
+    }
+
+    .inputRegisterGroup {
+      position: absolute;
+      width: 280px;
+      transition: 0.5s;
+      top: 50px;
+    }
+
+    form h4 {
+
+      text-align: center;
+      font-weight: 600;
+    }
+
+    form label {
+      display: flex;
+      margin-top: 20px;
+      font-size: 15px;
+      color: #000;
+      font-style: italic;
+    }
+
+    #login {
+      left: 50px;
+    }
+
+    #register {
+      left: 450px;
+    }
+
+    #login input {
+      width: 100%;
+      padding: 7px;
+      height: 40%;
+      border: none;
+      border: 1px solid grey;
+      border-radius: 6px;
+
+    }
+
+    #register input {
+      width: 100%;
+      padding: 7px;
+      height: 40%;
+      border: none;
+      border: 1px solid grey;
+      border-radius: 6px;
+    }
+
+    #login .submit_btn {
+      width: 75px;
+      height: 25px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 600;
+      background-color: rgb(57, 129, 156);
+    }
+
+    #register .submit_btn {
+      width: 100px;
+      height: 25px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 600;
+      background-color: rgb(57, 129, 156);
+    }
+
+    form p {
+      text-align: center;
+      padding-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li> -->
+
+  <a id="myybutton">
+    <i class="material-icons">expand_less</i></i>
+  </a>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="bmi.html">BMI Calculator</a></li>
+    <li><a href="bfp.html">Body Fat Percentage Calculator</a></li>
+    <li><a href="dcr.html">Daily Calorie Requirements</a></li>
+  </ul>
+  <ul id="dropdown2" class="dropdown-content">
+    <li><a href="bmi.html" style="color:#1a237e;">BMI Calculator</a></li>
+    <li><a href="bfp.html" style="color:#1a237e;">Body Fat Percentage Calculator</a></li>
+    <li><a href="dcr.html" style="color:#1a237e;">Daily Calorie Requirements</a></li>
+  </ul>
+  <div class="navbar fixed">
+    <nav class="nav-wrapper indigo ">
+      <div class="container">
+
+        <a href="index.html" class="brand-logo"><img id="logo" src="./images/logo.png" /></a>
+        <a href="#" class="sidenav-trigger" data-target="mobile-links">
+          <i class="material-icons right">menu</i>
+        </a>
+        <ul id="navbar-items" class="right hide-on-med-and-down">
+          <li><a href="meal.html">Meals</a></li>
+          <li><a href="macros.html">Macro Meal Planner</a></li>
+          <li><a href="workouts.html">Workouts</a></li>
+          <!-- <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>         -->
+          <li><a class='dropdown-trigger' href='#' data-target='dropdown2'>Calculators</a></li>
+          <li>| &nbsp;</li>
+          <li><a class="modal-trigger" href="#signIn">Sign In</a></li>
+          <li><a href="#">Sign out</a></li>
+        </ul>
       </div>
-      
-      <ul class="sidenav" id="mobile-links">
-        <li><a href="index.html"><i class="material-icons prefix">home</i>Home</a></li>
-        <li><a href="meal.html"><i class="material-icons prefix">local_dining</i>Meals</a></li>
-        <li><a href="macros.html"><i class="material-icons prefix">local_dining</i>Macro Meal Planner</a></li>
-        <li ><a href="workouts.html"><i class="material-icons prefix">fitness_center</i>Workouts</a></li>
-        <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons prefix">exposure</i>Calculators</a></li>
-        <li><a href="#">Sign out</a></li>
-    </ul>
-        
-    <!--Modal For Sign In--> 
-    <div id="signIn" class="modal">
-      <div class="formBox">
-        <div class="buttons">
-          <div id="btn"></div>
-          <div class="center">
-            <button type="button" onclick="login()" class="toggle_btn">Log In</button>
-            <button type="button" onclick="register()" class="toggle_btn">Sign Up</button>
-          </div>
+    </nav>
+  </div>
+
+  <ul class="sidenav" id="mobile-links">
+    <li><a href="index.html"><i class="material-icons prefix">home</i>Home</a></li>
+    <li><a href="meal.html"><i class="material-icons prefix">local_dining</i>Meals</a></li>
+    <li><a href="macros.html"><i class="material-icons prefix">local_dining</i>Macro Meal Planner</a></li>
+    <li><a href="workouts.html"><i class="material-icons prefix">fitness_center</i>Workouts</a></li>
+    <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i
+          class="material-icons prefix">exposure</i>Calculators</a></li>
+    <li><a href="#">Sign out</a></li>
+  </ul>
+
+  <!--Modal For Sign In-->
+  <div id="signIn" class="modal">
+    <div class="formBox">
+      <div class="buttons">
+        <div id="btn"></div>
+        <div class="center">
+          <button type="button" onclick="login()" class="toggle_btn">Log In</button>
+          <button type="button" onclick="register()" class="toggle_btn">Sign Up</button>
         </div>
-        <form id="login" class="inputLoginGroup"> 
-          <h4>Login To Your Account</h4>
-          <label>Email</label>
-          <input type="email"placeholder="" required>
-          <label>Password</label>
-          <input type="password" placeholder="" required>
-          <button type="submit" class="submit_btn">Log In</button>
-        </form>
-        <form id="register" class="inputRegisterGroup">
-          <h4>Create an Account</h4>
-          <label>First Name</label>
-          <input type="text" placeholder="" required>
-          <label>Last Name</label>
-          <input type="text" placeholder="" required>
-          <label>Email</label>
-          <input type="email"placeholder="" required>
-          <label>Create Password</label>
-          <input type="password" placeholder="" required>
-          <label>Confirm Password</label>
-          <input type="password" placeholder="" required>
-          <button type="submit" class="submit_btn">Sign Up</button>
-          <span><p>By registering, you have agreed to the <u>Terms and Conditions</u> and <u>Privacy Policy</u>.</p></span>
-        </form>
+      </div>
+      <form id="login" class="inputLoginGroup">
+        <h4>Login To Your Account</h4>
+        <label>Email</label>
+        <input type="email" placeholder="" required>
+        <label>Password</label>
+        <input type="password" placeholder="" required>
+        <button type="submit" class="submit_btn">Log In</button>
+      </form>
+      <form id="register" class="inputRegisterGroup">
+        <h4>Create an Account</h4>
+        <label>First Name</label>
+        <input type="text" placeholder="" required>
+        <label>Last Name</label>
+        <input type="text" placeholder="" required>
+        <label>Email</label>
+        <input type="email" placeholder="" required>
+        <label>Create Password</label>
+        <input type="password" placeholder="" required>
+        <label>Confirm Password</label>
+        <input type="password" placeholder="" required>
+        <button type="submit" class="submit_btn">Sign Up</button>
+        <span>
+          <p>By registering, you have agreed to the <u>Terms and Conditions</u> and <u>Privacy Policy</u>.</p>
+        </span>
+      </form>
+    </div>
+  </div>
+
+  <div class="parallax-container">
+    <div class="parallax"><img src="./images/pexels-ella-olsson-1640777.jpg" class="responsive-img"></div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <h2 class="header">Plan-it Fitness</h2>
+      <p class="grey-text text-darken-3 lighten-3">We curate nutritional meal selections and provide categorized
+        workouts for you. Sign in to receive meals and workouts tailored to meet your goals ! Also check out our wide
+        range of calculators to track your progress and with persistence and consistency, the results are yours !</p>
+
+      <div class="container center">
+        <a href="macros.html" class="waves-effect waves-light btn-large indigo"><i
+            class="material-icons right">brush</i>Plan-it</a>
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="./images/pexels-karolina-grabowska-4498606.jpg" class="responsive-img"></div>
+  </div>
+
+
+  <div class="parallax-container">
+    <div class="parallax"><img src="./images/pexels-ella-olsson-1640777.jpg" class="responsive-img"></div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <h2 class="header">Customer Reviews</h2>
+      <div class="row">
+
+
+        <div class="col s2 m3">
+          <img src="./images/billy.jpeg" class="circle responsive img">
+        </div>
+        <div class="col s2 m8 offset-s2">
+          <p><img src="./images/5 star.png" style="width: 100px;">&nbsp;5/5 stars<br>Billy Blanks, Creator of Taebo
+            Workouts</p>
+
+          <p style="font-size: xx-large;">"Plan-It Fitness provided me with all the keys necessary in order to healthily
+            continue my endeavors as a trainer/fitness personality around the world and, if i'm being honest-- will put
+            me out of business if they continue expanding..." </p>
+
+        </div>
+
+
+
       </div>
     </div>
 
-        <div class="parallax-container">
-            <div class="parallax"><img src="./images/pexels-ella-olsson-1640777.jpg" class="responsive-img"></div>
-          </div>
-          <div class="section white">
-            <div class="row container">
-              <h2 class="header">Plan-it Fitness</h2>
-              <p class="grey-text text-darken-3 lighten-3">We curate nutritional meal selections and categorized workouts for you. Enter the required information and receive meals and workouts tailored to meet your goals ! Pick the desired meal and workout to target your goals, with persistence and consistency, the results are yours !</p>
+    <div class="row container">
 
-              <div class="container center">      
-                  <a href="macros.html" class="waves-effect waves-light btn-large"><i class="material-icons right">brush</i>Plan-it</a>                  
-              </div>
-            </div>
-          </div>
-          <div class="parallax-container" >
-            <div class="parallax" ><img src="./images/pexels-karolina-grabowska-4498606.jpg" class="responsive-img"></div>
-          </div>
+      <div class="row">
 
-         
 
-    <div id="joke1" class="modal">
-      <div id="joke" class="modal-content">  
+        <div class="col s2 m3">
+          <img src="./images/shaun.png" class="circle responsive img" style="width: 250px;">
+        </div>
+        <div class="col s2 m8 offset-s2">
+          <p><img src="./images/5 star.png" style="width: 100px;">&nbsp;5/5 stars<br>Shaun T, Creator of Insanity
+            Workouts/ Fitness influencer</p>
+
+          <p style="font-size: xx-large;">"I have stolen every single concept that i've used in my career from Plan-It
+            Fitness and have yet to be sued, how can i not give them 5 stars?" </p>
+
+        </div>
+
+
+
       </div>
     </div>
-    
-    <footer class="page-footer indigo">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Plan-it Fitness</h5>
-              <a onclick="getJoke();" class="grey-text text-lighten-3 modal-trigger"  href="#joke1">Random Food Joke</a>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">General</h5>
-              <ul id="foot">
-                <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
-                <!--<li><a class="grey-text text-lighten-3" href="#!">About</a></li> -->
-                <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
-              </ul>
-            </div>
-          </div>
+
+    <div class="row container">
+
+      <div class="row">
+
+
+        <div class="col s2 m3">
+          <img src="./images/chris.jpeg" class="circle responsive img" style="width:250px">
         </div>
-        <div class="footer-copyright">
-          <div class="container">
-          © 2022 Fitness Junkies
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-          </div>
+        <div class="col s2 m8 offset-s2">
+          <p><img src="./images/4star.jpg" style="width: 100px;">&nbsp;4/5 stars<br>Chris Rock, Actor/Comedian/Former
+            Slap recipient</p>
+
+          <p style="font-size: xx-large;">"After getting into an altercation in which i could not defend myself, I
+            placed an emphasis on getting my body and nutrition right. Though all of the information available on
+            Plan-It Fitness hit me like a slap in the face (no pun intended), my lifestyle has dramatically improved
+            since signing up" </p>
+
         </div>
 
-    </footer>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
- 
-    <!-- Compiled and minified JavaScript -->    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-      $(document).ready(function(){
-            $('.sidenav').sidenav({edge:'left'});
-        })
-    </script>
-    <script src="script.js"></script>
-    <script>
-      var x=document.getElementById("login");
-      var y=document.getElementById("register");
-      var z=document.getElementById("btn");
-      function login (){
-        x.style.left = "50px";
-        y.style.left = "450px";
-        z.style.left = "0px";
-      }
-      function register(){
-        x.style.left = "-400px";
-        y.style.left = "50px";
-        z.style.left = "110px";
-      }
-    </script>
 
-    </body>
-    
-  </html>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="./images/pexels-karolina-grabowska-4498606.jpg" class="responsive-img"></div>
+  </div>
+
+
+
+  <div id="joke1" class="modal">
+    <div id="joke" class="modal-content">
+    </div>
+  </div>
+
+  <footer class="page-footer indigo">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Plan-it Fitness</h5>
+          <a onclick="getJoke();" class="grey-text text-lighten-3 modal-trigger" href="#joke1"
+            style="font-size: large;">What exercise do hairdressers do in the gym?
+            <br>Curls.</a>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">General</h5>
+          <ul id="foot">
+            <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+            <!--<li><a class="grey-text text-lighten-3" href="#!">About</a></li> -->
+            <li><a class="grey-text text-lighten-3" href="#!">Documentation</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2022 Fitness Junkies
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav({ edge: 'left' });
+    })
+  </script>
+  <script src="script.js"></script>
+  <script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+    function login() {
+      x.style.left = "50px";
+      y.style.left = "450px";
+      z.style.left = "0px";
+    }
+    function register() {
+      x.style.left = "-400px";
+      y.style.left = "50px";
+      z.style.left = "110px";
+    }
+  </script>
+
+</body>
+
+</html>

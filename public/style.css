@@ -1,8 +1,8 @@
 @font-face {
   font-family: "fitFont";
   src: url("./fonts/LeagueGothic-Italic.otf"),
-  url("./fonts/LeagueGothic-Regular.otf"),
-  url("./fonts/LeagueGothic-CondensedRegular.otf");
+    url("./fonts/LeagueGothic-Regular.otf"),
+    url("./fonts/LeagueGothic-CondensedRegular.otf");
 }
 
 
@@ -12,8 +12,16 @@
 }
 
 
-p{
+p {
   font-size: x-large;
+}
+
+ul li a {
+  font-size: x-large;
+}
+
+.dropdown-content {
+  color: #1a237e;
 }
 
 #logo {
@@ -21,26 +29,30 @@ p{
   height: 80px;
 }
 
+.container {
+  border-radius: 25px;
+}
+
 #myybutton {
   display: inline-block;
-  background-color:indigo;
+  background-color: #1a237e;
   width: 45px;
   height: 40px;
-  line-height:60px;
+  line-height: 60px;
   text-align: center;
   border-radius: 4px;
   position: fixed;
   bottom: 30px;
   right: 30px;
-  transition: background-color .3s, 
-  opacity .5s, visibility .5s;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
   opacity: 0;
   z-index: 1000;
 }
 
-#myybutton i{
-  font-size:32px;
-  color:white;
+#myybutton i {
+  font-size: 32px;
+  color: white;
 }
 
 
@@ -55,7 +67,8 @@ p{
 }
 
 
- /* The heart of the matter 
+
+/* The heart of the matter 
  @import "https://unpkg.com/open-props";
  /* @import "https://unpkg.com/open-props/normalize.min.css"; 
    .media-scroller {
@@ -260,4 +273,3 @@ width: 80%;
 margin: auto;
 
 } */
-
