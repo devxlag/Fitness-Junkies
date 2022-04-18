@@ -55,15 +55,16 @@ async function getBMI(){
   let weight = document.getElementById("weight1").value; 
   
   if(weight === "" || height === ""){
-    html += `<br><br><br><div class = "container">
+    html += `<br><br><br>
+            <div class = "container">
                 <div class="row">
                 <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
-                <div class="card-panel blue lighten-4">
-                    <p>Please enter valid values.</p>
+                  <div class="card-panel blue lighten-4">
+                      <p>Please enter valid values.</p>
+                  </div>
                 </div>
-                </div>
-                </div>
-                </div>`
+              </div>
+            </div>`
 
   BMI.innerHTML = html;
   $('body, html').animate({ scrollTop: $("#res1").offset().top }, 1000);
@@ -104,7 +105,7 @@ function displayBMI(result){
   html += `<br><br><br>
           <div class = "container">
             <div class="row">
-              <div class="col s20 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+              <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                  <div class="card-panel blue lighten-4">
                   <p>Your BMI is: ${result.data.bmi}<br><b>This indicates your weight is in the ${result.data.health} category of your height.</b>
                   <br><br>${recommend}<br><br></p>
@@ -142,18 +143,18 @@ function displayDCR(result){
   let calories = document.getElementById('res3');  
   let html = '';
   html += ` <br><br><br>
-            <div class = "container">
+            <div class = "container center">
               <div class="row">
                 <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                   <div class="card-panel blue lighten-4">
                     <p>Your Basal Metabolic Rate is: ${result.data.BMR}<br>
-                    <b>Daily Maintainence Calories ${result.data.goals['maintain weight']}</b><br>
-                    <b>Mild Weight Loss(${result.data.goals['Mild weight loss']['loss weight']}) Calories: ${result.data.goals['Mild weight loss']['calory']} </b><br>
-                    <b>Weight Loss(${result.data.goals['Weight loss']['loss weight']}) Calories: ${result.data.goals['Weight loss']['calory']} </b><br>
-                    <b>Extreme Weight Loss(${result.data.goals['Extreme weight loss']['loss weight']}) Calories: ${result.data.goals['Mild weight loss']['calory']} </b><br>
-                    <b>Mild Weight Gain(${result.data.goals['Mild weight gain']['gain weight']}) Calories: ${result.data.goals['Mild weight gain']['calory']} </b><br>
-                    <b>Weight Gain(${result.data.goals['Weight gain']['gain weight']}) Calories: ${result.data.goals['Mild weight gain']['calory']} </b><br>
-                    <b>Extreme Weight Gain(${result.data.goals['Extreme weight gain']['gain weight']}}) Calories: ${result.data.goals['Extreme weight gain']['calory']} </b><br>
+                    <b>Daily Maintainence Calories: ${result.data.goals['maintain weight']}</b><br>
+                    <b>Mild Weight Loss(${result.data.goals['Mild weight loss']['loss weight']}) Calories: ${(result.data.goals['Mild weight loss']['calory']).toFixed(0)} </b><br>
+                    <b>Weight Loss(${result.data.goals['Weight loss']['loss weight']}) Calories: ${(result.data.goals['Weight loss']['calory']).toFixed(0)} </b><br>
+                    <b>Extreme Weight Loss(${result.data.goals['Extreme weight loss']['loss weight']}) Calories: ${(result.data.goals['Mild weight loss']['calory']).toFixed(0)} </b><br>
+                    <b>Mild Weight Gain(${result.data.goals['Mild weight gain']['gain weight']}) Calories: ${(result.data.goals['Mild weight gain']['calory']).toFixed(0)} </b><br>
+                    <b>Weight Gain(${result.data.goals['Weight gain']['gain weight']}) Calories: ${(result.data.goals['Mild weight gain']['calory']).toFixed(0)} </b><br>
+                    <b>Extreme Weight Gain(${result.data.goals['Extreme weight gain']['gain weight']}) Calories: ${(result.data.goals['Extreme weight gain']['calory']).toFixed(0)} </b><br>
                     <p>
                   </div>
                   <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Meals Search</a> or <a id="foodredir" href="macros.html">Macro Meal Planner</a> page!</p>
@@ -191,13 +192,13 @@ function displayBFP(result){
   html += `<br><br><br>
           <div class = "container">
             <div class="row">
-              <div class="col s20 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+              <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                 <div class="card-panel blue lighten-4">
                   <p>Your Body Fat Category: ${result.data['Body Fat Category']}<br>
-                  <b>Body Fat (U.S. Navy Method): ${result.data['Body Fat (U.S. Navy Method)']} %</b><br>
+                  <b>Body Fat (U.S. Navy Method): ${(result.data['Body Fat (U.S. Navy Method)']).toFixed(0)} %</b><br>
                   <b>Body Fat Mass:  ${result.data['Body Fat Mass']} KG</b><br>
                   <b>Lean Lean Body Mass: ${result.data['Lean Body Mass']} KG</b><br>
-                  <b>Body Fat (BMI method): ${result.data['Body Fat (BMI method)']} %</b><br>
+                  <b>Body Fat (BMI method): ${(result.data['Body Fat (BMI method)']).toFixed(0)} %</b><br>
                   </p>
                 </div>
                 <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Meals Search</a> or <a id="foodredir" href="macros.html">Macro Meal Planner</a> page!</p>

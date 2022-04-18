@@ -383,7 +383,7 @@ function displayRecipe(data){
   if(data.count == 0){
     output += `<div class="row">
                   <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
-                    <div class="card-panel green darken-3" style="text-align: center;">
+                    <div class="card-panel blue lighten-3" style="text-align: center;">
                       <span class="white-text">No recipes found. Please include at least one (1) ingredient.<br><br>Don't forget to + your ingredients!</span>
                     </div>
                   </div>
@@ -507,13 +507,13 @@ function displayMacros(data){
   let html = '';
   html += `<div class="row">
             <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
-              <div class="card-panel green lighten" style="text-align: center">
+              <div class="card-panel blue lighten-4" style="text-align: center">
               <span class="white-text">Macros</span><br>
               <span class="white-text"><ul>
-                <li>Calories: ${data.nutrients.calories}</li>
-                <li>Carbohydrates: ${data.nutrients.carbohydrates}</li>
-                <li>Fat: ${data.nutrients.fat}</li>
-                <li>Protein: ${data.nutrients.protein}</li>
+                <li>Calories: ${(data.nutrients.calories).toFixed(0)}</li>
+                <li>Carbohydrates: ${(data.nutrients.carbohydrates).toFixed(0)}</li>
+                <li>Fat: ${(data.nutrients.fat).toFixed(0)}</li>
+                <li>Protein: ${(data.nutrients.protein).toFixed(0)}</li>
               </ul>
               </div></span>
             </div>
