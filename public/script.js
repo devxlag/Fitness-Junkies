@@ -282,25 +282,41 @@ async function getRecipe(){
   healthURL();
   let food = document.getElementById("textarea1").value;
   let calories = document.getElementById("textarea2").value;
-  if(calories === "")
+  let html ='';
+  if(calories ==""){
     calories = 1000;
-
-
+  }
+  if(food === ""){
+    html += `<br><br><br>
+            <div class = "container">
+                <div class="row">
+                <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+                  <div class="card-panel blue lighten-4">
+                  <p style = "text-align: center;">Please enter a food or dish to search.</p>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+    document.getElementById('searchResults').innerHTML = html;
+    $('body, html').animate({ scrollTop: $("#searchResults").offset().top }, 1000);
+  }
+  else{
+  
     var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-  const clientID = "9dccf6f6";
-  const app_key = "aac177748420f51c660a6f9eb6d5879d"
+      method: 'GET',
+      redirect: 'follow'
+    };
+    const clientID = "9dccf6f6";
+    const app_key = "aac177748420f51c660a6f9eb6d5879d"
 
-  let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}${dietFrag}${healthFrag}&app_id=${clientID}&app_key=${app_key}&calories=${calories}`, requestOptions)
-  let result = await response.json(); 
-  console.log(result); 
-  displayRecipe(result); 
+    let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}${dietFrag}${healthFrag}&app_id=${clientID}&app_key=${app_key}&calories=${calories}`, requestOptions)
+    let result = await response.json();  
+    displayMeals(result); 
+  }
 }
 
   
-function displayRecipe(data){
+function displayMeals(data){
   
   let html = '';
   var error = `<div class = "container">`;
@@ -308,7 +324,7 @@ function displayRecipe(data){
     error += `<div class="row">
                   <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                     <div class="card-panel blue lighten-3" style="text-align: center;">
-                      <span class="white-text">No recipes found.</span>
+                      <span class="white-text">No meals found.</span>
                     </div>
                   </div>
               </div>`;
@@ -381,18 +397,36 @@ async function getMacros(){
   let age = document.getElementById("t2").value;
   let height = document.getElementById("t3").value;
   let weight = document.getElementById("t4").value;
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
-      'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
-    }
-  };
+  let html = '';
+  if(age === ""|| weight === "" || height === "" || gender =="" || goal ==="" || diet ==="" || level === 0){
+    html += `<br><br><br>
+            <div class = "container">
+                <div class="row">
+                <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+                  <div class="card-panel blue lighten-4">
+                  <p style = "text-align: center;">Please enter valid values and/or fill all fields.</p>
+                  </div>
+                </div>
+              </div>
+            </div>`;
 
-  let response = await fetch(`https://fitness-calculator.p.rapidapi.com/macrocalculator?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${level}&goal=${goal}`, options)
-  let result = await response.json();
-  console.log(result);
-  GetMealPlan(result);
+    document.getElementById('content0').innerHTML = html;
+    $('body, html').animate({ scrollTop: $("#content0").offset().top }, 1000);
+  }
+  else{
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
+        'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
+      }
+    };
+
+    let response = await fetch(`https://fitness-calculator.p.rapidapi.com/macrocalculator?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${level}&goal=${goal}`, options)
+    let result = await response.json();
+    //console.log(result);
+    GetMealPlan(result);
+  }
 }
 
 
@@ -408,7 +442,7 @@ async function GetMealPlan(macs){
 
   let response = await fetch(`https://api.spoonacular.com/mealplanner/generate?&apiKey=9e2aa0c0c1864afeae040f883e224c38&timeFrame=day&targetCalories=${cal}&diet=${diet}`, options)
   let result = await response.json();
-  console.log(result);
+  //console.log(result);
   displayMacros(result);
 
   var ids=[];
@@ -420,7 +454,7 @@ async function GetMealPlan(macs){
   for(i in ids){
     let response = await fetch(`https://api.spoonacular.com/recipes/${ids[i]}/information?apiKey=9e2aa0c0c1864afeae040f883e224c38&includeNutrition=false`, options)
     let result = await response.json();
-    console.log(result.title);
+    //console.log(result.title);
     displayMealPlan(result,foo);
     foo++;
   }
@@ -525,7 +559,7 @@ async function getJoke(){
   };
   let response = await fetch(`https://api.spoonacular.com/food/jokes/random?&apiKey=9e2aa0c0c1864afeae040f883e224c38`, options)
   let result = await response.json();
-  console.log(result);
+  //console.log(result);
   writeJoke(result);
 }
 
@@ -534,26 +568,3 @@ function writeJoke(data){
   html+=`<p style="text-align: center;">${data.text}</p>`;
   document.getElementById('joke').innerHTML = html;
 }
-
-
- 
-
-
-
-
-/*
-//Exercise List
-async function Workouts(){
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-		'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
-	}
-};
-
-  let response = await fetch('https://exercisedb.p.rapidapi.com/exercises', options)
-	let result = await response.json()
-  console.log(result);
-};
-Workouts(); */

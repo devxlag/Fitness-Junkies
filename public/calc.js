@@ -2,10 +2,8 @@ M.AutoInit();
 
 /*
 function submit(event){
-  event.preventDefault();//prevents page redirection
-      
+  event.preventDefault();//prevents page redirection    
  }
- 
  //attach the submit function to the submit event of myForm    
  document.forms['myForm1'].addEventListener('submit', submit);
  document.forms['myForm2'].addEventListener('submit', submit);
@@ -54,13 +52,13 @@ async function getBMI(){
   let height = document.getElementById("height1").value; 
   let weight = document.getElementById("weight1").value; 
   let html ='';
-  if(weight === "" || height === ""){
+  if(age === "" || weight === "" || height === ""){
     html += `<br><br><br>
             <div class = "container">
                 <div class="row">
                 <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                   <div class="card-panel blue lighten-4">
-                      <p>Please enter valid values.</p>
+                  <p style = "text-align: center;">Please enter valid values and/or fill all fields.</p>
                   </div>
                 </div>
               </div>
@@ -124,13 +122,13 @@ async function getCalories(){
   let height = document.getElementById("height3").value; 
   let weight = document.getElementById("weight3").value; 
   let html ='';
-  if(age ===""|| weight === "" || height === ""){
+  if(age === ""|| weight === "" || height === "" || gender =="" || level ===""){
     html += `<br><br><br>
             <div class = "container">
                 <div class="row">
                 <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                   <div class="card-panel blue lighten-4">
-                      <p>Please enter valid values.</p>
+                  <p style = "text-align: center;">Please enter valid values and/or fill all fields.</p>
                   </div>
                 </div>
               </div>
@@ -188,13 +186,13 @@ async function getBodyFat(){
   let neck = document.getElementById("neck").value
   let hips = document.getElementById("hip").value;
   let html ='';
-  if(age ===""|| weight === "" || height === ""|| waist === ""|| neck === "" || hip===""){
+  if(age === ""|| weight === "" || height === ""|| waist === ""|| neck === "" || hip==="" || gender===""){
     html += `<br><br><br>
             <div class = "container">
                 <div class="row">
                 <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                   <div class="card-panel blue lighten-4">
-                      <p>Please enter valid values.</p>
+                    <p style = "text-align: center;">Please enter valid values and/or fill all fields.</p>
                   </div>
                 </div>
               </div>
