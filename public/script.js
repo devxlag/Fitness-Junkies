@@ -23,69 +23,13 @@ btn.on('click', function(e) {
 
 
 
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-
-
-function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(function () {
-    console.log('User signed out.');
-  });
-}
-/*
-async function Test(){
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authentication': 'Bearer eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwiemlwIjoiREVGIn0.fZPCOE6mDM-kK3C-UWpR8ZDzIQgI2TIvtV-irrgDokHltMnHLIej_Aajv6k2uBRul2segtBnXah-_ysuJeFG89lCGTtakCVC.iJwIaSH4fauQzzOaba7e9w.ep7D3nZ1C_xppT0MEs4fIpDU5gsPogGVhVtu0JKmoSEYbidS1EyKmLtneFGxH4t_HlIUdTDPHTbfPtTLU1-6wa8t4ajKAwNxytbtg84nWwBZV3lzhXMzH3FMZsT1UB6uZwXdXOuhZJp75znM-CylI9oBiqo8fK6kp34QF5pIrTo.I8FRQ9lr7BSCVMlMwXq5ripcfwP-hV4suZaGxHtU2GU'
-    },
-    body: {
-      
-        "id":"2",
-        "name":"Joseph",
-        "email":"joseph@gmail.com",
-        "google_oauth":{
-            "id":"12345",
-            "name":"Joseph",
-            "email":"joseph@gmail.com"
-        }
-    
-    }
-  };
-  let response = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:tEjNk_X_/user`, options);
-  let result = await response.json();
-  console.log(result);
-}
-Test();
-*/
-
-
 var healthFrag = "";
 var dietFrag = "";
-
 var goal ="";
 var gender="";
-var timeframe = "";
 var diet = "";
-var mealTypes = ["Breakfast","Lunch", "Dinner", "Snack"];
 var level = 0;
-var foodlunch = ["chicken", "wraps", "pasta","fish", "tuna", "salmon","rice"];
-var foodbreakfast = ["oats", "protein%20shake","fruits"];
 
-var dishTypesB = ["&dishType=Cereals","&dishType=Egg","&dishType=Pancake"];
-
-var dishTypesL = ["&dishType=Main%20course","&dishType=Salad"];
-
-var dishTypesD = ["&dishType=Salad","&dishType=Soup"];
-
-var dishTypesS = ["&dishType=Desserts","&dishType=Biscuits%20and%20cookies","&dishType=Sandwiches"];
 
 //inclusions
 var balanced = false;
@@ -110,26 +54,6 @@ var redmeat = false;
 var pork = false;
 var eggless = false;
 
-console.log(balanced);
-console.log(highfibre);
-console.log(highprotien);
-console.log(lowcarb);
-console.log(lowfat);
-console.log(lowsodium);
-console.log(vegan);
-console.log(vegetarian);
-console.log(keto);
-console.log(paleo);
-console.log(pes);
-
-console.log(dairy);
-console.log(gluten);
-console.log(peanut);
-console.log(soy);
-console.log(shellfish);
-console.log(redmeat);
-console.log(pork);
-console.log(eggless);
 
 function Checkme(){
   if(document.getElementById('balancedStat').checked){
@@ -381,16 +305,15 @@ function displayRecipe(data){
   let html = '';
   var error = `<div class = "container">`;
   if(data.count == 0){
-    output += `<div class="row">
+    error += `<div class="row">
                   <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                     <div class="card-panel blue lighten-3" style="text-align: center;">
-                      <span class="white-text">No recipes found. Please include at least one (1) ingredient.<br><br>Don't forget to + your ingredients!</span>
+                      <span class="white-text">No recipes found.</span>
                     </div>
                   </div>
               </div>`;
     document.getElementById('searchResults').innerHTML = error;
-    $('body, html').animate({ scrollTop: $("#searchResults").offset().top }, 1000);
-    
+    $('body, html').animate({ scrollTop: $("#searchResults").offset().top }, 1000);    
   }
   else{
     for(i in data.hits){
@@ -505,17 +428,20 @@ async function GetMealPlan(macs){
 
 function displayMacros(data){
   let html = '';
-  html += `<div class="row" style="font-size: 20px;">
+  html += `<br>
+          <div class="row" style="font-size: 20px;">
             <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
               <div class="card-panel blue lighten-4" style="text-align: center">
-              <span><b>Macros</b></span><br>
-              <span><ul>
-                <li>Calories: ${(data.nutrients.calories).toFixed(0)}</li>
-                <li>Carbohydrates: ${(data.nutrients.carbohydrates).toFixed(0)}</li>
-                <li>Fat: ${(data.nutrients.fat).toFixed(0)}</li>
-                <li>Protein: ${(data.nutrients.protein).toFixed(0)}</li>
-              </ul>
-              </div></span>
+                <span><b>Macros</b></span><br>
+                <span>
+                  <ul>
+                    <li>Calories: ${(data.nutrients.calories).toFixed(0)}</li>
+                    <li>Carbohydrates: ${(data.nutrients.carbohydrates).toFixed(0)}</li>
+                    <li>Fat: ${(data.nutrients.fat).toFixed(0)}</li>
+                    <li>Protein: ${(data.nutrients.protein).toFixed(0)}</li>
+                  </ul>
+                </span>
+              </div>
             </div>
           </div>`;
     document.getElementById('content0').innerHTML = html;

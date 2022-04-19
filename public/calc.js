@@ -53,7 +53,7 @@ async function getBMI(){
   let age = document.getElementById("age1").value;
   let height = document.getElementById("height1").value; 
   let weight = document.getElementById("weight1").value; 
-  
+  let html ='';
   if(weight === "" || height === ""){
     html += `<br><br><br>
             <div class = "container">
@@ -64,10 +64,10 @@ async function getBMI(){
                   </div>
                 </div>
               </div>
-            </div>`
+            </div>`;
 
-  BMI.innerHTML = html;
-  $('body, html').animate({ scrollTop: $("#res1").offset().top }, 1000);
+    document.getElementById('res1').innerHTML = html;
+    $('body, html').animate({ scrollTop: $("#res1").offset().top }, 1000);
   }
   else{    
     const options = {
@@ -78,8 +78,7 @@ async function getBMI(){
         }
     };
     let response =  await fetch(`https://fitness-calculator.p.rapidapi.com/bmi?age=${age}&weight=${weight}&height=${height}`, options)
-    let result = await response.json();
-    //console.log(result.data);
+    let result = await response.json();    
     displayBMI(result);
   }
 }
@@ -110,13 +109,12 @@ function displayBMI(result){
                   <p>Your BMI is: ${result.data.bmi}<br><b>This indicates your weight is in the ${result.data.health} category of your height.</b>
                   <br><br>${recommend}<br><br></p>
                 </div>
-                <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Meals Search</a> or <a id="foodredir" href="macros.html">Macros Meals Planner</a> page!</p>
+                <p style="color: black">Stay healthy with some recipes from our <a id="foodredir" href="meal.html">Meals Search</a> or <a id="foodredir" href="macros.html">Macro Meal Planner</a> page!</p>
               </div>
             </div>
           </div>`;
   BMI.innerHTML = html;
-  $('body, html').animate({ scrollTop: $("#res1").offset().top }, 1000);
-  
+  $('body, html').animate({ scrollTop: $("#res1").offset().top }, 1000); 
 }
 
 //Daily Calories Calculator
@@ -125,18 +123,34 @@ async function getCalories(){
   let age = document.getElementById("age3").value;
   let height = document.getElementById("height3").value; 
   let weight = document.getElementById("weight3").value; 
+  let html ='';
+  if(age ===""|| weight === "" || height === ""){
+    html += `<br><br><br>
+            <div class = "container">
+                <div class="row">
+                <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+                  <div class="card-panel blue lighten-4">
+                      <p>Please enter valid values.</p>
+                  </div>
+                </div>
+              </div>
+            </div>`;
 
-  const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
-        'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
-      }
-  };
-  let response =  await fetch(`https://fitness-calculator.p.rapidapi.com/dailycalorie?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${level}`, options)
-  let result = await response.json(); 
-  console.log(result.data); 
-  displayDCR(result);
+    document.getElementById('res3').innerHTML = html;
+    $('body, html').animate({ scrollTop: $("#res3").offset().top }, 1000);
+  }
+  else{
+    const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
+          'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
+        }
+    };
+    let response =  await fetch(`https://fitness-calculator.p.rapidapi.com/dailycalorie?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${level}`, options)
+    let result = await response.json(); 
+    displayDCR(result);
+  }
 }
 
 function displayDCR(result){
@@ -147,8 +161,8 @@ function displayDCR(result){
               <div class="row">
                 <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                   <div class="card-panel blue lighten-4">
-                    <p>Your Basal Metabolic Rate is: ${result.data.BMR}<br>
-                    <b>Daily Maintainence Calories: ${result.data.goals['maintain weight']}</b><br>
+                    <p>Your Basal Metabolic Rate is: ${(result.data.BMR).toFixed(0)}<br>
+                    <b>Daily Maintainence Calories: ${(result.data.goals['maintain weight']).toFixed(0)}</b><br>
                     <b>Mild Weight Loss(${result.data.goals['Mild weight loss']['loss weight']}) Calories: ${(result.data.goals['Mild weight loss']['calory']).toFixed(0)} </b><br>
                     <b>Weight Loss(${result.data.goals['Weight loss']['loss weight']}) Calories: ${(result.data.goals['Weight loss']['calory']).toFixed(0)} </b><br>
                     <b>Extreme Weight Loss(${result.data.goals['Extreme weight loss']['loss weight']}) Calories: ${(result.data.goals['Mild weight loss']['calory']).toFixed(0)} </b><br>
@@ -173,18 +187,34 @@ async function getBodyFat(){
   let waist = document.getElementById("waist").value;
   let neck = document.getElementById("neck").value
   let hips = document.getElementById("hip").value;
-   
-  const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
-        'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
-      }
-    };
-  let response =  await fetch(`https://fitness-calculator.p.rapidapi.com/bodyfat?age=${age}&gender=${gender}&weight=${weight}&height=${height}&neck=${neck}&waist=${waist}&hip=${hips}`, options)
-  let result = await response.json(); 
-  console.log(result);
-  displayBFP(result);
+  let html ='';
+  if(age ===""|| weight === "" || height === ""|| waist === ""|| neck === "" || hip===""){
+    html += `<br><br><br>
+            <div class = "container">
+                <div class="row">
+                <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
+                  <div class="card-panel blue lighten-4">
+                      <p>Please enter valid values.</p>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+
+    document.getElementById('res2').innerHTML = html;
+    $('body, html').animate({ scrollTop: $("#res2").offset().top }, 1000);
+  }
+  else{
+    const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com',
+          'X-RapidAPI-Key': 'e6c22e8e13mshf7acf532fb1d00cp148c62jsn39fb0852a2ae'
+        }
+      };
+    let response =  await fetch(`https://fitness-calculator.p.rapidapi.com/bodyfat?age=${age}&gender=${gender}&weight=${weight}&height=${height}&neck=${neck}&waist=${waist}&hip=${hips}`, options)
+    let result = await response.json(); 
+    displayBFP(result);
+  }
 }
 
 function displayBFP(result){ 
@@ -221,7 +251,6 @@ async function getJoke(){
 
   let response = await fetch(`https://api.spoonacular.com/food/jokes/random?&apiKey=9e2aa0c0c1864afeae040f883e224c38`, options)
   let result = await response.json();
-  console.log(result);
   writeJoke(result);
 }
 
@@ -229,5 +258,4 @@ function writeJoke(data){
   let html = "";
   html+=`<p style="text-align: center;">${data.text}</p>`;
   document.getElementById('joke').innerHTML = html;
-
 }
