@@ -366,11 +366,10 @@ function displayMeals(data){
       };
     document.getElementById('mealresult').innerHTML= html;
     $('body, html').animate({ scrollTop: $("#mealresult").offset().top }, 1000);
-
   }
  }
 
- function GetSelectedGoal(){
+function GetSelectedGoal(){
   var e = document.getElementById("goal");
   goal = e.options[e.selectedIndex].value;
   console.log(goal);
@@ -397,6 +396,10 @@ async function getMacros(){
   let age = document.getElementById("t2").value;
   let height = document.getElementById("t3").value;
   let weight = document.getElementById("t4").value;
+  GetSelectedGender();
+  GetSelectedDiet();
+  GetSelectedLevel();
+  GetSelectedGoal();
   let html = '';
   if(age === ""|| weight === "" || height === "" || gender =="" || goal ==="" || diet ==="" || level === 0){
     html += `<br><br><br>
