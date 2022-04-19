@@ -58,7 +58,7 @@ async function getBMI(){
                 <div class="row">
                 <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                   <div class="card-panel blue lighten-4">
-                  <p>Please enter valid values and/or fill all fields.</p>
+                  <p style = "text-align: center;">Please enter valid values and/or fill all fields.</p>
                   </div>
                 </div>
               </div>
@@ -192,7 +192,7 @@ async function getBodyFat(){
                 <div class="row">
                 <div class="col s12 l6 m6 x14 l6 offset-m3 offset-l2 offset-xl3">
                   <div class="card-panel blue lighten-4">
-                      <p>Please enter valid values and/or fill all fields.</p>
+                    <p style = "text-align: center;">Please enter valid values and/or fill all fields.</p>
                   </div>
                 </div>
               </div>
